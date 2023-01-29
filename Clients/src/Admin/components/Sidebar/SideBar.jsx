@@ -8,6 +8,8 @@ import { BsCartCheck } from "react-icons/bs";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
+import profile from "../../../Assets/fotor_2023-1-29_23_12_31.png"
+
 const routes = [
   {
     path: "/",
@@ -207,7 +209,7 @@ const SideBar = ({ children }) => {
           className={`sidebar `}
         >
           <div>
-          <div className="top_section">
+          {/* <div className="top_section">
             <AnimatePresence>
               {isOpen && (
                 <motion.h1
@@ -222,11 +224,11 @@ const SideBar = ({ children }) => {
               )}
             </AnimatePresence>
 
-            {/* <div className="bars">
+            <div className="bars">
               <FaBars onClick={toggle} />
-            </div> */}
-          </div>
-          <div className="search">
+            </div>
+          </div> */}
+          {/* <div className="search">
             <div className="search_icon">
               <BiSearch />
             </div>
@@ -242,6 +244,15 @@ const SideBar = ({ children }) => {
                 />
               )}
             </AnimatePresence>
+          </div> */}
+          <div style={{"display":"flex","marginTop":"15px"}}>
+            <div >
+            <img className="rounded"  style={{"height":"50px","marginLeft":"5px"}}  src={profile} alt="" />
+            </div>
+            <div style={{"marginLeft":"15px"}}>
+              <span>Welcome,</span>
+              <h6>Administator</h6>
+            </div>
           </div>
           <section className="routes">
             {routes.map((route, index)  => {

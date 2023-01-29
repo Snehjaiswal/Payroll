@@ -48,6 +48,15 @@ const Step1 = props => {
                 </div>
               </div>
             </div>
+            <div className="row">
+              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div className="form-group">
+                  <label className="profile_details_text">Email :</label>
+                  <input type="tel" name="phone" className="form-control" placeholder="Enter Your Email" pattern="[0-9]{10}" />
+                </div>
+              </div>
+            </div>
+
 
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -79,14 +88,7 @@ const Step1 = props => {
               </div>
             </div>
 
-            <div className="row">
-              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div className="form-group">
-                  <label className="profile_details_text">Phone 1:</label>
-                  <input type="tel" name="phone" className="form-control" placeholder="Phone 1" pattern="[0-9]{10}" />
-                </div>
-              </div>
-            </div>
+           
           </div>
 
         </div>
@@ -102,24 +104,35 @@ const Step1 = props => {
               </div>
             </div>
           </div>
+          <div className="row">
+              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div className="form-group">
+                  <label className="profile_details_text">Phone Number:</label>
+                  <input type="tel" name="phone" className="form-control" placeholder="Enter Your Phone Number" pattern="[0-9]{10}" />
+                </div>
+              </div>
+            </div>
 
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div className="form-group">
-                <label className="profile_details_text">Refrence Phone 1:</label>
-                <input type="text" name="nationality" className="form-control" placeholder="Nationality" />
+                <label className="profile_details_text">Refrence Phone Numer:</label>
+                <input type="text" name="nationality" className="form-control" placeholder="Enter Your Phone Number" />
               </div>
             </div>
           </div>
 
           <div className="row">
-            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <div className="form-group">
-                <label className="profile_details_text">Martial Status:</label>
-                <input type="text" name="nationality" className="form-control" placeholder="Nationality" />
+              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div className="form-group">
+                  <label className="profile_details_text">Martial Status:</label>
+                  <select name="gender" className="form-control" value required>
+                    <option value="Male">Married</option>
+                    <option value="Female">Un-married</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
 
 
           <div className="row">
