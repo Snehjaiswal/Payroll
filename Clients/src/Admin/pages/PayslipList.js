@@ -129,7 +129,7 @@ function PayslipList() {
         fontWeight: '700',
         marginTop: "10px",
 
-        backgroundColor: 'rgb(240, 180, 14);',
+        backgroundColor: 'rgb(0, 0, 0);',
         color: '#fff',
 
 

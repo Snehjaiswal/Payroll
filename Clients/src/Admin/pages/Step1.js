@@ -1,0 +1,151 @@
+import React, { useState } from 'react';
+import { FormGroup, Label, Input } from "reactstrap";
+
+const Step1 = props => {
+  const [txt, setTxt] = useState('');
+  if (props.currentStep !== 1) {
+    return null;
+  }
+
+
+  const onInputChange = e => {
+    const { value } = e.target;
+    // console.log('Input value: ', value);
+
+    const re = /^[A-Za-z]+$/;
+    if (value === "" || re.test(value)) {
+      setTxt(value);
+    }
+  }
+
+  return (
+    <>
+
+      <div style={{ "display": "flex" }}>
+        <div className="col-sm-5 edit_information" >
+          <div className="Account-details">
+
+            <div className="row">
+              <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div className="form-group">
+                  <label className="profile_details_text">First Name:</label>
+                  <input type="text" name="first_name" className="form-control" style={{ "textTransform": "capitalize" }} value={txt} onChange={onInputChange} placeholder="First Name" />
+                </div>
+              </div>
+              <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div className="form-group">
+                  <label className="profile_details_text">Last Name: </label>
+                  <input type="text" name="last_name" className="form-control" placeholder="Last Name" />
+                </div>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div className="form-group">
+                  <label className="profile_details_text">Mobile Number:</label>
+                  <input type="tel" name="phone" className="form-control" placeholder="Mobile Number" pattern="[0-9]{10}" />
+                </div>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div className="form-group">
+                  <label className="profile_details_text">Father Name:</label>
+                  <input type="tel" name="phone" className="form-control" placeholder="Father Name" />
+                </div>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div className="form-group">
+                  <label className="profile_details_text">Gender:</label>
+                  <select name="gender" className="form-control" value required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div className="form-group">
+                  <label className="profile_details_text">Date Of Birth:</label>
+                  <input type="date" name="birthday" className="form-control" placeholder="Date Of Birth" />
+                </div>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div className="form-group">
+                  <label className="profile_details_text">Phone 1:</label>
+                  <input type="tel" name="phone" className="form-control" placeholder="Phone 1" pattern="[0-9]{10}" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div className="col-sm-6 ms-auto edit_information"  >
+
+
+          <div className="row">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div className="form-group">
+                <label for="formFileMultiple" class="form-label">Multiple files input example</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple />
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div className="form-group">
+                <label className="profile_details_text">Refrence Phone 1:</label>
+                <input type="text" name="nationality" className="form-control" placeholder="Nationality" />
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div className="form-group">
+                <label className="profile_details_text">Martial Status:</label>
+                <input type="text" name="nationality" className="form-control" placeholder="Nationality" />
+              </div>
+            </div>
+          </div>
+
+
+          <div className="row">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div className="form-group">
+                <label className="profile_details_text">Local Address:</label>
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            </div>
+          </div>
+
+          {/* <div className="row">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div className="form-group">
+                <label className="profile_details_text">Parmanent Address:</label>
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+
+              </div>
+            </div>
+          </div> */}
+        </div>
+
+      </div>
+    </>
+  );
+};
+
+export default Step1;

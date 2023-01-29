@@ -2,14 +2,10 @@ import React from 'react'
 import Card from 'react-bootstrap/Card';
 import DataTable from 'react-data-table-component';
 
-
-
-function AttendenceReport() {
-
+function AddPayslip() {
     const month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
-
-
+    
     const columns = [
         {
             name: 'Serial',
@@ -99,7 +95,7 @@ function AttendenceReport() {
                 width: '100px',
                 fontWeight: '700',
                 marginTop: "10px",
-                backgroundColor: 'rgb(240, 180, 14);',
+                backgroundColor: 'rgb(0, 0, 0);',
                 color: '#fff',
                 justifyContent: 'center !important',
                 overflow: 'visible !important',
@@ -118,24 +114,38 @@ function AttendenceReport() {
             },
         },
     };
+
     return (
-
         <>
+
+
+
             <Card>
-
+             
                 <Card.Body>
-
+                    <Card.Title>Search Employee <hr /></Card.Title>
                     <Card.Text>
                         <div style={{ "display": "flex" }}>
-                            <div className="empDep">
-                                <label htmlFor="cars"> Employee By Department:</label><br />
-                                <select id="cars" name="cars" style={{ "width": "200px" }}>
+                            <div className="Dep">
+                                <label htmlFor="cars"> Department:</label><br />
+                                <select id="cars" name="cars" style={{ "width": "150px" }}>
                                     <option value="volvo">All Employees</option>
                                     <option value="saab">Saab</option>
                                     <option value="fiat">Fiat</option>
                                     <option value="audi">Audi</option>
                                 </select>
                             </div>
+                            <div className="emp" style={{ "marginLeft": "50px" }}>
+                                <label htmlFor="cars"> Employees:</label><br />
+                                <select id="cars" name="cars" style={{ "width": "150px" }}>
+                                    <option value="volvo">All Employees</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="fiat">Fiat</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </div>
+
+
                             <div className="yearBox" style={{ "marginLeft": "50px" }}>
                                 <label htmlFor="year">Year :</label><br />
                                 <select id="cars" name="cars" style={{ "width": "150px" }}>
@@ -159,15 +169,13 @@ function AttendenceReport() {
                                 </select>
                             </div>
                             <div className="SubmitBtn" style={{ "marginLeft": "50px", "marginTop": "15px" }}>
-                                <button type="button" className="btn btn-success" style={{ "width": "180px" }}  >Show Reports</button>
+                                <button type="button" className="btn btn-success" style={{ "width": "200px" }}  >Show Reports</button>
                             </div>
                         </div>
                     </Card.Text>
-
+                 
                 </Card.Body>
             </Card>
-
-
 
 
             <Card>
@@ -199,10 +207,8 @@ function AttendenceReport() {
                 </Card.Body>
             </Card>
 
-
         </>
-
     )
 }
 
-export default AttendenceReport
+export default AddPayslip

@@ -1,4 +1,4 @@
-import '../dashboard.css'
+import '../../Css/dashboard.css'
 
 
 

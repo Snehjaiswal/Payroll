@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideBar from "../components/Sidebar/SideBar";
 import Navbar from "../components/Sidebar/Navbar";
 
+import MasterForm from "./MasterForm";
 
 import Dashboard from "../pages/Dashboard";
 
@@ -32,7 +33,7 @@ function Wrapper() {
       <Navbar/>
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/employee/add" element={<AddEmployee />} />
+            <Route path="/employee/add" element={<><MasterForm /></>} />
             <Route path="/employee/manage" element={<ManageEmployees />} />
             <Route path="/employee/view" element={<View />} />
 

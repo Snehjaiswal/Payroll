@@ -14,11 +14,7 @@ function ManageDepartment() {
       width: '100px !important',
       selector: (row, index) => index + 1,
     },
-    {
-      name: 'Department',
-      width: '160px !important',
-      selector: row => row.title,
-    },
+ 
     {
       name: 'Department',
       width: '160px !important',
@@ -140,7 +136,7 @@ function ManageDepartment() {
         marginTop: "10px",
         // marginLeft:"2px" ,
 
-        backgroundColor: 'rgb(240, 180, 14);',
+        backgroundColor: 'rgb(0, 0, 0);',
         color: '#fff',
 
 

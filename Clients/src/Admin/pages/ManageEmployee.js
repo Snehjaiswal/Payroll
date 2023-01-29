@@ -126,7 +126,7 @@ function ManageEmployee() {
         marginTop: "10px",
         // marginLeft:"2px" ,
 
-        backgroundColor: 'rgb(240, 180, 14);',
+        backgroundColor: 'rgb(0, 0, 0);',
         color: '#fff',
 
 
