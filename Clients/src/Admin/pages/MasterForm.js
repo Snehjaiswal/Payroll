@@ -97,9 +97,9 @@ console.log("currentStep",currentStep);
   get nextButton() {
     let currentStep = this.state.currentStep;
     // If the current step is not 3, then render the "next" button
-    if (currentStep < 3) {
+    if (currentStep < 5) {
       return (
-        <Button color="primary float-right" onClick={this._next}>
+        <Button color="primary float-right" onClick={this._next} style={{"marginLeft":"10px"}}>
           Next
         </Button>
       );
@@ -112,8 +112,8 @@ console.log("currentStep",currentStep);
     let currentStep = this.state.currentStep;
 
     // If the current step is the last step, then render the "submit" button
-    if (currentStep > 2) {
-      return <Button color="primary float-right">Submit</Button>;
+    if (currentStep == 5) {
+      return <Button color="primary float-right" style={{"marginLeft":"10px"}}>Submit</Button>;
     }
     // ...else render nothing
     return null;
@@ -138,22 +138,22 @@ console.log("currentStep",currentStep);
               <Step2
                 currentStep={this.state.currentStep}
                 handleChange={this.handleChange}
-                email={this.state.username}
+                // email={this.state.username}
               />
               <Step3
                 currentStep={this.state.currentStep}
                 handleChange={this.handleChange}
-                email={this.state.password}
+                // email={this.state.password}
               />
                <Step4
                 currentStep={this.state.currentStep}
                 handleChange={this.handleChange}
-                email={this.state.password}
+                // email={this.state.password}
               />
                <Step5
                 currentStep={this.state.currentStep}
                 handleChange={this.handleChange}
-                email={this.state.password}
+                // email={this.state.password}
               />
             </CardBody>
             <CardFooter  style={{"textAlign":"right"}}>

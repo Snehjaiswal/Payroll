@@ -8,18 +8,62 @@ const Step4 = props => {
 
   return (
     <>
-      <p>We recommend creating a secure password for your account</p>
-      <FormGroup>
-        <Label for="password">Password</Label>
-        <Input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Enter your Password"
-          value={props.password} // Prop: The username input data
-          onChange={props.handleChange} // Prop: Puts data into the state
-        />
-      </FormGroup>
+   <div className="Account-details">
+
+<h3 className="text-left">Financial Details</h3>    <hr />
+
+<div className="row">
+  <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div className="form-group">
+      <label className="profile_details_text">Basic Salary:</label>
+      <input type="email" name="email" className="form-control" placeholder="Email Address" />
+    </div>
+  </div>
+</div>
+
+<div className="row">
+  <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div className="form-group" style={{ "display": "flex" }}>
+      <div>
+        <label className="profile_details_text">HRA</label>
+        <input type="email" name="email" className="form-control" placeholder="Dduction :" />
+      </div>
+      <div>
+        <label className="profile_details_text">Amount:</label>
+        <input type="email" name="email" className="form-control" placeholder="Email Address" />
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<div className="row">
+  <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div className="form-group" style={{ "display": "flex" }}>
+      <div>
+        <label className="profile_details_text">HRA</label>
+        <input type="email" name="email" className="form-control" placeholder="Dduction :" />
+      </div>
+      <div>
+        <label className="profile_details_text">Amount:</label>
+        <input type="email" name="email" className="form-control" placeholder="Email Address" />
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<div className="row">
+  <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div className="form-group">
+      <label className="profile_details_text">Total Salary:</label>
+      <input type="email" name="email" className="form-control" placeholder="Email Address" />
+    </div>
+  </div>
+</div>
+<br />
+
+</div>
     </>
   );
 };
