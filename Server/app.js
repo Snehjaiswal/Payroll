@@ -12,9 +12,9 @@ const bodyparser = require('body-parser');
 app.use(bodyparser.json());
 // Routes Or API's
 
-app.use("/emp", require("./app/routes/Employ/Employ.route"));
+app.use("/employee", require("./app/routes/Employee/Employee.route"));
 
-const port = process.env.PORT;
+const port = 5500
 
 // Server start
 app.listen(port, () =>

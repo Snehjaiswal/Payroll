@@ -123,7 +123,7 @@ console.log("currentStep",currentStep);
     return (
       <>
         <Form onSubmit={this.handleSubmit}>
-          <Card>
+          <Card style={{"width":"100%","height":"85vh"}}>
             <CardHeader>Create an Account</CardHeader>
             <CardBody>
               <CardTitle>
