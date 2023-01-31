@@ -2,15 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
-.container{
+.container {
 
   width: 800px;
   display: flex;
 }
 
-.edit_information{
+.edit_information {
   /* width: 50%; */
   border: rgb(142, 117, 117);
 }
@@ -19,9 +20,7 @@
 .main-container {
   display: flex;
 }
-/* main {
-  padding: 10px;
-} */
+
 
 .title {
   font-size: 3rem;
@@ -29,7 +28,6 @@
   place-items: center;
 }
 
-/* Sidebar */
 .sidebar {
   background: rgb(94, 109, 216);
   color: white;
@@ -45,13 +43,16 @@
   justify-content: space-between;
   padding: 15px 10px;
 }
+
 .logo {
   font-size: 18px;
   line-height: 0;
 }
+
 .bars {
   width: 30px;
 }
+
 .hide {
   display: none;
 }
@@ -63,6 +64,7 @@
   height: 30px;
   padding: 10px;
 }
+
 .search input {
   border: none;
   margin-left: 10px;
@@ -78,6 +80,7 @@
   flex-direction: column;
   gap: 5px;
 }
+
 .link {
   display: flex;
   color: white;
@@ -87,21 +90,24 @@
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
   text-decoration: none;
 }
+
 .link:hover {
-  border-right:rgb(240, 236, 230);
+  border-right: rgb(240, 236, 230);
   color: rgb(209, 208, 208);
   background: rgb(3, 71, 207);
 
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
+
 .active {
   color: rgb(209, 208, 208);
   /* background: rgb(3, 71, 207); */
 }
+
 .link_text {
   white-space: nowrap;
   font-size: 15px;
-  
+
 }
 
 .menu {
@@ -113,14 +119,17 @@
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
   justify-content: space-between;
 }
+
 .menu_item {
   display: flex;
   gap: 10px;
 }
+
 .menu_container {
   display: flex;
   flex-direction: column;
 }
+
 .menu_container .link {
   padding-left: 20px;
   border-bottom: #fff 0.5px solid;
@@ -133,23 +142,25 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .example {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
-.navbar-nav > li{
-  padding-left:30px;
-  padding-right:30px;
+.navbar-nav>li {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-Table
-table {
+Table table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -157,10 +168,11 @@ td, th {
 
 
 
-.AddDepartment{
+.AddDepartment {
   margin-top: 10px;
 }
-.AddDepartmentbox{
+
+.AddDepartmentbox {
   margin-left: 200px;
   margin-right: 10px;
   margin-top: 100px;
@@ -169,56 +181,22 @@ td, th {
 
 #flexbox {
   display: flex;
- margin-top: 25px;
- justify-content: left;
- text-align: left;
+  margin-top: 25px;
+  justify-content: left;
+  text-align: left;
 }
 
-/* .manageEmplotee{
-  border: 1px solid #e2d2d2;
-padding-top: 5px;
-  text-align: end;
-}
-
-.manageDeparment{
-  text-align: start;
-}
-
-.atendenceHeader{
-  background-color: #fdfafa;
-
-  padding: 5px;
-  box-shadow: 5px 10px #fdfafa;
-}
-
-.atendenceMain{
-  background-color: #fdfafa;
-
-  padding: 5px;
-  box-shadow: 5px 10px #fdfafa;
-}
-
-.paysliplistMain{
-  background-color: #fdfafa;
-
-  padding: 5px;
-  box-shadow: 5px 10px #fdfafa; 
-}
-.addEmployees{
-   background-color: #fdfafa;
-  padding: 5px;
-  
-  box-shadow: 5px 10px #fdfafa; 
-} */
 
 
-.navbar-toggler{
+
+.navbar-toggler {
   display: none;
 }
 
 .mainRight {
   width: calc(100% - 250px) !important;
   margin: 0 0 0 auto !important;
+  padding: 0 !important;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -227,8 +205,10 @@ padding-top: 5px;
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .sidebar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 form {
@@ -262,7 +242,8 @@ button.edit {
   bottom: 0;
   right: 0;
 }
- .next {
+
+.next {
   background-color: #8CA535
 }
 
@@ -276,4 +257,31 @@ button.edit {
 
 h4 {
   color: #980000;
+}
+
+.btn2 {
+  margin-top: 105px !important;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(242, 62, 62);
+  color: #333;
+
+  /* display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px; */
 }

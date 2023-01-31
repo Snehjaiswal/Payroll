@@ -1,59 +1,46 @@
-import React from 'react'
+import { useState, useEffect } from 'react';
+
+
 import Card from 'react-bootstrap/Card';
 import DataTable from 'react-data-table-component';
 
 
 
 function AttendenceReport() {
+    const [getDay, setDays] = useState()
 
+    const Filter = () => {
+        setDays(new Date(new Date().getFullYear(), new Date().getMonth(), 0).getDate())
+        var currentMontDay = new Date(new Date().getFullYear(), new Date().getMonth(), 0).getDate()
+    }
     const month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 
 
     const columns = [
         {
-            name: 'Serial',
-            width: '100px !important',
+            name: 'S.No',
+            width: '60px !important',
             selector: (row, index) => index + 1,
         },
-
         {
             name: 'Employee Name',
             width: '160px !important',
             selector: row => row.title,
         },
-        {
-            name: 'Attendence Type',
-            width: '160px !important',
-            selector: row => row.title,
-        }, {
-            name: 'Manual Name',
-            width: '160px !important',
-            selector: row => row.title,
-        },
-
-        {
-            name: 'Date',
-            width: '100px !important',
-            selector: row => "25-01-2023",
-        },
-        {
-            name: 'Status',
-            width: '160px !important',
-            selector: row => (
-                <>
-                    <select id="cars" name="cars">
-                        <option defaultValue="volvo">Absent</option>
-                        <option defaultValue="saab">Present</option>
-                        <option defaultValue="fiat">On Leave</option>
-
-                    </select>
-                </>
-            )
-        },
-
 
     ];
+
+    for (let i = 1; i <= getDay; i++) {
+        columns.push({
+            name: <>{i}</>,
+            width: '80px !important',
+            selector: row => i,
+        },)
+
+    }
+
+
 
     const data = [
         {
@@ -118,12 +105,21 @@ function AttendenceReport() {
             },
         },
     };
+
+
+
+    useEffect(() => {
+        Filter()
+    }, [])
+
     return (
 
         <>
-            <Card>
 
+
+            <Card style={{ "marginLeft": "10px" }}>
                 <Card.Body>
+                    <Card.Title>Attendence Report </Card.Title> <hr />
 
                     <Card.Text>
                         <div style={{ "display": "flex" }}>
@@ -158,26 +154,29 @@ function AttendenceReport() {
 
                                 </select>
                             </div>
-                            <div className="SubmitBtn" style={{ "marginLeft": "50px", "marginTop": "15px" }}>
-                                <button type="button" className="btn btn-success" style={{ "width": "180px" }}  >Show Reports</button>
+
+                            <div style={{ "marginLeft": "50px" }}>
+                                {/* <label htmlFor="cars">Month :</label><br /> */}
+                                <div className="mr15 DTTT_container" style={{"marginTop":"15px"}}>
+
+                                    <button className="btn btn-light bt2" style={{ "border":" 1px solid rgb(0, 0, 0)","marginRight":"5px"}}><i className="fa fa-chevron-left"></i></button>
+
+                                    <button className="btn btn-light bt2" style={{"border":" 1px solid rgb(0, 0, 0)", "margin": "-1px" ,"marginRight":"5px"}}>28th Nov - 4th Dec, 2022</button>
+
+                                    <button className="btn btn-light bt2" style={{ "border":" 1px solid rgb(0, 0, 0)" ,"marginRight":"5px"}}><i className="fa fa-chevron-right" ></i></button>
+
+                                </div>
                             </div>
+
+
+
+
                         </div>
+
                     </Card.Text>
-
-                </Card.Body>
-            </Card>
-
-
-
-
-            <Card>
-                <Card.Body>
-                    <Card.Title> <div className='atendenceHeader' >
-
-
-
-                    </div></Card.Title>
+                    <hr />
                     <Card.Text>
+
 
                         <DataTable
                             columns={columns}
@@ -195,7 +194,7 @@ function AttendenceReport() {
                         />
 
                     </Card.Text>
-                  
+
                 </Card.Body>
             </Card>
 

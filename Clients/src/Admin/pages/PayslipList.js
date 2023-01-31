@@ -1,8 +1,8 @@
 import React from 'react'
 import DataTable from 'react-data-table-component';
-import DataTableExtensions from "react-data-table-component-extensions";
-import { useNavigate } from "react-router-dom"
-import Button from 'react-bootstrap/Button';
+// import DataTableExtensions from "react-data-table-component-extensions";
+// import { useNavigate } from "react-router-dom"
+// import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 
@@ -39,7 +39,7 @@ function PayslipList() {
     {
       name: 'Status',
       width: '160px !important',
-      selector: row => (row.status == 1 ? <>
+      selector: row => (row.status === 1 ? <>
         <button type="button" className="btn btn-warning" style={{ "width": "100px", "height": "30px", "fontSize": "15px" }} ><i className="fa-sharp fa-solid fa-xmark"></i> Unpaid</button>
       </> : <>
         <button type="button" className="btn btn-primary" style={{ "width": "100px", "height": "30px", "fontSize": "15px" }}><i className="fa-solid fa-pen-to-square" ></i> Paid</button>
