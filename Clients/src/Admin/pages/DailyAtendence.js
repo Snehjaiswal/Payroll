@@ -18,8 +18,8 @@ function DailyAtendence() {
       width: '100px !important',
       selector: (row, index) => index + 1,
     },
-   
-   {
+
+    {
       name: 'Employee Name',
       width: '160px !important',
       selector: row => row.title,
@@ -45,9 +45,11 @@ function DailyAtendence() {
       selector: row => (
         <>
           <select id="cars" name="cars">
-            <option defaultValue="volvo">Absent</option>
-            <option defaultValue="saab">Present</option>
-            <option defaultValue="fiat">On Leave</option>
+            <option defaultValue="Absent">Absent</option>
+            <option defaultValue="Present">Present</option>
+            <option defaultValue="On Leave">On Leave</option>
+            <option defaultValue="Half Day">Half Day</option>
+
 
           </select>
         </>
@@ -101,7 +103,7 @@ function DailyAtendence() {
         width: '100px',
         fontWeight: '700',
         marginTop: "10px",
-        backgroundColor: 'rgb(0, 0, 0);',
+        backgroundColor: 'rgb(94, 109, 216);',
         color: '#fff',
         justifyContent: 'center !important',
         overflow: 'visible !important',
@@ -125,7 +127,7 @@ function DailyAtendence() {
 
   return (
     <>
-    
+
 
       <Card>
 
@@ -146,18 +148,28 @@ function DailyAtendence() {
                 </Col>
 
                 <Col sm>
-                  <label htmlFor="cars">Date :</label><br />
-                  <input type="date" />
+                  <label htmlFor="cars">Designation :</label><br />
+                   <select id="cars" name="cars">
+                    <option defaultValue="volvo">All Employees</option>
+                    <option defaultValue="saab">Saab</option>
+                    <option defaultValue="fiat">Fiat</option>
+                    <option defaultValue="audi">Audi</option>
+                  </select>
                 </Col>
 
-                <Col sm>
+                {/* <Col sm>
+                  <label htmlFor="cars">Date :</label><br />
+                  <input type="date" />
+                </Col> */}
+
+                {/* <Col sm>
                 <label htmlFor="cars">Submit :</label><br />
                   <button type="button" className="btn btn-success">Submit</button>
-                </Col>
+                </Col> */}
               </Row>
 
             </Container>
-        
+
           </Card.Text>
 
         </Card.Body>
@@ -174,24 +186,29 @@ function DailyAtendence() {
 
           </div></Card.Title>
           <Card.Text>
-           
-            <DataTable
+
+            <DataTableExtensions
               columns={columns}
               data={data}
-              fixedHeader
-              fixedHeaderScrollHeight="700px"
-              noHeader
-              defaultSortField="id"
-              defaultSortAsc={false}
-              pagination
-              customStyles={customStyles}
-              highlightOnHover
-              paginationRowsPerPageOptions={[5, 50, 100]}
-              paginationComponentOptions={{ selectAllRowsItem: true, selectAllRowsItemText: 'All' }}
-            />
-         
+              export={false}
+              print={false}
+            >
+              <DataTable
+                fixedHeader
+                fixedHeaderScrollHeight="700px"
+                noHeader
+                defaultSortField="id"
+                defaultSortAsc={false}
+                pagination
+                customStyles={customStyles}
+                highlightOnHover
+                paginationRowsPerPageOptions={[5, 50, 100]}
+                paginationComponentOptions={{ selectAllRowsItem: true, selectAllRowsItemText: 'All' }}
+              />
+            </DataTableExtensions>
+            <Button variant="primary">Save changes</Button>
+
           </Card.Text>
-          <Button variant="primary">Save changes</Button>
         </Card.Body>
       </Card>
 

@@ -99,7 +99,7 @@ function AttendenceReport() {
                 width: '100px',
                 fontWeight: '700',
                 marginTop: "10px",
-                backgroundColor: 'rgb(0, 0, 0);',
+                backgroundColor: 'rgb(94, 109, 216);',
                 color: '#fff',
                 justifyContent: 'center !important',
                 overflow: 'visible !important',

@@ -19,21 +19,35 @@ function ManageDepartment() {
       name: 'Department',
       width: '160px !important',
       selector: row => row.title,
-    }, {
-      name: 'Department',
-      width: '160px !important',
-      selector: row => row.title,
     },
 
     {
       name: 'Designation',
       width: '160px !important',
-      selector: row => row.year,
+      selector: row => row.title,
     },
     {
       name: 'Total Employee',
       width: '160px !important',
       selector: row => row.title,
+    },
+    {
+      name: 'Create At',
+      width: '160px !important',
+      selector: row => "01-01-2023",
+    },
+    {
+      name: 'Total Employee',
+      width: '160px !important',
+      selector: row => (<>
+       <select name="Status" value required>
+                <option >Status</option>
+                <option defaultValue="Active">Active</option>
+                <option defaultValue="DeActive">DeActive</option>
+       
+
+              </select>
+      </>),
     },
 
     {
@@ -93,36 +107,6 @@ function ManageDepartment() {
       year: '1984',
       email: "Sneh@gamial.com"
 
-    }, {
-      id: 5,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    }, {
-      id: 5,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    }, {
-      id: 5,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    }, {
-      id: 5,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    }, {
-      id: 5,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
     },
   ]
 
@@ -136,7 +120,7 @@ function ManageDepartment() {
         marginTop: "10px",
         // marginLeft:"2px" ,
 
-        backgroundColor: 'rgb(0, 0, 0);',
+        backgroundColor: 'rgb(94, 109, 216);',
         color: '#fff',
 
 

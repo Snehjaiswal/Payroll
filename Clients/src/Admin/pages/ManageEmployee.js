@@ -43,9 +43,17 @@ function ManageEmployee() {
       width: '120px !important',
       selector: row => (
         <>
-          <button className="" type="button" style={{ "width": "80px", "backgroundColor": "#3CD923", "borderRadius": "4px" }}  >
+          {/* <button className="" type="button" style={{ "width": "80px", "backgroundColor": "#3CD923", "borderRadius": "4px" }}  >
             <i className="fa-solid fa-pen-to-square"></i> ACTION
-          </button>
+          </button> */}
+           {/* <label className="profile_details_text">Increment :</label> */}
+              <select name="Status" value required>
+                <option >Status</option>
+                <option defaultValue="Active">Active</option>
+                <option defaultValue="DeActive">DeActive</option>
+       
+
+              </select>
         </>
       ),
     },
@@ -126,7 +134,7 @@ function ManageEmployee() {
         marginTop: "10px",
         // marginLeft:"2px" ,
 
-        backgroundColor: 'rgb(0, 0, 0);',
+        backgroundColor: 'rgb(94, 109, 216);',
         color: '#fff',
 
 
