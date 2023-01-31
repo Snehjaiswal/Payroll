@@ -24,19 +24,26 @@ function DailyAtendence() {
       width: '160px !important',
       selector: row => row.title,
     },
-    {
-      name: 'Attendence Type',
-      width: '160px !important',
-      selector: row => row.title,
-    }, {
+   
+     {
       name: 'Manual Name',
-      width: '160px !important',
+      width: '120px !important',
       selector: row => row.title,
     },
 
     {
+      name: 'Deparment',
+      width: '160px !important',
+      selector: row => "Devloper",
+    },
+    {
+      name: 'Designation',
+      width: '160px !important',
+      selector: row => "Backend Deploper",
+    },
+    {
       name: 'Date',
-      width: '100px !important',
+      width: '160px !important',
       selector: row => "25-01-2023",
     },
     {
