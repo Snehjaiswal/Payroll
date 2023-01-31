@@ -8,7 +8,7 @@ const Step3 = props => {
 
   const AccountType = ["Select Account Type", "Building Society Roll Number", "Checking", "Current Account", "Giro Account", "Salary Account", "Savings"]
 
-
+const BankName = ["Bank of Baroda", "Bank of India", "Bank of Maharashtra", "Canara Bank" ,"Central Bank of India", "Indian Bank", "Indian Overseas Bank", "Punjab & Sind Bank", "Punjab National Bank", "State Bank of India", "UCO Bank", "Union Bank of India","Axis Bank","HDFC Bank","ICICI Bank","Induslnd Bank","IDFC First Bank","Kotak Mahindra Bank"]
 
 
 
@@ -24,8 +24,13 @@ const Step3 = props => {
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div className="form-group">
-              <label className="profile_details_text">Bank Name:</label>
-              <input type="email" name="email" className="form-control" placeholder="Enter Your Bank Name" />
+            <select name="gender" className="form-control" value required>
+            <option >Bank Name</option>
+              {BankName.map((val) => {
+                  return <option defaultValue={val}>{val}</option>
+
+                })}
+                   </select>
             </div>
           </div>
         </div>

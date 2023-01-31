@@ -122,8 +122,8 @@ console.log("currentStep",currentStep);
   render() {
     return (     
       <>
-        <Form onSubmit={this.handleSubmit} style={{  padding: "0.5rem" }}>
-          <Card style={{ width: '100%',height:"89vh" }}>
+        <Form className="Form1" onSubmit={this.handleSubmit} style={{"padding":"-0.5rem !important" }}>
+          <Card style={{ width: '100%',height:"80vh","marginTop":"0px !important" }}>
             <CardHeader>Create an Account</CardHeader>
             <CardBody>
               <CardTitle>

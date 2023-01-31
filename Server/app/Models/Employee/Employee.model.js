@@ -26,6 +26,12 @@ const EmployeeInformation = Schema({
         trim: true,
         unique: true
     },
+    Password: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true
+    },
     FatherName: {
         type: String,
         required: true,
@@ -125,6 +131,7 @@ const EmployeeAccountInformation = Schema({
     },
     Account_Number: {
         type: String,
+        unique:true,
         required: true,
         trim: true
     },
@@ -155,17 +162,20 @@ const EmployeeFinancialInformation = Schema({
         required: true,
         trim: true
     },
-    HRA: {
+    Increment: {
         type: String,
         required: true,
         trim: true
     },
-    Total_Salary: {
+    IncrementPercent: {
         type: String,
         required: true,
         trim: true
     },
-  
+    Bonus: {
+        type: String,
+        trim: true
+    },
     userid: {
         type: String,
         required: true,
@@ -182,5 +192,5 @@ const EmployeeFinancialModal = model('EMPLOYEE_FINANCIAL_INFORMATION', EmployeeF
 
 
 
-module.exports = { EmployeeModal, EmployeeComapnyModal, EmployeeAccountModal ,EmployeeFinancialModal};
+module.exports = { EmployeeModal, EmployeeComapnyModal, EmployeeAccountModal, EmployeeFinancialModal };
 

@@ -21,22 +21,7 @@ const Step4 = props => {
           </div>
         </div>
 
-        {/* <div className="row">
-  <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div className="form-group" style={{ "display": "flex" }}>
-      <div>
-        <label className="profile_details_text">HRA</label>
-        <input type="email" name="email" className="form-control" placeholder="Dduction :" />
-      </div>
-      <div>
-        <label className="profile_details_text">Amount:</label>
-        <input type="email" name="email" className="form-control" placeholder="Email Address" />
-
-      </div>
-
-    </div>
-  </div>
-</div> */}
+      
 
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">

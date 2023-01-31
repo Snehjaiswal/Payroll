@@ -2,16 +2,18 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import SideBar from "../components/Sidebar/SideBar";
 import Navbar from "../components/Sidebar/Navbar";
+// import Login from "../../Login";
+
 
 import MasterForm from "./MasterForm";
 
 import Dashboard from "../pages/Dashboard";
 
-import AddEmployee from "../pages/AddEmployee";
+// import AddEmployee from "../pages/AddEmployee";
 import ManageEmployees from "../pages/ManageEmployee";
 import View from "../pages/View";
 
-import AddDepartment from "../pages/AddDepartment"; 
+import AddDepartment from "../pages/AddDepartment";
 import ManageDepartment from "../pages/ManageDepartment";
 
 import DailyAtendence from "../pages/DailyAtendence";
@@ -23,15 +25,20 @@ import ManageLeave from "../pages/ManageLeave";
 import AddPayslip from "../pages/AddPayslip";
 import PayslipList from "../pages/PayslipList";
 function Wrapper() {
+ 
+
+
+
   return (
-   <>
-   
-   
-   
-   <Router>
+    <>
+
+
+      <Router>
         <SideBar>
-      <Navbar/>
+          <Navbar />
           <Routes>
+            {/* <Route path="/login" element={<Login />} /> */}
+
             <Route path="/" element={<Dashboard />} />
             <Route path="/employee/add" element={<><MasterForm /></>} />
             <Route path="/employee/manage" element={<ManageEmployees />} />
@@ -48,18 +55,18 @@ function Wrapper() {
 
             <Route path="/payslip/add" element={<AddPayslip />} />
             <Route path="payslip/list" element={<PayslipList />} />
-       
+
 
 
 
             <Route path="*" element={<> not found</>} />
           </Routes>
-          </SideBar>
-    
+        </SideBar>
+
       </Router>
-   
-   
-   </>
+
+
+    </>
   )
 }
 

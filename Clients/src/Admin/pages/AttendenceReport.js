@@ -16,7 +16,6 @@ function AttendenceReport() {
     const month = ["Month", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 
-
     const columns = [
         {
             name: 'S.No',
@@ -122,50 +121,43 @@ function AttendenceReport() {
                     <Card.Title>Attendence Report </Card.Title> <hr />
 
                     <Card.Text>
-                        <div style={{ "display": "flex","textAlign":"right" }}>
-                        
-
-                            <div style={{ "marginLeft": "50px" }}>
-                                {/* <label htmlFor="cars">Month :</label><br /> */}
-                                <div className="mr15 DTTT_container" style={{ "marginTop": "15px" }}>
-
-                                    <select className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}>
-
-                                        <option defaultValue="volvo">Year</option>
-                                        <option defaultValue="volvo">2023</option>
-                                        <option defaultValue="volvo">2024</option>
-                                        <option defaultValue="volvo">2025</option>
-
-                                    </select>
-
-                                    <select className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}>
-
-                                        {
-                                            month.map((val) => {
-                                                return <option defaultValue={val}>{val}</option>
-                                            })
-                                        }
-
-                                    </select>
-
-                                    <button className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}><i className="fa fa-chevron-left"></i></button>
-
-                                    <button className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "margin": "-1px", "marginRight": "2px", "borderRadius": "0" }}>28th Nov - 4th Dec, 2022</button>
-
-                                    <button className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}><i className="fa fa-chevron-right" ></i></button>
-
-                                    <button className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}>Print</button>
-
-                                    <input type="search" placeholder="Search"  className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "1px", "borderRadius": "0" }} /> 
-                                     <button className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}><i class="fa-regular fa-magnifying-glass"></i></button>
-
-                                </div>
-                            </div>
 
 
+                        <div className="mainPAge" style={{ "marginTop": "15px", "marginLeft": "150px" }}>
 
+                    
+                            <select className="btn bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}>
+
+                                <option defaultValue="volvo">Year</option>            
+                                <option defaultValue="volvo">2023</option>
+                                <option defaultValue="volvo">2024</option>
+                                <option defaultValue="volvo">2025</option>
+
+                            </select>
+
+                            <select className="btn  bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}>
+
+                                {
+                                    month.map((val) => {
+                                        return <option defaultValue={val}>{val}</option>
+                                    })
+                                }
+
+                            </select>
+
+                            <button className="btn  bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}><i className="fa fa-chevron-left"></i></button>
+
+                            <button className="btn  bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "margin": "-1px", "marginRight": "2px", "borderRadius": "0" }}>28th Nov - 4th Dec, 2022</button>
+
+                            <button className="btn  bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}><i className="fa fa-chevron-right" ></i></button>
+
+                            <button className="btn  bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}>Print</button>
+
+                            <input type="search" placeholder="Search" className="btn  bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "1px", "borderRadius": "0" }} />
+                            <button className="btn  bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}><i class="fa-regular fa-magnifying-glass"></i></button>
 
                         </div>
+
 
                     </Card.Text>
                     <hr />
