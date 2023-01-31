@@ -13,7 +13,7 @@ function AttendenceReport() {
         setDays(new Date(new Date().getFullYear(), new Date().getMonth(), 0).getDate())
         var currentMontDay = new Date(new Date().getFullYear(), new Date().getMonth(), 0).getDate()
     }
-    const month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    const month = ["Month", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 
 
@@ -122,48 +122,42 @@ function AttendenceReport() {
                     <Card.Title>Attendence Report </Card.Title> <hr />
 
                     <Card.Text>
-                        <div style={{ "display": "flex" }}>
-                            <div className="empDep">
-                                <label htmlFor="cars"> Employee By Department:</label><br />
-                                <select id="cars" name="cars" style={{ "width": "200px" }}>
-                                    <option defaultValue="volvo">All Employees</option>
-                                    <option defaultValue="saab">Saab</option>
-                                    <option defaultValue="fiat">Fiat</option>
-                                    <option defaultValue="audi">Audi</option>
-                                </select>
-                            </div>
-                            <div className="yearBox" style={{ "marginLeft": "50px" }}>
-                                <label htmlFor="year">Year :</label><br />
-                                <select id="cars" name="cars" style={{ "width": "150px" }}>
-                                    <option defaultValue="volvo">2023</option>
-                                    <option defaultValue="volvo">2024</option>
-                                    <option defaultValue="volvo">2025</option>
-
-
-                                </select>
-                            </div>
-                            <div className="monthBox" style={{ "marginLeft": "50px" }}>
-                                <label htmlFor="cars">Month :</label><br />
-                                <select id="cars" name="cars" style={{ "width": "150px" }}>
-                                    {
-                                        month.map((val) => {
-                                            return <option defaultValue={val}>{val}</option>
-                                        })
-                                    }
-
-
-                                </select>
-                            </div>
+                        <div style={{ "display": "flex","textAlign":"right" }}>
+                        
 
                             <div style={{ "marginLeft": "50px" }}>
                                 {/* <label htmlFor="cars">Month :</label><br /> */}
-                                <div className="mr15 DTTT_container" style={{"marginTop":"15px"}}>
+                                <div className="mr15 DTTT_container" style={{ "marginTop": "15px" }}>
 
-                                    <button className="btn btn-light bt2" style={{ "border":" 1px solid rgb(0, 0, 0)","marginRight":"5px"}}><i className="fa fa-chevron-left"></i></button>
+                                    <select className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}>
 
-                                    <button className="btn btn-light bt2" style={{"border":" 1px solid rgb(0, 0, 0)", "margin": "-1px" ,"marginRight":"5px"}}>28th Nov - 4th Dec, 2022</button>
+                                        <option defaultValue="volvo">Year</option>
+                                        <option defaultValue="volvo">2023</option>
+                                        <option defaultValue="volvo">2024</option>
+                                        <option defaultValue="volvo">2025</option>
 
-                                    <button className="btn btn-light bt2" style={{ "border":" 1px solid rgb(0, 0, 0)" ,"marginRight":"5px"}}><i className="fa fa-chevron-right" ></i></button>
+                                    </select>
+
+                                    <select className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}>
+
+                                        {
+                                            month.map((val) => {
+                                                return <option defaultValue={val}>{val}</option>
+                                            })
+                                        }
+
+                                    </select>
+
+                                    <button className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}><i className="fa fa-chevron-left"></i></button>
+
+                                    <button className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "margin": "-1px", "marginRight": "2px", "borderRadius": "0" }}>28th Nov - 4th Dec, 2022</button>
+
+                                    <button className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}><i className="fa fa-chevron-right" ></i></button>
+
+                                    <button className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}>Print</button>
+
+                                    <input type="search" placeholder="Search"  className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "1px", "borderRadius": "0" }} /> 
+                                     <button className="btn btn-light bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}><i class="fa-regular fa-magnifying-glass"></i></button>
 
                                 </div>
                             </div>
