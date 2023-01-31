@@ -43,9 +43,9 @@ function AttendenceReport() {
             selector: row => (
                 <>
                     <select id="cars" name="cars">
-                        <option value="volvo">Absent</option>
-                        <option value="saab">Present</option>
-                        <option value="fiat">On Leave</option>
+                        <option defaultValue="volvo">Absent</option>
+                        <option defaultValue="saab">Present</option>
+                        <option defaultValue="fiat">On Leave</option>
 
                     </select>
                 </>
@@ -130,18 +130,18 @@ function AttendenceReport() {
                             <div className="empDep">
                                 <label htmlFor="cars"> Employee By Department:</label><br />
                                 <select id="cars" name="cars" style={{ "width": "200px" }}>
-                                    <option value="volvo">All Employees</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="fiat">Fiat</option>
-                                    <option value="audi">Audi</option>
+                                    <option defaultValue="volvo">All Employees</option>
+                                    <option defaultValue="saab">Saab</option>
+                                    <option defaultValue="fiat">Fiat</option>
+                                    <option defaultValue="audi">Audi</option>
                                 </select>
                             </div>
                             <div className="yearBox" style={{ "marginLeft": "50px" }}>
                                 <label htmlFor="year">Year :</label><br />
                                 <select id="cars" name="cars" style={{ "width": "150px" }}>
-                                    <option value="volvo">2023</option>
-                                    <option value="volvo">2024</option>
-                                    <option value="volvo">2025</option>
+                                    <option defaultValue="volvo">2023</option>
+                                    <option defaultValue="volvo">2024</option>
+                                    <option defaultValue="volvo">2025</option>
 
 
                                 </select>
@@ -151,7 +151,7 @@ function AttendenceReport() {
                                 <select id="cars" name="cars" style={{ "width": "150px" }}>
                                     {
                                         month.map((val) => {
-                                            return <option value={val}>{val}</option>
+                                            return <option defaultValue={val}>{val}</option>
                                         })
                                     }
 

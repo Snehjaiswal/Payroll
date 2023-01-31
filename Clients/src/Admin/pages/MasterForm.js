@@ -14,7 +14,7 @@ import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
-import Step5 from "./Step5";
+// import Step5 from "./Step5";
 
 
 import styled from "styled-components";
@@ -99,8 +99,8 @@ console.log("currentStep",currentStep);
     // If the current step is not 3, then render the "next" button
     if (currentStep < 5) {
       return (
-        <Button color="primary float-right" onClick={this._next} style={{"marginLeft":"10px"}}>
-          Next
+        <Button color="primary float-right" onClick={this._next} style={{"marginLeft":"20px"}}>
+           Next 
         </Button>
       );
     }
@@ -113,17 +113,17 @@ console.log("currentStep",currentStep);
 
     // If the current step is the last step, then render the "submit" button
     if (currentStep == 5) {
-      return <Button color="primary float-right" style={{"marginLeft":"10px"}}>Submit</Button>;
+      return <Button color="primary float-right" style={{"marginLeft":"20px"}}>Submit</Button>;
     }
     // ...else render nothing
     return null;
   }
 
   render() {
-    return (
+    return (     
       <>
-        <Form onSubmit={this.handleSubmit}>
-          <Card style={{"width":"100%","height":"85vh"}}>
+        <Form onSubmit={this.handleSubmit} style={{  padding: "0.5rem" }}>
+          <Card style={{ width: '100%',height:"89vh" }}>
             <CardHeader>Create an Account</CardHeader>
             <CardBody>
               <CardTitle>
@@ -150,13 +150,13 @@ console.log("currentStep",currentStep);
                 handleChange={this.handleChange}
                 // email={this.state.password}
               />
-               <Step5
+               {/* <Step5
                 currentStep={this.state.currentStep}
                 handleChange={this.handleChange}
                 // email={this.state.password}
-              />
+              /> */}
             </CardBody>
-            <CardFooter  style={{"textAlign":"right"}}>
+            <CardFooter  style={{"textAlign":"right","display":"flex"}}>
               {this.previousButton}
               {this.nextButton}
               {this.submitButton}

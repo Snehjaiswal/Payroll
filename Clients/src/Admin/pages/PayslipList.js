@@ -169,9 +169,9 @@ function PayslipList() {
               <div className="yearBox" style={{ "marginLeft": "50px" }}>
                 <label htmlFor="year">Year :</label><br />
                 <select id="cars" name="cars" style={{ "width": "150px" }}>
-                  <option value="volvo">2023</option>
-                  <option value="volvo">2024</option>
-                  <option value="volvo">2025</option>
+                  <option defaultValue="volvo">2023</option>
+                  <option defaultValue="volvo">2024</option>
+                  <option defaultValue="volvo">2025</option>
 
 
                 </select>
@@ -181,7 +181,7 @@ function PayslipList() {
                 <select id="cars" name="cars" style={{ "width": "150px" }}>
                   {
                     month.map((val) => {
-                      return <option value={val}>{val}</option>
+                      return <option defaultValue={val}>{val}</option>
                     })
                   }
 

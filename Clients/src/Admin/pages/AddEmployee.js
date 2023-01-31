@@ -1,21 +1,31 @@
 import React, { useState } from 'react';
 
 import Card from 'react-bootstrap/Card';
+import DatePicker from 'react-datepicker';
 
 
 const AddEmployee = () => {
+ const [startDate, setStartDate] = useState(new Date());
+
+  const DOB = () => {
+    var today = new Date().toISOString().split("T")[0];
+    console.log("today", today);
+  }
+
 
   const [txt, setTxt] = useState('');
 
   const onInputChange = e => {
     const { value } = e.target;
-    // console.log('Input value: ', value);
+   
 
     const re = /^[A-Za-z]+$/;
     if (value === "" || re.test(value)) {
       setTxt(value);
     }
   }
+
+
   return (
     <>
 
@@ -36,7 +46,7 @@ const AddEmployee = () => {
                       <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div className="form-group">
                           <label className="profile_details_text">First Name:</label>
-                          <input type="text" name="first_name" className="form-control" style={{ "textTransform": "capitalize" }} value={txt} onChange={onInputChange} placeholder="First Name" />
+                          <input type="text" name="first_name" className="form-control" style={{ "textTransform": "capitalize" }} defaultValue={txt} onChange={onInputChange} placeholder="First Name" />
                         </div>
                       </div>
                       <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -70,8 +80,8 @@ const AddEmployee = () => {
                         <div className="form-group">
                           <label className="profile_details_text">Gender:</label>
                           <select name="gender" className="form-control" value required>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                            <option defaultValue="Male">Male</option>
+                            <option defaultValue="Female">Female</option>
                           </select>
                         </div>
                       </div>
@@ -81,7 +91,9 @@ const AddEmployee = () => {
                       <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="form-group">
                           <label className="profile_details_text">Date Of Birth:</label>
-                          <input type="date" name="birthday" className="form-control" placeholder="Date Of Birth" />
+                          {/* <input type="date" name="bday" className="form-control"  />
+                           */}
+                          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
                         </div>
                       </div>
                     </div>
@@ -108,7 +120,7 @@ const AddEmployee = () => {
                       <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="form-group">
                           <label className="profile_details_text">Local Address:</label>
-                          {/* <label for="exampleFormControlTextarea1" className="form-label">Example textarea</label> */}
+                        
                           <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                       </div>

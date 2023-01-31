@@ -46,7 +46,7 @@ const Step3 = props => {
 
               <select name="gender" className="form-control" value required>
                 {AccountType.map((val) => {
-                  return <option value={val}>{val}</option>
+                  return <option defaultValue={val}>{val}</option>
 
                 })}
               </select>

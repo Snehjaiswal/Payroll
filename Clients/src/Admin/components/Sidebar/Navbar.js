@@ -1,12 +1,11 @@
 import React from 'react'
 import profile from "../../../Assets/fotor_2023-1-29_23_12_31.png"
 
-
 function Navbar() {
     return (
         <>
 
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light navBar">
                 <div className="container-fluid">
                    
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
