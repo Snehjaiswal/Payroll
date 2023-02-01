@@ -28,6 +28,8 @@ import ManageLeave from "./Admin/pages/ManageLeave";
 import AddPayslip from "./Admin/pages/AddPayslip";
 import PayslipList from "./Admin/pages/PayslipList";
 
+import CalendarPage from "./Admin/Calender/ReactBigCalendar";
+
 function App() {
 
   const location = useLocation()
@@ -52,8 +54,8 @@ function App() {
               <Route path="/attendence/daily" element={<DailyAtendence />} />
               <Route path="/attendence/report" element={<AttendenceReport />} />
 
-              <Route path="/leave/add" element={<AddLeave />} />
-              <Route path="/leave/manage" element={<ManageLeave />} />
+              <Route path="/leave/add" element={<CalendarPage />} />
+              <Route path="/leave/manage" element={<CalendarPage />} />
 
               <Route path="/payslip/add" element={<AddPayslip />} />
               <Route path="payslip/list" element={<PayslipList />} />
