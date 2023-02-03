@@ -12,7 +12,7 @@ const HolidaySchema = Schema({
     },
     Discription: {
         type: String,
-        required: true,
+        // required: true,
         trim: true
     },
     allDay: {

@@ -6,7 +6,7 @@ const { AddHoliday,GetHoliday}= require('../../controllers/Holiday/Holiday.Contr
 const { check } = require('express-validator');
 
 router.post('/add/holiday',AddHoliday)
-router.post('/get/holiday',GetHoliday)
+router.get('/get/holiday',GetHoliday)
 
 
 module.exports = router;
