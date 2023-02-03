@@ -109,23 +109,29 @@ const routes = [
       }
     ],
   },
+  // {
+  //   path: "/holiday",
+  //   name: "Holiday",
+  //   icon: <BiAnalyse />,
+  //   exact: true,
+    // subRoutes: [
+    //   {
+    //     path: "/holiday/add",
+    //     name: "Create Holiday ",
+    //     icon: <FaUser />,
+    //   },
+    //   {
+    //     path: "/holiday/manage",
+    //     name: "Manage Holiday",
+    //     icon: <FaLock />,
+    //   }
+    // ],
+  // },
+
   {
     path: "/holiday",
     name: "Holiday",
-    icon: <BiAnalyse />,
-    exact: true,
-    subRoutes: [
-      {
-        path: "/holiday/add",
-        name: "Create Holiday ",
-        icon: <FaUser />,
-      },
-      {
-        path: "/holiday/manage",
-        name: "Manage Holiday",
-        icon: <FaLock />,
-      }
-    ],
+    icon: <BsCartCheck />,
   },
   {
     path: "/settings",

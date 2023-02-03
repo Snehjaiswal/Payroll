@@ -54,12 +54,16 @@ function App() {
               <Route path="/attendence/daily" element={<DailyAtendence />} />
               <Route path="/attendence/report" element={<AttendenceReport />} />
 
-              <Route path="/leave/add" element={<CalendarPage />} />
-              <Route path="/leave/manage" element={<CalendarPage />} />
+              <Route path="/leave/add" element={<AddLeave />} />
+              <Route path="/leave/manage" element={<ManageLeave />} />
 
               <Route path="/payslip/add" element={<AddPayslip />} />
               <Route path="payslip/list" element={<PayslipList />} />
 
+
+              {/* <Route path="/leave/add" element={<CalendarPage />} /> */}
+              <Route path="/holiday" element={<CalendarPage />} />
+              
               <Route path="*" element={<> <h1>404 Page not found</h1></>} />
             </Routes>
           </SideBar>
