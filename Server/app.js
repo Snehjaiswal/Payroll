@@ -14,6 +14,7 @@ app.use(bodyparser.json());
 
 app.use("/employee", require("./app/routes/Employee/Employee.route"));
 app.use(require("./app/routes/Holiday/Holiday.route"));
+app.use(require("./app/routes/Department/Department.route"))
 
 
 const port = 5500

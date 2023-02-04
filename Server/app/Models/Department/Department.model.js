@@ -2,36 +2,28 @@
 
 const { Schema, model } = require('mongoose');
 
-// Employee Information Collection
-const EmployeeInformation = Schema({
+const Department = Schema({
 
-    FirstName: {
+    Department: {
         type: String,
         required: true,
         trim: true
     },
-    LastName: {
+    Designation: {
         type: String,
         required: true,
         trim: true
-    },
-    PhoneNumber: {
-        type: Number,
-        required: true,
-        trim: true
-    },
-
-
+    }
 },
     {
         timestamps: true
     },
 
 )
-const EmployeeModal = model('DEPARTMENT', EmployeeInformation, "Employee Information");
+const DepartmentModal = model('DEPARTMENT', Department, "department Information");
 
 
 
 
-module.exports = { EmployeeModal};
+module.exports = { DepartmentModal };
 
