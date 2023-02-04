@@ -12,7 +12,7 @@ import profile from "../../../Assets/fotor_2023-1-29_23_12_31.png"
 
 const routes = [
   {
-    path: "/",
+    path: "/admin/dashboard",
     name: "Dashboard",
     icon: <FaHome />,
   },

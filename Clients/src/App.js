@@ -36,35 +36,47 @@ function App() {
     <>
 
 
-
-      <SideBar>
-        <Navbar />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/employee/add" element={<><MasterForm /></>} />
-          <Route path="/employee/manage" element={<ManageEmployees />} />
-          <Route path="/employee/view" element={<View />} />
-
-          <Route path="/department/add" element={<AddDepartment />} />
-          <Route path="/department/manage" element={<ManageDepartment />} />
-
-          <Route path="/attendence/daily" element={<DailyAtendence />} />
-          <Route path="/attendence/report" element={<AttendenceReport />} />
-
-          <Route path="/leave/add" element={<AddLeave />} />
-          <Route path="/leave/manage" element={<ManageLeave />} />
-
-          <Route path="/payslip/add" element={<AddPayslip />} />
-          <Route path="payslip/list" element={<PayslipList />} />
+{ location.pathname != '/login' ? 
 
 
+<SideBar>
+<Navbar />
+<Routes>
+  {/* <Route path="/login" element={<Login />} /> */}
+
+  <Route path="/admin/dashboard" element={<Dashboard />} />
+  <Route path="/employee/add" element={<><MasterForm /></>} />
+  <Route path="/employee/manage" element={<ManageEmployees />} />
+  <Route path="/employee/view" element={<View />} />
+
+  <Route path="/department/add" element={<AddDepartment />} />
+  <Route path="/department/manage" element={<ManageDepartment />} />
+
+  <Route path="/attendence/daily" element={<DailyAtendence />} />
+  <Route path="/attendence/report" element={<AttendenceReport />} />
+
+  <Route path="/leave/add" element={<AddLeave />} />
+  <Route path="/leave/manage" element={<ManageLeave />} />
+
+  <Route path="/payslip/add" element={<AddPayslip />} />
+  <Route path="payslip/list" element={<PayslipList />} />
 
 
-          <Route path="*" element={<> not found</>} />
-        </Routes>
-      </SideBar>
+
+
+  <Route path="*" element={<> not found</>} />
+</Routes>
+</SideBar>
+:
+
+
+<Routes>
+  <Route path="/login" element={<Login />} />
+
+</Routes>
+
+}
+   
 
 
 

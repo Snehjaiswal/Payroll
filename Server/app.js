@@ -5,6 +5,7 @@ const app = express();
 const cors = require('cors');
 app.use(cors())
 require('dotenv').config();
+const EmployeeModal = require('./app/Models/Employee/Employee.model')
 
 app.get("/", (req, res) => res.send("Welcome every one...."));
 
@@ -13,6 +14,19 @@ app.use(bodyparser.json());
 // Routes Or API's
 
 app.use("/employee", require("./app/routes/Employee/Employee.route"));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const port = 5500
 

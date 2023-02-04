@@ -65,6 +65,12 @@ const EmployeeInformation = Schema({
         type: Buffer,
         required: true
     },
+    Role_Id :{
+        type:String,
+        Enum:[0,1],
+        default:0
+
+    }
 
 },
     {

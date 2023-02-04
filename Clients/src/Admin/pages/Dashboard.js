@@ -1,13 +1,24 @@
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
+
 import '../../Css/dashboard.css'
 
 
 
 const Dashboard = () => {
-  const style = {
+  const Role_id = localStorage.getItem('Role_id')
+  const navigate = useNavigate()
 
-  }
+
+  useEffect(() => {
+
+    if (Role_id != "1") {
+      localStorage.clear();
+      navigate('/login')
+    }
 
 
+  }, []);
 
   return (
     <>

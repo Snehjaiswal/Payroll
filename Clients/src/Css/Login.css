@@ -1,0 +1,9 @@
+.LoginBody {
+    text-align: center;
+    justify-content: center;
+    margin: 100px;
+    padding: 5px;
+    height: 40vh !important;
+    width: 400px !important;
+    background-color: rgb(181, 195, 207);
+}

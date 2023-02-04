@@ -25,7 +25,7 @@ class Employee {
                 if (ExistEmail)
                     return res.status(400).json({ msg: "This email already exists." });
 
-                    
+
                 // Account Number Check 
                 const ExistAccountNumber = await EmployeeAccountModal.findOne({ Account_Number });
 
@@ -63,7 +63,7 @@ class Employee {
 
                 // Employee Financial Information 
                 const EmployeeFinabcialInfo = new EmployeeFinancialModal({
-                    Basic_salary,Increment, IncrementPercent, Bonus,
+                    Basic_salary, Increment, IncrementPercent, Bonus,
                     userid: employSave.id
                 });
 
@@ -72,7 +72,7 @@ class Employee {
 
 
 
-                res.send({ msg: "Success"});
+                res.send({ msg: "Success" });
             }
         }
         catch (error) {
@@ -81,7 +81,48 @@ class Employee {
     }
 
 
+
+    async Login(req, res) {
+        const { Email, Password } = req.body;
+
+        if (!Email || !Password)
+            return res.send({ msg: "Please fill in all fields." });
+
+        if (!validateEmail(Email))
+            return res.send({ msg: "Invalid emails." });
+
+        // CHECK EMAIL IS ALREADY EXISTS ARE NOT
+        const user = await EmployeeModal.findOne({ Email });
+
+        if (!user)
+            return res.status(400).json({ msg: "This Email Not exists." });
+
+
+        if (user.Password != Password)
+            return res.status(400).json({ msg: "Password Not Match." });
+
+        if (!Password.length > 6)
+            return res.send({ msg: "Password length minimum 6..." })
+
+
+        res.send({ msg: "Success", data: user })
+
+    }
+
+
+
 }
+
+
+// // email validation
+
+function validateEmail(Email) {
+    const re =
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(Email);
+}
+
+
 
 
 module.exports = new Employee();

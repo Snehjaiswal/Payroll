@@ -14,7 +14,7 @@ import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
-// import Step5 from "./Step5";
+
 
 
 import styled from "styled-components";
@@ -97,7 +97,7 @@ console.log("currentStep",currentStep);
   get nextButton() {
     let currentStep = this.state.currentStep;
     // If the current step is not 3, then render the "next" button
-    if (currentStep < 5) {
+    if (currentStep < 4) {
       return (
         <Button color="primary float-right" onClick={this._next} style={{"marginLeft":"20px"}}>
            Next 
@@ -112,7 +112,7 @@ console.log("currentStep",currentStep);
     let currentStep = this.state.currentStep;
 
     // If the current step is the last step, then render the "submit" button
-    if (currentStep == 5) {
+    if (currentStep == 4) {
       return <Button color="primary float-right" style={{"marginLeft":"20px"}}>Submit</Button>;
     }
     // ...else render nothing
@@ -150,11 +150,7 @@ console.log("currentStep",currentStep);
                 handleChange={this.handleChange}
                 // email={this.state.password}
               />
-               {/* <Step5
-                currentStep={this.state.currentStep}
-                handleChange={this.handleChange}
-                // email={this.state.password}
-              /> */}
+             
             </CardBody>
             <CardFooter  style={{"textAlign":"right","display":"flex"}}>
               {this.previousButton}
