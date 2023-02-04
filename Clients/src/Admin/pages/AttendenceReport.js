@@ -7,11 +7,12 @@ import DataTable from 'react-data-table-component';
 
 
 function AttendenceReport() {
-    const [getDay, setDays] = useState()
+    const [getDay, setDays] = useState(new Date(new Date().getFullYear(), new Date().getMonth(), 0).getDate())
+
 
     const Filter = () => {
         setDays(new Date(new Date().getFullYear(), new Date().getMonth(), 0).getDate())
-        var currentMontDay = new Date(new Date().getFullYear(), new Date().getMonth(), 0).getDate()
+        // var currentMontDay = new Date(new Date().getFullYear(), new Date().getMonth(), 0).getDate()
     }
     const month = ["Month", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 

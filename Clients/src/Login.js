@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import axios from 'axios';
+import axios from 'axios'
 
 function Login() {
 
@@ -60,6 +60,7 @@ function Login() {
   return (
     <>
 
+
       <div className='123'>
 
         <Card className='LoginBody' >
@@ -90,7 +91,6 @@ function Login() {
           </Card.Body>
         </Card>
       </div>
-
 
 
 

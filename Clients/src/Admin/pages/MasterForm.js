@@ -150,8 +150,7 @@ console.log("currentStep",currentStep);
                 handleChange={this.handleChange}
                 // email={this.state.password}
               />
-             
-            </CardBody>
+    </CardBody>
             <CardFooter  style={{"textAlign":"right","display":"flex"}}>
               {this.previousButton}
               {this.nextButton}

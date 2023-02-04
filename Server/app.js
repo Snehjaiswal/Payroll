@@ -14,6 +14,9 @@ app.use(bodyparser.json());
 // Routes Or API's
 
 app.use("/employee", require("./app/routes/Employee/Employee.route"));
+app.use(require("./app/routes/Holiday/Holiday.route"));
+app.use(require("./app/routes/Department/Department.route"))
+
 
 
 
