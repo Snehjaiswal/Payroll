@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
 import '../src/Css/Login.css'
-import Card from 'react-bootstrap/Card';
 import { useNavigate } from "react-router-dom";
 
-import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
 import axios from 'axios'
 
 function Login() {
 
   const navigate = useNavigate()
-
   const [getemail, setemail] = useState('')
   const [getpassword, setpassword] = useState('')
 
@@ -18,81 +14,58 @@ function Login() {
 
   const Login = () => {
 
-    var data = JSON.stringify({
-      "Email": getemail,
-      "Password": getpassword
-    });
-
-    var config = {
+    axios({
       method: 'post',
       url: 'http://localhost:5500/employee/login',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data: data
-    };
-
-    axios(config)
+      data: {
+        "Email": getemail,
+        "Password": getpassword
+      }
+    })
       .then(function (response) {
-        console.log(JSON.stringify(response.data.data));
 
         localStorage.setItem('id', response.data.data._id)
         localStorage.setItem('Role_id', response.data.data.Role_Id)
-
 
         if (response.data.data.Role_Id == 1) {
           navigate('/admin/dashboard')
         } else if (response.data.data.Role_Id == 0) {
           alert("Employee Work is PAndding")
-
         }
-
-
       })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-
   }
 
 
   return (
     <>
 
+      {/* Login Form */}
+      <div class="bg-blue-500">
 
-      <div className='123'>
-
-        <Card className='LoginBody' >
-          <Card.Body >
-            <Card.Title>Login</Card.Title>
-
-
-
-            <div>
-              <div className="mb-6" controlId="formBasicEmail">
-                <div>Email address</div>
-
-                <input type="email" placeholder="Enter email" onChange={(e) => setemail(e.target.value)} />
-
-              </div>
-
-              <div className="mb-3" controlId="formBasicPassword">
-                <div>Password</div>
-                <input type="password" placeholder="Password" onChange={(e) => setpassword(e.target.value)} />
-              </div>
-
-              <Button variant="primary" type="submit" onClick={() => Login()}>
-                Submit
-              </Button>
+        <div className="container mx-auto p-2">
+          <div className="max-w-sm mx-auto my-24 bg-white px-5 py-10 rounded shadow-xl">
+            <div className="text-center mb-8">
+              <h1 className="font-bold text-2xl font-bold">Login To Payroll</h1>
             </div>
+            <div >
+              <div className="mt-5">
+                <label htmlFor="username">Username or Email</label>
+                <input type="text" id="username" className="block w-full p-1 border rounded border-gray-500" onChange={(e) => setemail(e.target.value)} />
+              </div>
+              <div className="mt-5">
+                <label htmlFor="password">Password</label>
+                <input type="password" id="password" className="block w-full p-2 border rounded border-gray-500" onChange={(e) => setpassword(e.target.value)} />
+              </div>
+              <div className="mt-10">
+                <input type="submit" defaultValue="Login" className="py-3 bg-green-500 hover:bg-green-600 rounded text-white text-center w-full" onClick={() => Login()} />
+              </div>
+            </div>
+          </div>
+        </div>
 
 
-          </Card.Body>
-        </Card>
+
       </div>
-
-
 
 
 

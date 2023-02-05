@@ -30,6 +30,8 @@ import PayslipList from "./Admin/pages/PayslipList";
 
 import CalendarPage from "./Admin/Calender/ReactBigCalendar";
 
+// import Login1 from "../Login1";
+
 function App() {
 
   const location = useLocation()
@@ -64,7 +66,10 @@ function App() {
 
             <Route path="/payslip/add" element={<AddPayslip />} />
             <Route path="payslip/list" element={<PayslipList />} />
+           
+          
 
+            
 
 
 

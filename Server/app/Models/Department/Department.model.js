@@ -24,7 +24,7 @@ const Department = Schema({
     },
 
 )
-const DepartmentModal = model('DEPARTMENT', Department, "department Information");
+const DepartmentModal = model('DEPARTMENT', Department);
 
 
 

@@ -78,7 +78,7 @@ const EmployeeInformation = Schema({
     },
 
 )
-const EmployeeModal = model('EMPLOYEE', EmployeeInformation, "Employee Information");
+const EmployeeModal = model('EMPLOYEES', EmployeeInformation);
 
 
 // Employee Company Information Collection
@@ -104,7 +104,7 @@ const EmployeeCompanyInformation = Schema({
         trim: true
     },
     userid: {
-        type: String,
+        type: Schema.ObjectId,
         required: true,
         trim: true
     },
@@ -115,7 +115,7 @@ const EmployeeCompanyInformation = Schema({
     },
 
 )
-const EmployeeComapnyModal = model('EMPLOYEE_COMPANY_INFORMATION', EmployeeCompanyInformation, "Employee Company Information");
+const EmployeeComapnyModal = model('COMPANY_INFORMATION', EmployeeCompanyInformation);
 
 
 // Employee Account Information Collection
@@ -147,7 +147,7 @@ const EmployeeAccountInformation = Schema({
         trim: true
     },
     userid: {
-        type: String,
+        type: Schema.ObjectId,
         required: true,
         trim: true
     },
@@ -158,7 +158,7 @@ const EmployeeAccountInformation = Schema({
     },
 
 )
-const EmployeeAccountModal = model('EMPLOYEE_ACCOUNT_INFORMATION', EmployeeAccountInformation, "Employee Acount Information");
+const EmployeeAccountModal = model('ACCOUNT_INFORMATION', EmployeeAccountInformation);
 
 
 // Employee Financial Information Collection
@@ -183,7 +183,7 @@ const EmployeeFinancialInformation = Schema({
         trim: true
     },
     userid: {
-        type: String,
+        type:Schema.ObjectId,
         required: true,
         trim: true
     },
@@ -194,7 +194,7 @@ const EmployeeFinancialInformation = Schema({
     },
 
 )
-const EmployeeFinancialModal = model('EMPLOYEE_FINANCIAL_INFORMATION', EmployeeFinancialInformation, "Employee Financial Information");
+const EmployeeFinancialModal = model('FINANCIAL_INFORMATION', EmployeeFinancialInformation);
 
 
 

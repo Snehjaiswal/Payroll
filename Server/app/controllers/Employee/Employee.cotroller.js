@@ -62,7 +62,7 @@ class Employee {
 
                 await EmployeeAccountInfo.save();
 
-               
+
                 // Employee Financial Information 
                 const EmployeeFinabcialInfo = new EmployeeFinancialModal({
                     Basic_salary, Increment, IncrementPercent, Bonus,
@@ -80,130 +80,89 @@ class Employee {
             res.send({ msg: "Error=>" + error })
         }
         res.send({ msg: "Success" });
-  
-  
-  }
-
-//   async aggre(req, res) {
-//     collection('Payroll')
-//         .aggregate(
-//             [
-//                 { $match: { clothId: { '$in': convertInto } } }, // convertInto is arrays of sold clothId which I got from Shopify
-//                 {
-//                     $lookup:
-//                     {
-//                         from: "bags",
-//                         localField: "bagId",
-//                         foreignField: "bagId",
-//                         as: "bags"
-//                     }
-//                 },
-//                 {
-//                     $lookup:
-//                     {
-//                         from: "sellers",
-//                         localField: "sellerId",
-//                         foreignField: "sellerId",
-//                         as: "sellers"
-//                     },
-//                 },
-//                 {
-//                     "$project": {
-//                         "bagId": 1.0,
-//                         "bags.source": 1.0,
-//                         "sellers.firstName": 1.0, // dont get anything
-//                         "sellers.lastName": 1.0,  // dont get anything
-//                         "brand": 1.0
-//                     }
-//                 },
-//             ]
-//         ).toArray()
-
-// }
-
-
-
-
-
-
-  async GetEmployees(req, res) {
-
-    try {
-
-        let QueryObject = [{
-            $lookup: {
-                from: "Employee Company Information",
-                localField: "userid",
-                foreignField: "_id",
-                as: "Employee All Information"
-            }
-        }];
-        // let QueryObject1 = [{
-        //   $lookup: {
-        //     from: "Employee Company Information",
-        //     localField: "userid",
-        //     foreignField: "_id",
-        //     as: "Employee Information"
-        //   }
-        // }];
-
-        // let QueryObject2 = [{
-        //   $lookup: {
-        //     from: "Employee Financial Information",
-        //     localField: "_id",
-        //     foreignField: "userid",
-        //     as: "Employee Information"
-        //   }
-        // }];
-
-        // const cursor = EmployeeModal.aggregate(QueryObject,QueryObject1,QueryObject2)
-        const cursor = EmployeeModal.aggregate([{
-            $lookup: {
-                from: "Employee Company Information",
-                localField: "userid",
-                foreignField: "_id",
-                as: "Employee All Information"
-            }
-        }])
-
-
-        cursor.then(
-            function (item) {
-                console.log("QueryObject", item)
-                res.send({ Employees: item })
-            })
 
 
     }
 
-    catch (err) {
-        console.log("Error=>", err)
-    }
-}
 
 
+    async GetEmployees(req, res) {
+
+        try {
+
+            let QueryObject = [{
+                $lookup: {
+                    from: "Employee Company Information",
+                    localField: "userid",
+                    foreignField: "_id",
+                    as: "Employee All Information"
+                }
+            }];
+            // let QueryObject1 = [{
+            //   $lookup: {
+            //     from: "Employee Company Information",
+            //     localField: "userid",
+            //     foreignField: "_id",
+            //     as: "Employee Information"
+            //   }
+            // }];
+
+            // let QueryObject2 = [{
+            //   $lookup: {
+            //     from: "Employee Financial Information",
+            //     localField: "_id",
+            //     foreignField: "userid",
+            //     as: "Employee Information"
+            //   }
+            // }];
+
+            // const cursor = EmployeeModal.aggregate(QueryObject,QueryObject1,QueryObject2)
+            const cursor = EmployeeModal.aggregate([{
+                $lookup: {
+                    from: "Employee Company Information",
+                    localField: "userid",
+                    foreignField: "_id",
+                    as: "Employee All Information"
+                }
+            }])
 
 
+            cursor.then(
+                function (item) {
+                    console.log("QueryObject", item)
+                    res.send({ Employees: item })
+                })
 
-  async GetAllEmployee(req, res) {
 
-    EmployeeModal.aggregate([
-        {
-            $lookup:
-            {
-                from: "EMPLOYEE_COMPANY_INFORMATION",
-                localField: "userid",
-                foreignField: "_id",
-                as: "Employee All Information"
-            }
         }
-    ]).then(function (err, res) {
-        if (err) throw err;
-        console.log(JSON.stringify(res));
 
-    })
+        catch (err) {
+            console.log("Error=>", err)
+        }
+    }
 
-}
+
+
+
+
+    async GetAllEmployee(req, res) {
+
+
+
+        const docs = await EmployeeModal.aggregate([
+            {
+                $lookup: {
+                    from: "company_informations",
+                    localField: "_id",
+                    foreignField: "userid",
+                    as: "result"
+                }
+            }
+        ])
+        console.log("docs", docs)
+        res.send({msg:docs})
+
+    }
 
 
 
@@ -212,31 +171,31 @@ class Employee {
 
 
     async Login(req, res) {
-    const { Email, Password } = req.body;
+        const { Email, Password } = req.body;
 
-    if (!Email || !Password)
-        return res.send({ msg: "Please fill in all fields." });
+        if (!Email || !Password)
+            return res.send({ msg: "Please fill in all fields." });
 
-    if (!validateEmail(Email))
-        return res.send({ msg: "Invalid emails." });
+        if (!validateEmail(Email))
+            return res.send({ msg: "Invalid emails." });
 
-    // CHECK EMAIL IS ALREADY EXISTS ARE NOT
-    const user = await EmployeeModal.findOne({ Email });
+        // CHECK EMAIL IS ALREADY EXISTS ARE NOT
+        const user = await EmployeeModal.findOne({ Email });
 
-    if (!user)
-        return res.status(400).json({ msg: "This Email Not exists." });
-
-
-    if (user.Password != Password)
-        return res.status(400).json({ msg: "Password Not Match." });
-
-    if (!Password.length > 6)
-        return res.send({ msg: "Password length minimum 6..." })
+        if (!user)
+            return res.status(400).json({ msg: "This Email Not exists." });
 
 
-    res.send({ msg: "Success", data: user })
+        if (user.Password != Password)
+            return res.status(400).json({ msg: "Password Not Match." });
 
-}
+        if (!Password.length > 6)
+            return res.send({ msg: "Password length minimum 6..." })
+
+
+        res.send({ msg: "Success", data: user })
+
+    }
 
 
 
