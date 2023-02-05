@@ -58,6 +58,9 @@ function App() {
 
             <Route path="/leave/add" element={<AddLeave />} />
             <Route path="/leave/manage" element={<ManageLeave />} />
+            
+            <Route path="/holiday" element={<CalendarPage />} />
+
 
             <Route path="/payslip/add" element={<AddPayslip />} />
             <Route path="payslip/list" element={<PayslipList />} />

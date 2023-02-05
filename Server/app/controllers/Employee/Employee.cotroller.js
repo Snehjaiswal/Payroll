@@ -84,42 +84,42 @@ class Employee {
   
   }
 
-  async aggre(req, res) {
-    collection('Payroll')
-        .aggregate(
-            [
-                { $match: { clothId: { '$in': convertInto } } }, // convertInto is arrays of sold clothId which I got from Shopify
-                {
-                    $lookup:
-                    {
-                        from: "bags",
-                        localField: "bagId",
-                        foreignField: "bagId",
-                        as: "bags"
-                    }
-                },
-                {
-                    $lookup:
-                    {
-                        from: "sellers",
-                        localField: "sellerId",
-                        foreignField: "sellerId",
-                        as: "sellers"
-                    },
-                },
-                {
-                    "$project": {
-                        "bagId": 1.0,
-                        "bags.source": 1.0,
-                        "sellers.firstName": 1.0, // dont get anything
-                        "sellers.lastName": 1.0,  // dont get anything
-                        "brand": 1.0
-                    }
-                },
-            ]
-        ).toArray()
+//   async aggre(req, res) {
+//     collection('Payroll')
+//         .aggregate(
+//             [
+//                 { $match: { clothId: { '$in': convertInto } } }, // convertInto is arrays of sold clothId which I got from Shopify
+//                 {
+//                     $lookup:
+//                     {
+//                         from: "bags",
+//                         localField: "bagId",
+//                         foreignField: "bagId",
+//                         as: "bags"
+//                     }
+//                 },
+//                 {
+//                     $lookup:
+//                     {
+//                         from: "sellers",
+//                         localField: "sellerId",
+//                         foreignField: "sellerId",
+//                         as: "sellers"
+//                     },
+//                 },
+//                 {
+//                     "$project": {
+//                         "bagId": 1.0,
+//                         "bags.source": 1.0,
+//                         "sellers.firstName": 1.0, // dont get anything
+//                         "sellers.lastName": 1.0,  // dont get anything
+//                         "brand": 1.0
+//                     }
+//                 },
+//             ]
+//         ).toArray()
 
-}
+// }
 
 
 

@@ -46,13 +46,13 @@ function Navbar() {
                                 </li>
 
                                 <li className="nav-item" style={{ "display": "flex", "width": "150px" }}>
-                                <DropdownButton id="dropdown-basic-button" title="Administor">
-                                    <img src={profile} className="rounded" alt="Cinque Terre" height={"40px"} /> <hr />
-                                    <Dropdown.Item >Profile</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => Logout()}>Logout</Dropdown.Item>
-                                </DropdownButton>
+                                    <DropdownButton id="dropdown-basic-button" title="Administor">
+                                        <img src={profile} className="rounded" alt="Cinque Terre" height={"40px"} /> <hr />
+                                        <Dropdown.Item >Profile</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => Logout()}>Logout</Dropdown.Item>
+                                    </DropdownButton>
                                 </li>
-                               
+
                             </ul>
                         </div>
                     </div>

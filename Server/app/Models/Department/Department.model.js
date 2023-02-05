@@ -13,6 +13,10 @@ const Department = Schema({
         type: String,
         required: true,
         trim: true
+    },
+    Status: {
+        type: Boolean,
+        default:false
     }
 },
     {

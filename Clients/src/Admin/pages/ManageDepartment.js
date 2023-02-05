@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import DataTableExtensions from "react-data-table-component-extensions";
 import { useNavigate } from "react-router-dom"
+import { Form } from "react-bootstrap";
+
+import axios from 'axios';
 
 import Card from 'react-bootstrap/Card';
 
 function ManageDepartment() {
   const navigate = useNavigate();
+
+  const [Deparments, setDeparments] = useState([])
+  const [refresh, setrefresh] = useState(true)
+
+
 
   const columns = [
     {
@@ -14,40 +22,44 @@ function ManageDepartment() {
       width: '100px !important',
       selector: (row, index) => index + 1,
     },
- 
+
     {
       name: 'Department',
       width: '160px !important',
-      selector: row => row.title,
+      selector: row => row.Department,
     },
 
     {
       name: 'Designation',
       width: '160px !important',
-      selector: row => row.title,
+      selector: row => row.Designation,
     },
     {
       name: 'Total Employee',
       width: '160px !important',
-      selector: row => row.title,
+      selector: row => "10",
     },
     {
       name: 'Create At',
       width: '160px !important',
-      selector: row => "01-01-2023",
+      selector: row => row.createdAt.split('T')[0],
     },
     {
-      name: 'Total Employee',
-      width: '160px !important',
-      selector: row => (<>
-       <select name="Status" value required>
-                <option >Status</option>
-                <option defaultValue="Active">Active</option>
-                <option defaultValue="DeActive">DeActive</option>
-       
-
-              </select>
-      </>),
+      name: 'Status',
+      width: '80px !important',
+      selector: (row) => (
+        <>
+          <Form.Check
+            type="switch"
+            id="custom-switch"
+            defaultChecked={row.Status === true ? true : false}
+            onClick={(e) => { UpdateDeparmentStatus(e, row) }}
+          />
+        </>
+      ),
+      ignoreRowClick: true,
+      allowOverflow: true,
+      button: true,
     },
 
     {
@@ -58,7 +70,7 @@ function ManageDepartment() {
         <>
 
           <h6><i className="fa-solid fa-pen-to-square" style={{ "marginLeft": "10px" }}></i></h6>
-          <h6> <i className="fa-solid fa-trash" style={{ "marginLeft": "10px" }}></i></h6>
+          <h6> <i className="fa-solid fa-trash" style={{ "marginLeft": "10px" }} onClick={() => deleteDepartment(row)}></i></h6>
 
         </>
       ),
@@ -68,49 +80,7 @@ function ManageDepartment() {
     },
   ];
 
-  const data = [
-    {
-      id: 1,
-      title: 'Beetlejuice',
-      year: '1988',
-      email: "Sneh@gamial.com"
-    },
-    {
-      id: 2,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    },
-    {
-      id: 3,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    }, {
-      id: 4,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    }, {
-      id: 5,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    },
-    {
-      id: 5,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    },
-  ]
-
-
+ 
 
   const customStyles = {
 
@@ -142,6 +112,80 @@ function ManageDepartment() {
     },
   };
 
+  const DeparmentsData = () => {
+
+    var config = {
+      method: 'get',
+      url: 'http://localhost:5500/get-department',
+      headers: {}
+    };
+
+    axios(config)
+      .then(function (response) {
+        // console.log(response.data.DeparmentData);
+        setDeparments(response.data.DeparmentData)
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  }
+
+  const UpdateDeparmentStatus = (e, row) => {
+
+    var config = {
+      method: 'post',
+      url: 'http://localhost:5500/update-status',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        "id": row._id,
+        "status": e.target.checked
+      }
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+  }
+
+  const deleteDepartment = (row) => {
+  
+
+    var config = {
+      method: 'post',
+      url: 'http://localhost:5500/delete-deparment',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : {
+        "_id":row._id
+      }
+    };
+    
+    axios(config)
+    .then(function (response) {
+      setrefresh(!refresh)
+      console.log(response.data);
+    })
+   
+    
+
+  }
+
+
+  useEffect(() => {
+    DeparmentsData()
+
+  }, [refresh]);
 
   return (
     <>
@@ -151,7 +195,7 @@ function ManageDepartment() {
           <Card.Text>
             <DataTableExtensions
               columns={columns}
-              data={data}
+              data={Deparments}
               export={false}
               print={false}
             >

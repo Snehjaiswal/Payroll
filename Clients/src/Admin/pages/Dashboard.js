@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
-
+import axios from 'axios'
 import '../../Css/dashboard.css'
 
 
 
 const Dashboard = () => {
+const [DeparmentCount,setDeparmentCount] = useState('')
+const [EmployeeCount,setEmployeeCount] = useState('')
+
+
   const Role_id = localStorage.getItem('Role_id')
   const navigate = useNavigate()
 
@@ -18,7 +22,26 @@ const Dashboard = () => {
     }
 
 
-  }, []);
+  }, [
+  
+    axios({
+      method: 'get',
+      url: 'http://localhost:5500/dashboard',
+     
+    })
+    .then(function (response) {
+      // console.log(response.data)
+      setDeparmentCount(response.data.msg.DeparmentData)
+      setEmployeeCount(response.data.msg.EmployeeData)
+
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+
+
+
+  ]);
 
   return (
     <>
@@ -33,26 +56,26 @@ const Dashboard = () => {
             <div className="c-dashboardInfo col-lg-3 col-md-6">
               <div className="wrap">
                 <h4 className="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Deparments
-                </h4><span className="hind-font caption-12 c-dashboardInfo__count">4 <i className="fa-regular fa-building-user"></i></span>
+                </h4><span className="hind-font caption-12 c-dashboardInfo__count">{DeparmentCount}<i className="fa-regular fa-building-user" style={{"marginLeft":"15px"}}></i></span>
               </div>
             </div>
             <div className="c-dashboardInfo col-lg-3 col-md-6">
               <div className="wrap">
                 <h4 className="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Employees
-                </h4><span className="hind-font caption-12 c-dashboardInfo__count">4 <i className="fa-solid fa-users"></i></span>
+                </h4><span className="hind-font caption-12 c-dashboardInfo__count">{EmployeeCount} <i className="fa-solid fa-users" style={{"marginLeft":"15px"}}></i></span>
               </div>
             </div>
             <div className="c-dashboardInfo col-lg-3 col-md-6">
               <div className="wrap">
                 <h4 className="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Present Today
-                </h4><span className="hind-font caption-12 c-dashboardInfo__count">4 <i className="fa-solid fa-user"></i>
+                </h4><span className="hind-font caption-12 c-dashboardInfo__count">4 <i className="fa-solid fa-user" style={{"marginLeft":"15px"}}></i>
                 </span>
               </div>
             </div>
             <div className="c-dashboardInfo col-lg-3 col-md-6">
               <div className="wrap">
                 <h4 className="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Payslip Month
-                </h4><span className="hind-font caption-12 c-dashboardInfo__count">4 <i className="fa-solid fa-bookmark"></i></span>
+                </h4><span className="hind-font caption-12 c-dashboardInfo__count">4 <i className="fa-solid fa-bookmark" style={{"marginLeft":"15px"}}></i></span>
               </div>
             </div>
 
