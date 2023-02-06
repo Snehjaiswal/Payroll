@@ -10,7 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import profile from "../../../Assets/fotor_2023-1-29_23_12_31.png"
 
-const routes = [
+const Admin = [
   {
     path: "/admin/dashboard",
     name: "Dashboard",
@@ -55,7 +55,7 @@ const routes = [
     ],
   },
   {
-    path: "/attendence",
+    path: "/admin/attendence",
     name: "Attendence",
     icon: <MdMessage />,
     exact: true,
@@ -73,24 +73,24 @@ const routes = [
    
     ],
   },
-  {
-    path: "/leave",
-    name: "Leave",
-    icon: <MdMessage />,
-    exact: true,
-    subRoutes: [
-      {
-        path: "/leave/add",
-        name: "Add Leave ",
-        icon: <FaUser />,
-      },
-      {
-        path: "/leave/manage",
-        name: "Manage Leave",
-        icon: <FaLock />,
-      }
-    ],
-  },
+  // {
+  //   path: "/leave",
+  //   name: "Leave",
+  //   icon: <MdMessage />,
+  //   exact: true,
+  //   subRoutes: [
+  //     {
+  //       path: "/leave/add",
+  //       name: "Add Leave ",
+  //       icon: <FaUser />,
+  //     },
+  //     {
+  //       path: "/leave/manage",
+  //       name: "Manage Leave",
+  //       icon: <FaLock />,
+  //     }
+  //   ],
+  // },
   {
     path: "/payroll",
     name: "Payroll",
@@ -109,24 +109,68 @@ const routes = [
       }
     ],
   },
-  // {
-  //   path: "/holiday",
-  //   name: "Holiday",
-  //   icon: <BiAnalyse />,
-  //   exact: true,
-    // subRoutes: [
-    //   {
-    //     path: "/holiday/add",
-    //     name: "Create Holiday ",
-    //     icon: <FaUser />,
-    //   },
-    //   {
-    //     path: "/holiday/manage",
-    //     name: "Manage Holiday",
-    //     icon: <FaLock />,
-    //   }
-    // ],
-  // },
+
+
+  {
+    path: "/admin/holiday",
+    name: "Holiday",
+    icon: <BsCartCheck />,
+  },
+  {
+    path: "/settings",
+    name: "Settings",
+    icon: <BiCog />,
+    exact: true,
+    subRoutes: [
+      {
+        path: "/settings/change-password",
+        name: "Change Password ",
+        icon: <FaUser />,
+      },
+      
+      {
+        path: "/settings/billing",
+        name: "Billing",
+        icon: <FaMoneyBill />,
+      },
+    ],
+  },
+  {
+    path: "/logout",
+    name: "Logout",
+    icon: <BsCartCheck />,
+  },
+ 
+ 
+];
+
+const EmployeeRoute = [
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    icon: <FaHome />,
+  },
+  {
+    path: "/department",
+    name: "Department",
+    icon: <MdMessage />,
+  },
+  {
+    path: "/attendence",
+    name: "Attendence",
+    icon: <MdMessage />,
+  },
+  {
+    path: "/leave",
+    name: "Leave",
+    icon: <MdMessage />,  
+  },
+  {
+    path: "/payslip",
+    name: "payslip",
+    icon: <MdMessage />,
+
+  },
 
   {
     path: "/holiday",
@@ -165,6 +209,18 @@ const routes = [
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
+
+const RoleId = localStorage.getItem('Role_id')
+
+
+var routes
+
+if(RoleId == 1){
+  routes = Admin
+}else if(RoleId == 0){
+  routes = EmployeeRoute
+}
+
   const inputAnimation = {
     hidden: {
       width: 0,
@@ -215,42 +271,7 @@ const SideBar = ({ children }) => {
           className={`sidebar `}
         >
           <div>
-          {/* <div className="top_section">
-            <AnimatePresence>
-              {isOpen && (
-                <motion.h1
-                  variants={showAnimation}
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  className="logo"
-                >
-                  Payroll Portal 
-                </motion.h1>
-              )}
-            </AnimatePresence>
 
-            <div className="bars">
-              <FaBars onClick={toggle} />
-            </div>
-          </div> */}
-          {/* <div className="search">
-            <div className="search_icon">
-              <BiSearch />
-            </div>
-            <AnimatePresence>
-              {isOpen && (
-                <motion.input
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  variants={inputAnimation}
-                  type="text"
-                  placeholder="Search"
-                />
-              )}
-            </AnimatePresence>
-          </div> */}
           <div style={{"display":"flex","marginTop":"15px"}}>
             <div >
             <img className="rounded"  style={{"height":"50px","marginLeft":"5px"}}  src={profile} alt="" />

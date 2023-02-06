@@ -30,7 +30,8 @@ function Login() {
         if (response.data.data.Role_Id == 1) {
           navigate('/admin/dashboard')
         } else if (response.data.data.Role_Id == 0) {
-          alert("Employee Work is PAndding")
+          navigate('/dashboard')
+
         }
       })
   }

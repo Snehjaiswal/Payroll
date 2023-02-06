@@ -40,13 +40,13 @@ function Navbar() {
                                 <li className="nav-item" style={{ "width": "40px" }}>
                                     <a className="nav-link" aria-current="page" href="#"> <i className="fa-light fa-envelope"></i></a>
                                 </li>
-                                <li className="nav-item" style={{ "display": "flex", "width": "150px" }}>
-                                    {/* <img src={profile} className="rounded" alt="Cinque Terre" height={"20px"} /> */}
+                                {/* <li className="nav-item" style={{ "display": "flex", "width": "150px" }}>
+                                    <img src={profile} className="rounded" alt="Cinque Terre" height={"20px"} />
                                     <a className="nav-link" aria-current="page" href="#">Administor</a>
-                                </li>
+                                </li> */}
 
                                 <li className="nav-item" style={{ "display": "flex", "width": "150px" }}>
-                                    <DropdownButton id="dropdown-basic-button" title="Administor">
+                                    <DropdownButton  id="dropdown-basic-button" title="Administor" variant="secondary">
                                         <img  className="rounded" alt="Cinque Terre" height={"40px"} /> <hr />
                                         <Dropdown.Item >Profile</Dropdown.Item>
                                         <Dropdown.Item onClick={() => Logout()}>Logout</Dropdown.Item>

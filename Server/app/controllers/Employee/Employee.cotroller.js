@@ -77,11 +77,9 @@ class Employee {
             }
         }
         catch (error) {
-            res.send({ msg: "Error=>" + error })
+            res.send({ msg: "Error=>" , error })
         }
-        res.send({ msg: "Success" });
-
-
+       
     }
 
 
@@ -156,6 +154,22 @@ class Employee {
                     localField: "_id",
                     foreignField: "userid",
                     as: "result"
+                }
+            },
+            {
+                $lookup: {
+                    from: "account_informations",
+                    localField: "_id",
+                    foreignField: "userid",
+                    as: "result1"
+                }
+            },
+            {
+                $lookup: {
+                    from: "financial_informations",
+                    localField: "_id",
+                    foreignField: "userid",
+                    as: "result2"
                 }
             }
         ])

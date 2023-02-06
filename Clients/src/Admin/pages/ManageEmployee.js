@@ -1,42 +1,39 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import DataTable from 'react-data-table-component';
 import DataTableExtensions from "react-data-table-component-extensions";
 import { useNavigate } from "react-router-dom"
-
+import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 
 function ManageEmployee() {
   const navigate = useNavigate();
+  const [EmployeeData,setEmplyeeData] = useState([])
 
   const columns = [
     {
       name: 'Serial',
       width: '80px !important',
-      selector: row => row.id,
+      selector: (row,id) => id+1,
     },
     {
       name: 'Name',
       width: '150px !important',
-      selector: row => row.title,
+      selector: row => row.FirstName+" " +row.LastName ,
     },
     {
       name: 'Email',
       width: '150px !important',
-      selector: row => row.email,
+      selector: row => row.Email,
     },
     {
       name: 'Department',
       width: '160px !important',
-      selector: row => row.title,
+      selector: row => row.result[0].Deparment,
     },
-    {
-      name: 'Department',
-      width: '160px !important',
-      selector: row => row.title,
-    },
+    
     {
       name: 'Designation',
-      selector: row => row.year,
+      selector: row => row.result[0].Designation,
     },
     {
       name: 'Status',
@@ -76,53 +73,7 @@ function ManageEmployee() {
     },
   ];
 
-  const data = [
-    {
-      id: 1,
-      title: 'Beetlejuice',
-      year: '1988',
-      email: "Sneh@gamial.com"
-    },
-    {
-      id: 2,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    },
-    {
-      id: 3,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    }, {
-      id: 4,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    }, {
-      id: 5,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    },
-    {
-      id: 5,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    }, {
-      id: 5,
-      title: 'Ghostbusters',
-      year: '1984',
-      email: "Sneh@gamial.com"
-
-    }
-  ]
+ 
 
 
 
@@ -157,6 +108,31 @@ function ManageEmployee() {
   };
 
 
+  const GetAllEmployee = ()=>{
+
+    var config = {
+      method: 'get',
+      url: 'http://localhost:5500/employee/getall',
+      headers: { }
+    };
+    
+    axios(config)
+    .then(function (response) {
+      setEmplyeeData(response.data.msg)
+      console.log(response.data.msg);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
+
+  }
+
+
+  useEffect(() => {
+    GetAllEmployee()
+  }, []);
+
   return (
     <>
 
@@ -165,7 +141,7 @@ function ManageEmployee() {
           <Card.Text>
             <DataTableExtensions
               columns={columns}
-              data={data}
+              data={EmployeeData}
               export={false}
               print={false}
             >

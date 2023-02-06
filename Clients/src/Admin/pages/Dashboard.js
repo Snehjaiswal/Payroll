@@ -16,10 +16,10 @@ const [EmployeeCount,setEmployeeCount] = useState('')
 
   useEffect(() => {
 
-    if (Role_id != "1") {
-      localStorage.clear();
-      navigate('/login')
-    }
+    // if (Role_id != "1" || Role_id != "0") {
+    //   localStorage.clear();
+    //   navigate('/login')
+    // }
 
 
   }, [

@@ -9,28 +9,21 @@ import Login from "./Login";
 
 
 import MasterForm from "./Admin/pages/MasterForm";
-
 import Dashboard from "./Admin/pages/Dashboard";
-
-// import AddEmployee from "./Admin/pages/AddEmployee";
 import ManageEmployees from "./Admin/pages/ManageEmployee";
 import View from "./Admin/pages/View";
-
 import AddDepartment from "./Admin/pages/AddDepartment";
 import ManageDepartment from "./Admin/pages/ManageDepartment";
-
 import DailyAtendence from "./Admin/pages/DailyAtendence";
 import AttendenceReport from "./Admin/pages/AttendenceReport";
-
 import AddLeave from "./Admin/pages/AddLeave";
 import ManageLeave from "./Admin/pages/ManageLeave";
-
 import AddPayslip from "./Admin/pages/AddPayslip";
 import PayslipList from "./Admin/pages/PayslipList";
-
 import CalendarPage from "./Admin/Calender/ReactBigCalendar";
 
-// import Login1 from "../Login1";
+
+import ClientDashboard from '../src/Employees/Dashboard'
 
 function App() {
 
@@ -38,36 +31,33 @@ function App() {
   console.log("location", location);
   return (
     <>
-    
+
       {location.pathname != '/login' ?
 
 
         <SideBar>
           <Navbar />
           <Routes>
-            {/* <Route path="/login" element={<Login />} /> */}
-
+            {/* Admin */}
             <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route path="/employee/add" element={<><MasterForm /></>} />
             <Route path="/employee/manage" element={<ManageEmployees />} />
             <Route path="/employee/view" element={<View />} />
-
             <Route path="/department/add" element={<AddDepartment />} />
             <Route path="/department/manage" element={<ManageDepartment />} />
-
             <Route path="/attendence/daily" element={<DailyAtendence />} />
             <Route path="/attendence/report" element={<AttendenceReport />} />
-
             <Route path="/leave/add" element={<AddLeave />} />
             <Route path="/leave/manage" element={<ManageLeave />} />
-            
-            <Route path="/holiday" element={<CalendarPage />} />
-
-
+            <Route path="/admin/holiday" element={<CalendarPage />} />
             <Route path="/payslip/add" element={<AddPayslip />} />
-            <Route path="payslip/list" element={<PayslipList />} />
-           
-          
+            <Route path="/payslip/list" element={<PayslipList />} />
+
+
+            {/* Employee  */}
+            
+            <Route path="/dashboard" element={<ClientDashboard />} />
+            <Route path="/holiday" element={<CalendarPage />} />
 
             
 
