@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import profile from "../../../Assets/fotor_2023-1-29_23_12_31.png"
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -8,15 +8,12 @@ import { useNavigate } from "react-router-dom";
 
 function Navbar() {
     const navigate = useNavigate()
+    const [getDrop, setDrop] = useState(false)
 
     const Logout = () => {
         localStorage.clear();
         navigate('/login')
     }
-
-
-    var roleId = localStorage.getItem('Role_id')
-    console.log("ds", localStorage.getItem('Role_id'))
 
 
     return (
@@ -39,39 +36,27 @@ function Navbar() {
                             <ul className="navbar-nav ms-auto mb-2 mb-lg-0" style={{ "paddingLeft": "200px !important" }}>
 
                                 <li className="nav-item" style={{ "width": "40px" }}>
-                                    <a className="nav-link" aria-current="page" href="#">  <i className="fa-regular fa-bell"></i></a>
+                                    <a className="nav-link" aria-current="page" href="#" >  <i className="fa-regular fa-bell"></i></a>
                                 </li>
                                 <li className="nav-item" style={{ "width": "40px" }}>
                                     <a className="nav-link" aria-current="page" href="#"> <i className="fa-light fa-envelope"></i></a>
                                 </li>
-                                {/* <li className="nav-item" style={{ "display": "flex", "width": "150px" }}>
-                                    <img src={profile} className="rounded" alt="Cinque Terre" height={"20px"} />
-                                    <a className="nav-link" aria-current="page" href="#">Administor</a>
-                                </li> */}
 
-                                {/* <li className="nav-item" style={{ "display": "flex", "width": "150px" }}>
-                                    <DropdownButton  src={profile} id="dropdown-basic-button" title={ (roleId  == 1 ) ? "Administor" : "User"} variant="secondary">
-
-                                        <img   src={profile} className="rounded" alt="Cinque Terre" height={"10px"} /> <hr />
-                                        <Dropdown.Item >Profile</Dropdown.Item>
-                                        <Dropdown.Item onClick={() => Logout()}>Logout</Dropdown.Item>
-                                    </DropdownButton>
-                                </li> */}
 
                                 <li>
 
-                                    <div class="dropdown">
-                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Tutorials
-                                            <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Normal</a></li>
-                                            <li class="disabled"><a href="#">Disabled</a></li>
-                                            <li class="active"><a href="#">Active</a></li>
-                                            <li><a href="#">Normal</a></li>
+                                    <div className="dropdown">
+                                        <button className="btn  toggle d-flex align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" onClick={() => setDrop(!getDrop)}>
+                                            <img src={profile} className="rounded" alt="Cinque Terre" width={"35px"} />
+                                        </button>
+                                        <ul className={getDrop == false ? "dropdown-menu" : "dropdown-menu show"} aria-labelledby="dropdownMenuButton1">
+                                            <li><a className="dropdown-item" href="#">Profile</a></li><hr />
+                                            <li><a className="dropdown-item" href="#">Setting</a></li>
+                                            <li><a className="dropdown-item" href="#">Logout</a></li>
+
                                         </ul>
                                     </div>
                                 </li>
-
                             </ul>
                         </div>
                     </div>

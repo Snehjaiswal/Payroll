@@ -275,5 +275,9 @@ h4 {
 
 
 
-
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  position: absolute;
+  left: -82px;
+ 
+}
 
