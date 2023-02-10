@@ -32,7 +32,8 @@ function App() {
   return (
     <>
 
-      {location.pathname != '/login' ?
+    
+      { location.pathname == '/' ? <Login /> :location.pathname != '/login' ?
 
 
         <SideBar>
@@ -40,22 +41,21 @@ function App() {
           <Routes>
             {/* Admin */}
             <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route path="/employee/add" element={<><MasterForm /></>} />
-            <Route path="/employee/manage" element={<ManageEmployees />} />
-            <Route path="/employee/view" element={<View />} />
-            <Route path="/department/add" element={<AddDepartment />} />
-            <Route path="/department/manage" element={<ManageDepartment />} />
-            <Route path="/attendence/daily" element={<DailyAtendence />} />
-            <Route path="/attendence/report" element={<AttendenceReport />} />
-            <Route path="/leave/add" element={<AddLeave />} />
-            <Route path="/leave/manage" element={<ManageLeave />} />
+            <Route path="/admin/employee/add" element={<><MasterForm /></>} />
+            <Route path="/admin/employee/manage" element={<ManageEmployees />} />
+            <Route path="/admin/employee/view" element={<View />} />
+            <Route path="/admin/department/add" element={<AddDepartment />} />
+            <Route path="/admin/department/manage" element={<ManageDepartment />} />
+            <Route path="/admin/attendence/daily" element={<DailyAtendence />} />
+            <Route path="/admin/attendence/report" element={<AttendenceReport />} />
+            <Route path="/admin/leave/add" element={<AddLeave />} />
+            <Route path="/admin/leave/manage" element={<ManageLeave />} />
             <Route path="/admin/holiday" element={<CalendarPage />} />
-            <Route path="/payslip/add" element={<AddPayslip />} />
-            <Route path="/payslip/list" element={<PayslipList />} />
+            <Route path="/admin/payslip/add" element={<AddPayslip />} />
+            <Route path="/admin/payslip/list" element={<PayslipList />} />
 
 
             {/* Employee  */}
-            
             <Route path="/dashboard" element={<ClientDashboard />} />
             <Route path="/holiday" element={<CalendarPage />} />
 
@@ -63,15 +63,15 @@ function App() {
 
 
 
-            <Route path="*" element={<> not found</>} />
+           
           </Routes>
         </SideBar>
         :
 
-
         <Routes>
           <Route path="/login" element={<Login />} />
-
+          <Route path="" element={<Login />} />
+          <Route path="*" element={<>not found</>} />
         </Routes>
 
       }

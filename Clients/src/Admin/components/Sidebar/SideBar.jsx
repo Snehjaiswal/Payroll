@@ -1,16 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
-import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
-import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import profile from "../../../Assets/fotor_2023-1-29_23_12_31.png"
 
-const Admin = [
+const routes = [
   {
     path: "/admin/dashboard",
     name: "Dashboard",
@@ -23,12 +21,12 @@ const Admin = [
     exact: true,
     subRoutes: [
       {
-        path: "/employee/add",
+        path: "/admin/employee/add",
         name: "Add Employees",
         icon: <FaUser />,
       },
       {
-        path: "/employee/manage",
+        path: "/admin/employee/manage",
         name: "Manage Employees",
         icon: <FaLock />,
       },
@@ -36,18 +34,18 @@ const Admin = [
     ],
   },
   {
-    path: "/department",
+    path: "/admin/department",
     name: "Department",
     icon: <MdMessage />,
     exact: true,
     subRoutes: [
       {
-        path: "/department/add",
+        path: "/admin/department/add",
         name: "Add Department",
         icon: <FaUser />,
       },
       {
-        path: "/department/manage",
+        path: "/admin/department/manage",
         name: "Manage Department",
         icon: <FaLock />,
       },
@@ -61,12 +59,12 @@ const Admin = [
     exact: true,
     subRoutes: [
       {
-        path: "/attendence/daily",
+        path: "/admin/attendence/daily",
         name: "Daily Attendence",
         icon: <FaUser />,
       },
       {
-        path: "attendence/report",
+        path: "/admin/attendence/report",
         name: "Attendece Report",
         icon: <FaLock />,
       },
@@ -98,12 +96,12 @@ const Admin = [
     exact: true,
     subRoutes: [
       {
-        path: "/payslip/add",
+        path: "/admin/payslip/add",
         name: "Create Payslip ",
         icon: <FaUser />,
       },
       {
-        path: "/payslip/list",
+        path: "/admin/payslip/list",
         name: "Payslp List",
         icon: <FaLock />,
       }
@@ -117,26 +115,26 @@ const Admin = [
     icon: <BsCartCheck />,
   },
   {
-    path: "/settings",
+    path: "/admin/settings",
     name: "Settings",
     icon: <BiCog />,
     exact: true,
     subRoutes: [
       {
-        path: "/settings/change-password",
+        path: "/admin/settings/change-password",
         name: "Change Password ",
         icon: <FaUser />,
       },
       
       {
-        path: "/settings/billing",
+        path: "/admin/settings/billing",
         name: "Billing",
         icon: <FaMoneyBill />,
       },
     ],
   },
   {
-    path: "/logout",
+    path: "/admin/logout",
     name: "Logout",
     icon: <BsCartCheck />,
   },
@@ -144,66 +142,66 @@ const Admin = [
  
 ];
 
-const EmployeeRoute = [
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    icon: <FaHome />,
-  },
-  {
-    path: "/department",
-    name: "Department",
-    icon: <MdMessage />,
-  },
-  {
-    path: "/attendence",
-    name: "Attendence",
-    icon: <MdMessage />,
-  },
-  {
-    path: "/leave",
-    name: "Leave",
-    icon: <MdMessage />,  
-  },
-  {
-    path: "/payslip",
-    name: "payslip",
-    icon: <MdMessage />,
+// const EmployeeRoute = [
+//   {
+//     path: "/dashboard",
+//     name: "Dashboard",
+//     icon: <FaHome />,
+//   },
+//   {
+//     path: "/department",
+//     name: "Department",
+//     icon: <MdMessage />,
+//   },
+//   {
+//     path: "/attendence",
+//     name: "Attendence",
+//     icon: <MdMessage />,
+//   },
+//   {
+//     path: "/leave",
+//     name: "Leave",
+//     icon: <MdMessage />,  
+//   },
+//   {
+//     path: "/payslip",
+//     name: "payslip",
+//     icon: <MdMessage />,
 
-  },
+//   },
 
-  {
-    path: "/holiday",
-    name: "Holiday",
-    icon: <BsCartCheck />,
-  },
-  {
-    path: "/settings",
-    name: "Settings",
-    icon: <BiCog />,
-    exact: true,
-    subRoutes: [
-      {
-        path: "/settings/change-password",
-        name: "Change Password ",
-        icon: <FaUser />,
-      },
+//   {
+//     path: "/holiday",
+//     name: "Holiday",
+//     icon: <BsCartCheck />,
+//   },
+//   {
+//     path: "/settings",
+//     name: "Settings",
+//     icon: <BiCog />,
+//     exact: true,
+//     subRoutes: [
+//       {
+//         path: "/settings/change-password",
+//         name: "Change Password ",
+//         icon: <FaUser />,
+//       },
       
-      {
-        path: "/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
-      },
-    ],
-  },
-  {
-    path: "/logout",
-    name: "Logout",
-    icon: <BsCartCheck />,
-  },
+//       {
+//         path: "/settings/billing",
+//         name: "Billing",
+//         icon: <FaMoneyBill />,
+//       },
+//     ],
+//   },
+//   {
+//     path: "/logout",
+//     name: "Logout",
+//     icon: <BsCartCheck />,
+//   },
  
  
-];
+// ];
 
 
 const SideBar = ({ children }) => {
@@ -213,13 +211,6 @@ const SideBar = ({ children }) => {
 const RoleId = localStorage.getItem('Role_id')
 
 
-var routes
-
-if(RoleId == 1){
-  routes = Admin
-}else if(RoleId == 0){
-  routes = EmployeeRoute
-}
 
   const inputAnimation = {
     hidden: {
