@@ -15,6 +15,10 @@ function Navbar() {
     }
 
 
+    var roleId = localStorage.getItem('Role_id')
+    console.log("ds", localStorage.getItem('Role_id'))
+
+
     return (
         <>
 
@@ -45,12 +49,27 @@ function Navbar() {
                                     <a className="nav-link" aria-current="page" href="#">Administor</a>
                                 </li> */}
 
-                                <li className="nav-item" style={{ "display": "flex", "width": "150px" }}>
-                                    <DropdownButton  id="dropdown-basic-button" title="Administor" variant="secondary">
-                                        <img  className="rounded" alt="Cinque Terre" height={"40px"} /> <hr />
+                                {/* <li className="nav-item" style={{ "display": "flex", "width": "150px" }}>
+                                    <DropdownButton  src={profile} id="dropdown-basic-button" title={ (roleId  == 1 ) ? "Administor" : "User"} variant="secondary">
+
+                                        <img   src={profile} className="rounded" alt="Cinque Terre" height={"10px"} /> <hr />
                                         <Dropdown.Item >Profile</Dropdown.Item>
                                         <Dropdown.Item onClick={() => Logout()}>Logout</Dropdown.Item>
                                     </DropdownButton>
+                                </li> */}
+
+                                <li>
+
+                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Tutorials
+                                            <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Normal</a></li>
+                                            <li class="disabled"><a href="#">Disabled</a></li>
+                                            <li class="active"><a href="#">Active</a></li>
+                                            <li><a href="#">Normal</a></li>
+                                        </ul>
+                                    </div>
                                 </li>
 
                             </ul>
