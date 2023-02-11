@@ -20,9 +20,9 @@ const routes = [
     icon: <MdMessage />,
   },
   {
-    path: "/attendence",
-    name: "Attendence",
-    icon: <MdMessage />,
+    path: "/time-cards",
+    name: "Time Cards",
+    icon: <i class="fa-regular fa-clock"></i>,
   },
   {
     path: "/leave",

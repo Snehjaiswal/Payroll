@@ -15,9 +15,9 @@ import Clientrout from "./Routing/Clientrout";
 function App() {
 
   var roleId = localStorage.getItem('Role_id')
-  console.log("ds",localStorage.getItem('Role_id'))
+  console.log("ds",roleId)
   const location = useLocation()
-  console.log("location", location);
+  // console.log("location", location);
 
   return (
     <>
@@ -26,6 +26,11 @@ function App() {
       <div>
 
         <Routes>
+          {
+
+
+
+          }
 
           <Route path="/*" element={(roleId == 1) ? <AdminRoute />  : (roleId == 0) ? <Clientrout /> :<Login /> } />
 
