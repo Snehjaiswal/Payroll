@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import '../src/Css/Login.css'
 import { useNavigate } from "react-router-dom";
 
-import axios from 'axios'
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 
 function Login() {
 
@@ -23,16 +24,25 @@ function Login() {
       }
     })
       .then(function (response) {
+        console.log("data", response.data.msg);
+        if (response.data.msg == "This Email Not exists.") {
+          toast("This Email Not exists!");
+        } else if (response.data.msg == "Password Not Match.") {
+          toast("Password Not Match!");
+        } else if (response.data.msg == 'Success') {
+          toast("Login Success");
+          localStorage.setItem('id', response.data.data._id)
+          localStorage.setItem('Role_id', response.data.data.Role_Id)
+          if (response.data.data.Role_Id == 1) {
+            navigate('/admin/dashboard')
+          } else if (response.data.data.Role_Id == 0) {
+            navigate('/dashboard')
 
-        localStorage.setItem('id', response.data.data._id)
-        localStorage.setItem('Role_id', response.data.data.Role_Id)
-
-        if (response.data.data.Role_Id == 1) {
-          navigate('/admin/dashboard')
-        } else if (response.data.data.Role_Id == 0) {
-          navigate('/dashboard')
-
+          }
         }
+
+
+
       })
   }
 
@@ -64,7 +74,7 @@ function Login() {
           </div>
         </div>
 
-
+        <ToastContainer />
 
       </div>
 

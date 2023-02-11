@@ -61,7 +61,7 @@ function ManageEmployee() {
 
         <>
 
-          <h6><i className="fa-solid fa-eye" onClick={() => navigate("/employee/view")}></i> </h6>
+          <h6><i className="fa-solid fa-eye" onClick={() => navigate("/admin/employee/view/"+row._id)}></i> </h6>
           <h6><i className="fa-solid fa-pen-to-square" style={{ "marginLeft": "10px" }}></i></h6>
           <h6> <i className="fa-solid fa-trash" style={{ "marginLeft": "10px" }}></i></h6>
 

@@ -1,51 +1,27 @@
 import React, { useState } from 'react';
-
-import Card from 'react-bootstrap/Card';
-import DatePicker from 'react-datepicker';
 import { FormGroup, Label, Input } from "reactstrap";
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const AddEmployee = () => {
-//  const [startDate, setStartDate] = useState(new Date());
+function Editemployee() {
 
- const [startDate, setStartDate] = useState(new Date().toISOString().split("T")[0]);
+    const [startDate, setStartDate] = useState(new Date().toISOString().split("T")[0]);
 
- const DepartmentType = ["Select Department Type", "HR", "Technical", "Sales", "Marketing"]
+    const DepartmentType = ["Select Department Type", "HR", "Technical", "Sales", "Marketing"]
 
- const AccountType = ["Select Account Type", "Building Society Roll Number", "Checking", "Current Account", "Giro Account", "Salary Account", "Savings"]
+    const AccountType = ["Select Account Type", "Building Society Roll Number", "Checking", "Current Account", "Giro Account", "Salary Account", "Savings"]
 
- const BankName = ["Bank of Baroda", "Bank of India", "Bank of Maharashtra", "Canara Bank", "Central Bank of India", "Indian Bank", "Indian Overseas Bank", "Punjab & Sind Bank", "Punjab National Bank", "State Bank of India", "UCO Bank", "Union Bank of India", "Axis Bank", "HDFC Bank", "ICICI Bank", "Induslnd Bank", "IDFC First Bank", "Kotak Mahindra Bank"]
-
+    const BankName = ["Bank of Baroda", "Bank of India", "Bank of Maharashtra", "Canara Bank", "Central Bank of India", "Indian Bank", "Indian Overseas Bank", "Punjab & Sind Bank", "Punjab National Bank", "State Bank of India", "UCO Bank", "Union Bank of India", "Axis Bank", "HDFC Bank", "ICICI Bank", "Induslnd Bank", "IDFC First Bank", "Kotak Mahindra Bank"]
 
 
-  const DOB = () => {
-    var today = new Date().toISOString().split("T")[0];
-    console.log("today", today);
-  }
+
+    return (
+        <>
 
 
-  const [txt, setTxt] = useState('');
-
-  const onInputChange = e => {
-    const { value } = e.target;
-   
-
-    const re = /^[A-Za-z]+$/;
-    if (value === "" || re.test(value)) {
-      setTxt(value);
-    }
-  }
-
-  
-
-  return (
-    <>
-
-    
-      <Form>
+            <Form>
                 <div className="Employee-details">
                     <h3 className="text-left">Employee Details</h3>    <hr />
                     <div style={{ "display": "flex" }}>
@@ -354,8 +330,8 @@ const AddEmployee = () => {
             </Form>
 
 
-    </>
-  )
-};
+        </>
+    )
+}
 
-export default AddEmployee;
+export default Editemployee

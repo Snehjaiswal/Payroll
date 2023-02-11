@@ -19,7 +19,8 @@ import ManageLeave from "../Admin/pages/ManageLeave";
 import AddPayslip from "../Admin/pages/AddPayslip";
 import PayslipList from "../Admin/pages/PayslipList";
 import CalendarPage from "../Admin/Calender/ReactBigCalendar";
-
+import Editemployee from '../Admin/pages/Editemployee';
+import AddEmployee from '../Admin/pages/AddEmployee';
 
 
 
@@ -33,9 +34,9 @@ function Adminrout() {
           <Routes>
             {/* Admin */}
             <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route path="/admin/employee/add" element={<><MasterForm /></>} />
+            <Route path="/admin/employee/add" element={<><MasterForm /> <AddEmployee /></>} />
             <Route path="/admin/employee/manage" element={<ManageEmployees />} />
-            <Route path="/admin/employee/view" element={<View />} />
+            <Route path="/admin/employee/view/:id" element={<View />} />
             <Route path="/admin/department/add" element={<AddDepartment />} />
             <Route path="/admin/department/manage" element={<ManageDepartment />} />
             <Route path="/admin/attendence/daily" element={<DailyAtendence />} />
@@ -45,6 +46,7 @@ function Adminrout() {
             <Route path="/admin/holiday" element={<CalendarPage />} />
             <Route path="/admin/payslip/add" element={<AddPayslip />} />
             <Route path="/admin/payslip/list" element={<PayslipList />} />
+            <Route path="/admin/employee/edit" element={<Editemployee />} />
 
           </Routes>
         </SideBar>

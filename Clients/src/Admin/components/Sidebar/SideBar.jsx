@@ -30,7 +30,7 @@ const routes = [
         name: "Manage Employees",
         icon: <FaLock />,
       },
-   
+
     ],
   },
   {
@@ -49,7 +49,7 @@ const routes = [
         name: "Manage Department",
         icon: <FaLock />,
       },
-   
+
     ],
   },
   {
@@ -68,7 +68,7 @@ const routes = [
         name: "Attendece Report",
         icon: <FaLock />,
       },
-   
+
     ],
   },
   // {
@@ -114,101 +114,41 @@ const routes = [
     name: "Holiday",
     icon: <BsCartCheck />,
   },
-  {
-    path: "/admin/settings",
-    name: "Settings",
-    icon: <BiCog />,
-    exact: true,
-    subRoutes: [
-      {
-        path: "/admin/settings/change-password",
-        name: "Change Password ",
-        icon: <FaUser />,
-      },
-      
-      {
-        path: "/admin/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
-      },
-    ],
-  },
-  {
-    path: "/admin/logout",
-    name: "Logout",
-    icon: <BsCartCheck />,
-  },
- 
- 
+  // {
+  //   path: "/admin/settings",
+  //   name: "Settings",
+  //   icon: <BiCog />,
+  //   exact: true,
+  //   subRoutes: [
+  //     {
+  //       path: "/admin/settings/change-password",
+  //       name: "Change Password ",
+  //       icon: <FaUser />,
+  //     },
+
+  //     {
+  //       path: "/admin/settings/billing",
+  //       name: "Billing",
+  //       icon: <FaMoneyBill />,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: "/admin/logout",
+  //   name: "Logout",
+  //   icon: <BsCartCheck />,
+  // },
+
+
 ];
 
-// const EmployeeRoute = [
-//   {
-//     path: "/dashboard",
-//     name: "Dashboard",
-//     icon: <FaHome />,
-//   },
-//   {
-//     path: "/department",
-//     name: "Department",
-//     icon: <MdMessage />,
-//   },
-//   {
-//     path: "/attendence",
-//     name: "Attendence",
-//     icon: <MdMessage />,
-//   },
-//   {
-//     path: "/leave",
-//     name: "Leave",
-//     icon: <MdMessage />,  
-//   },
-//   {
-//     path: "/payslip",
-//     name: "payslip",
-//     icon: <MdMessage />,
-
-//   },
-
-//   {
-//     path: "/holiday",
-//     name: "Holiday",
-//     icon: <BsCartCheck />,
-//   },
-//   {
-//     path: "/settings",
-//     name: "Settings",
-//     icon: <BiCog />,
-//     exact: true,
-//     subRoutes: [
-//       {
-//         path: "/settings/change-password",
-//         name: "Change Password ",
-//         icon: <FaUser />,
-//       },
-      
-//       {
-//         path: "/settings/billing",
-//         name: "Billing",
-//         icon: <FaMoneyBill />,
-//       },
-//     ],
-//   },
-//   {
-//     path: "/logout",
-//     name: "Logout",
-//     icon: <BsCartCheck />,
-//   },
- 
- 
-// ];
 
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
 
-const RoleId = localStorage.getItem('Role_id')
+  const RoleId = localStorage.getItem('Role_id')
 
 
 
@@ -263,54 +203,54 @@ const RoleId = localStorage.getItem('Role_id')
         >
           <div>
 
-          <div style={{"display":"flex","marginTop":"15px"}}>
-            <div >
-            <img className="rounded"  style={{"height":"50px","marginLeft":"5px"}}  src={profile} alt="" />
+            <div style={{ "display": "flex", "marginTop": "15px" }}>
+              <div >
+                <img className="rounded" style={{ "height": "50px", "marginLeft": "5px" }} src={profile} alt="" />
+              </div>
+              <div style={{ "marginLeft": "15px" }}>
+                <span>Welcome,</span>
+                <h6>Administator</h6>
+              </div>
             </div>
-            <div style={{"marginLeft":"15px"}}>
-              <span>Welcome,</span>
-              <h6>Administator</h6>
-            </div>
-          </div>
-          <section className="routes">
-            {routes.map((route, index)  => {
-              if (route.subRoutes) {
-                return (
-                  <SidebarMenu
-                  setIsOpen={setIsOpen}
-                  key={route.name}
-                    route={route}
-                    showAnimation={showAnimation}
-                    isOpen={isOpen}
-                  />
-                );
-              }
+            <section className="routes">
+              {routes.map((route, index) => {
+                if (route.subRoutes) {
+                  return (
+                    <SidebarMenu
+                      setIsOpen={setIsOpen}
+                      key={route.name}
+                      route={route}
+                      showAnimation={showAnimation}
+                      isOpen={isOpen}
+                    />
+                  );
+                }
 
-              return (
-                <NavLink
-                  to={route.path}
-                  key={index}
-                  className="link"
-                
-                >
-                  <div className="icon">{route.icon}</div>
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        variants={showAnimation}
-                        initial="hidden"
-                        animate="show"
-                        exit="hidden"
-                        className="link_text"
-                      >
-                        {route.name}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </NavLink>
-              );
-            })}
-          </section>
+                return (
+                  <NavLink
+                    to={route.path}
+                    key={index}
+                    className="link"
+
+                  >
+                    <div className="icon">{route.icon}</div>
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          variants={showAnimation}
+                          initial="hidden"
+                          animate="show"
+                          exit="hidden"
+                          className="link_text"
+                        >
+                          {route.name}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </NavLink>
+                );
+              })}
+            </section>
           </div>
         </motion.div>
 

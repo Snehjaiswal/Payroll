@@ -52,7 +52,7 @@ function Navbar() {
                                         <ul className={getDrop == false ? "dropdown-menu" : "dropdown-menu show"} aria-labelledby="dropdownMenuButton1">
                                             <li><a className="dropdown-item" href="#">Profile</a></li><hr />
                                             <li><a className="dropdown-item" href="#">Setting</a></li>
-                                            <li><a className="dropdown-item" href="#">Logout</a></li>
+                                            <li><a className="dropdown-item"  onClick={()=>Logout()}>Logout</a></li>
 
                                         </ul>
                                     </div>

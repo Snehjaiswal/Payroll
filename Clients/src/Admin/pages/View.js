@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import DataTableExtensions from "react-data-table-component-extensions";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import axios from 'axios';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
 
 function View() {
   const [modal, setModal] = useState(1)
+  const [EmpInfo, setEmpInfo] = useState([])
+
+  const { id } = useParams()
 
   const columns = [
     {
@@ -76,120 +82,107 @@ function View() {
     },
   ]
 
+  const EmployeData = () => {
+    var config = {
+      method: 'get',
+      maxBodyLength: Infinity,
+      url: `http://localhost:5500/employee/emp/${id}`,
+      headers: {}
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(response.data.msg[0]);
+        setEmpInfo(response.data.msg[0])
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  }
+
+
+
+  useEffect(() => {
+    EmployeData()
+  }, [])
+
+
+
   return (
     <>
+      <Tabs
+        defaultActiveKey="Personal Details"
+        transition={false}
+        id="uncontrolled-tab-example"
+      className="mb-3"
+      >
+        <Tab eventKey="Personal Details" title="Personal Details">
+          <div>
+
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile" width={"150px"} />
 
 
-      <Card>
-
-        <Card.Body>
-          <Card.Title> 
-             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
-
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon" />
-              </button>
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto mb-1 mb-lg-0">
-                  <li className="nav-item">
-                    <a className="nav-link" aria-current="page" onClick={() => setModal(1)}>Personal Details</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" aria-current="page" onClick={() => setModal(2)}>Company Documents</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" aria-current="page" onClick={() => setModal(3)}>Financial Details</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" aria-current="page" onClick={() => setModal(4)}>Account Details</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" aria-current="page" onClick={() => setModal(5)}>Document</a>
-                  </li>
-                </ul>
-
-              </div>
-            </div>
-          </nav></Card.Title>
-          <Card.Text>
-            {modal == 1 ? <>
-              {/* <h1>Personal Details</h1> */}
-              <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile" width={"150px"} />
-
-
-              <table style={{"display":"flex"}}>
-                <div style={{"marginLeft":"10px"}}>
+            <table style={{ "display": "flex" ,"font":"bold"}}>
+              <div style={{ "marginLeft": "10px" }}>
                 <tr>
                   <td>Nane</td>
-                  <td>Sneh Jaiswal</td>
+                  <td>{EmpInfo.FirstName + " " + EmpInfo.LastName}</td>
                 </tr>
                 <tr>
                   <td>Email</td>
-                  <td>snehj121@gmail.com</td>
+                  <td>{EmpInfo.Email}</td>
                 </tr>
                 <tr>
                   <td>Father Name</td>
-                  <td>Shiv kumar</td>
+                  <td>{EmpInfo.FatherName}</td>
                 </tr>
                 <tr>
                   <td>Date of Birth</td>
-                  <td>20-11-2002</td>
+                  <td>{EmpInfo.Date_Of_Birth}</td>
                 </tr>
                 <tr>
                   <td>Gender</td>
-                  <td>Male</td>
+                  <td>{EmpInfo.Gender}</td>
                 </tr>
                 <tr>
                   <td>Phone 1</td>
-                  <td>709510697</td>
+                  <td>{EmpInfo.PhoneNumber}</td>
                 </tr>
                 <tr>
                   <td>Phone 2</td>
-                  <td>709510697</td>
+                  <td>{EmpInfo.PhoneNumber2 != "" ? EmpInfo.PhoneNumber2 : "-"}</td>
                 </tr>
-               
-                </div>
-              
-              <div style={{"marginLeft":"400px"}}>
-              <tr>
+
+              </div>
+
+              <div style={{ "marginLeft": "400px" }}>
+                <tr>
                   <td>Local Address</td>
-                  <td>Italy</td>
+                  <td>{EmpInfo.Local_Address}</td>
                 </tr>
                 <tr>
                   <td>Parmanent Address</td>
-                  <td>Italy</td>
+                  <td>{EmpInfo.Parmanent_Address != "" ? EmpInfo.Parmanent_Address : "NULL"}</td>
+
                 </tr>
-              <tr>
+                <tr>
                   <td>Natiionality</td>
-                  <td>Italy</td>
+                  <td>{EmpInfo.Nationality}</td>
                 </tr>
+
                 <tr>
-                  <td>Refence 1</td>
-                  <td>Italy</td>
+                  <td>Martial Status</td>
+                  <td>{EmpInfo.Martial_Status}</td>
                 </tr>
-                <tr>
-                  <td>Refence 2</td>
-                  <td>Italy</td>
-                </tr>
-                <tr>
-                  <td>Artial Status</td>
-                  <td>Italy</td>
-                </tr>
-                <tr>
-                  <td>Who are You ?</td>
-                  <td>Italy</td>
-                </tr>
+
               </div>
-              
-              </table>
 
-
-
-            </> : ""}
-
-            {modal == 2 ? <>
-              <table>
+            </table>
+          </div>
+        </Tab>
+        <Tab eventKey="Company Details" title="Company Details">
+        <table>
                 <tr>
                   <td>Employee Id</td>
                   <td>40</td>
@@ -212,10 +205,10 @@ function View() {
                 </tr>
 
               </table>
-            </> : ""}
 
-            {modal == 3 ? <>
-              <table>
+        </Tab>
+        <Tab eventKey="Financial Details" title="Financial Details">
+        <table>
                 <tr>
                   <td>Basic Salary</td>
                   <td>8000</td>
@@ -234,10 +227,10 @@ function View() {
                 </tr>
 
               </table>
-            </> : ""}
 
-            {modal == 4 ? <>
-              <table>
+        </Tab>
+        <Tab eventKey="Account Details" title="Account Details" >
+        <table>
                 <tr>
                   <td>Acount Holder Name</td>
                   <td>Sneh Jaiswal</td>
@@ -255,17 +248,15 @@ function View() {
                   <td>Indore</td>
                 </tr>
               </table>
-            </> : ""}
 
-            {modal == 5 ? <>
-              <table>
+        </Tab>
+        <Tab eventKey="Documents" title="Documents" >
+       <h5>Work in Progress...</h5>
 
-              </table>
-            </> : ""}
-          </Card.Text>
-          {/* <Button variant="primary">Go somewhere</Button> */}
-        </Card.Body>
-      </Card>
+        </Tab>
+      </Tabs>
+
+     
 
     </>
   )
