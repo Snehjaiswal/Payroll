@@ -8,6 +8,7 @@ import Login from "../Login";
 
 import CalendarPage from "../Admin/Calender/ReactBigCalendar";
 import ClientDashboard from '../Employees/Dashboard'
+import Timecard from '../Employees/Timecard';
 
 function Clientrout() {
     return (
@@ -22,6 +23,8 @@ function Clientrout() {
                     {/* Employee  */}
                     <Route path="/dashboard" element={<ClientDashboard />} />
                     <Route path="/holiday" element={<CalendarPage />} />
+                    <Route path="/time-cards" element={<Timecard />} />
+
 
                 </Routes>
             </SideBar1>

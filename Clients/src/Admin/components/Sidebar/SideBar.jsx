@@ -114,30 +114,30 @@ const routes = [
     name: "Holiday",
     icon: <BsCartCheck />,
   },
-  // {
-  //   path: "/admin/settings",
-  //   name: "Settings",
-  //   icon: <BiCog />,
-  //   exact: true,
-  //   subRoutes: [
-  //     {
-  //       path: "/admin/settings/change-password",
-  //       name: "Change Password ",
-  //       icon: <FaUser />,
-  //     },
+  {
+    path: "/admin/settings",
+    name: "Settings",
+    icon: <BiCog />,
+    exact: true,
+    subRoutes: [
+      {
+        path: "/admin/settings/change-password",
+        name: "Change Password ",
+        icon: <FaUser />,
+      },
 
-  //     {
-  //       path: "/admin/settings/billing",
-  //       name: "Billing",
-  //       icon: <FaMoneyBill />,
-  //     },
-  //   ],
-  // },
-  // {
-  //   path: "/admin/logout",
-  //   name: "Logout",
-  //   icon: <BsCartCheck />,
-  // },
+      {
+        path: "/admin/settings/billing",
+        name: "Billing",
+        icon: <FaMoneyBill />,
+      },
+    ],
+  },
+  {
+    path: "/admin/logout",
+    name: "Logout",
+    icon: <BsCartCheck />,
+  },
 
 
 ];
