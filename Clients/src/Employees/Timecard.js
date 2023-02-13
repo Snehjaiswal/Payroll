@@ -23,27 +23,33 @@ function Timecard() {
         },
         {
             name: 'Date',
-            width: '100px !important',
+            width: '200px !important',
             selector: (row, index) => row.td_date,
         },
 
         {
             name: 'Check In',
-            width: '160px !important',
+            width: '200px !important',
             selector: row => row.checkIn,
         },
 
         {
             name: 'Check Out',
-            width: '120px !important',
+            width: '200px !important',
             selector: row => row.checkOut
-            ,
+            
         },
 
         {
-            name: 'Total Time',
+            name: 'Time Duration',
+            width: '200px !important',
+            selector: row => (new Date(row.checkIn)-new Date(row.checkOut) )
+            
+        },
+        {
+            name: 'MSG',
             width: '160px !important',
-            selector: row => "10:10:03",
+            selector: row => "MSG",
         }
 
     ];
@@ -57,7 +63,7 @@ function Timecard() {
         headCells: {
             style: {
 
-                width: '100px',
+                // width: '100vh',
                 fontWeight: '700',
                 marginTop: "10px",
                 backgroundColor: 'rgb(94, 109, 216);',
@@ -112,13 +118,9 @@ function Timecard() {
 
 
 
-            <Card>
+            <Card style={{"marginLeft":"70px","width":"1100px"}}>
                 <Card.Body>
-                    <Card.Title> <div className='atendenceHeader' >
-
-
-
-                    </div></Card.Title>
+                  
                     <Card.Text>
 
                         <DataTableExtensions
