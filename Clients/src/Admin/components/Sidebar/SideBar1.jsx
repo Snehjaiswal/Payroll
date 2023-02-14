@@ -15,9 +15,23 @@ const routes = [
     icon: <FaHome />,
   },
   {
-    path: "/department",
-    name: "Department",
-    icon: <MdMessage />,
+    path: "/timeline",
+    name: "TimeLine",
+    icon: <i class="fa-solid fa-comments"></i>,
+  },
+  {
+    path: "/events",
+    name: "Events",
+    icon: <i class="fa-solid fa-calendar-days"></i>,
+  },
+  {
+    path: "/notes",
+    name: "Notes",
+    icon:<i class="fa-solid fa-comments"></i>,
+  }, {
+    path: "/message",
+    name: "Messages",
+    icon: <i class="fa-sharp fa-solid fa-message"></i>,
   },
   {
     path: "/time-cards",
@@ -27,43 +41,41 @@ const routes = [
   {
     path: "/leave",
     name: "Leave",
-    icon: <MdMessage />,  
+    icon: <i class="fa-light fa-arrow-right-from-bracket"></i>,  
   },
   {
-    path: "/payslip",
-    name: "payslip",
-    icon: <MdMessage />,
-
+    path: "/announcements",
+    name: "Announcements",
+    icon: <i class="fa-sharp fa-solid fa-megaphone"></i>,
   },
-
   {
     path: "/holiday",
     name: "Holiday",
-    icon: <BsCartCheck />,
+    icon: <i class="fa-sharp fa-solid fa-calendar-days"></i>,
   },
   {
-    path: "/settings",
-    name: "Settings",
-    icon: <BiCog />,
+    path: "/help&support",
+    name: "Help & support",
+    icon: <i class="fa-sharp fa-solid fa-circle-info"></i>,
     exact: true,
     subRoutes: [
       {
-        path: "/settings/change-password",
-        name: "Change Password ",
-        icon: <FaUser />,
+        path: "/help",
+        name: "Help ",
+        icon: <i class="fa-sharp fa-solid fa-circle-info"></i>,
       },
       
       {
         path: "/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
+        name: "Settings",
+        icon:<i class="fa-solid fa-gear"></i>,
       },
     ],
   },
   {
-    path: "/logout",
-    name: "Logout",
-    icon: <BsCartCheck />,
+    path: "/hrpolicy",
+    name: "HR Policy",
+    icon: <i class="fa-thin fa-notes"></i>,
   },
  
  

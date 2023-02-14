@@ -18,38 +18,43 @@ function Timecard() {
 
         {
             name: 'S No',
-            width: '100px !important',
+            width: '60px !important',
             selector: (row, index) => index + 1,
         },
         {
-            name: 'Date',
-            width: '200px !important',
+            name: 'In Date',
+            width: '170px !important',
             selector: (row, index) => row.td_date,
         },
 
         {
-            name: 'Check In',
-            width: '200px !important',
+            name: 'In Time',
+            width: '170px !important',
             selector: row => row.checkIn,
+        },
+        {
+            name: 'Out Date',
+            width: '170px !important',
+            selector: (row, index) => row.checkOut == '00:00:00' ? "-" : row.td_date,
         },
 
         {
-            name: 'Check Out',
-            width: '200px !important',
-            selector: row => row.checkOut
-            
+            name: 'Out Time',
+            width: '170px !important',
+            selector: row =>  row.checkOut == '00:00:00' ? "-" : row.checkOut
+
         },
 
         {
             name: 'Time Duration',
-            width: '200px !important',
-            selector: row => (new Date(row.checkIn)-new Date(row.checkOut) )
-            
+            width: '170px !important',
+            selector: row => "09:03:29"
+
         },
         {
             name: 'MSG',
-            width: '160px !important',
-            selector: row => "MSG",
+            width: '60px !important',
+            selector: row => (<i class="fa-solid fa-comment"></i>),
         }
 
     ];
@@ -118,9 +123,9 @@ function Timecard() {
 
 
 
-            <Card style={{"marginLeft":"70px","width":"1100px"}}>
+            <Card style={{ "marginLeft": "70px", "width": "1100px" }}>
                 <Card.Body>
-                  
+
                     <Card.Text>
 
                         <DataTableExtensions
