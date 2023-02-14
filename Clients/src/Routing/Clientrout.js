@@ -30,7 +30,7 @@ function Clientrout() {
                     <Route path="/time-cards" element={<Timecard />} />
                     <Route path="/holiday" element={<CalendarPage />} />
                     <Route path="/timeline" element={<Timeline />} />
-                    <Route path="/events" element={<Events />} />
+                    <Route path="/events" element={<CalendarPage />} />
                     <Route path="/notes" element={<Notes />} />
                     <Route path="/messages" element={<Messages />} />
                     <Route path="/leave" element={<Leave />} />

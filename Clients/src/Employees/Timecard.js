@@ -23,7 +23,7 @@ function Timecard() {
         },
         {
             name: 'In Date',
-            width: '170px !important',
+            width: '160px !important',
             selector: (row, index) => row.td_date,
         },
 
@@ -80,6 +80,7 @@ function Timecard() {
         rows: {
             style: {
                 justifyContent: 'start !important',
+                
             },
         },
         cells: {
@@ -123,7 +124,7 @@ function Timecard() {
 
 
 
-            <Card style={{ "marginLeft": "70px", "width": "1100px" }}>
+            <Card style={{ "marginLeft": "50px", "width": "1000px" }}>
                 <Card.Body>
 
                     <Card.Text>

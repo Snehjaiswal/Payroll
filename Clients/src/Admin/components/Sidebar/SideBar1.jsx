@@ -48,11 +48,11 @@ const routes = [
     name: "Announcements",
     icon: <i class="fa-sharp fa-solid fa-megaphone"></i>,
   },
-  {
-    path: "/holiday",
-    name: "Holiday",
-    icon: <i class="fa-sharp fa-solid fa-calendar-days"></i>,
-  },
+  // {
+  //   path: "/holiday",
+  //   name: "Holiday",
+  //   icon: <i class="fa-sharp fa-solid fa-calendar-days"></i>,
+  // },
   {
     path: "/help&support",
     name: "Help & support",
