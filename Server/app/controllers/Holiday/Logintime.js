@@ -26,7 +26,7 @@ class LoginTime {
 
         const FindUser = await LoginTimeModel.findOne({userid:userid},{sort:{ '_id': -1}},{sort:{ '_id': -1}})
 
-        console.log(FindUser)
+        // console.log(FindUser)
         // return
         const updateEmp = await LoginTimeModel.findByIdAndUpdate(FindUser,{ checkOut:checkOut,status:1 })
         // console.log(updateEmp)

@@ -114,7 +114,7 @@ class Employee {
                 }
             }
         ])
-        console.log("docs", docs)
+        // console.log("docs", docs)
         res.send({ msg: docs })
 
     }
@@ -153,7 +153,7 @@ class Employee {
                 }
             }
         ])
-        console.log("docs", docs)
+        // console.log("docs", docs)
         res.send({ msg: docs })
     }
 

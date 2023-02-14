@@ -38,7 +38,7 @@ class Holidays {
 
 
     async GetHoliday(req, res) {
-        console.log("req.",res)
+        // console.log("req.",res)
 
         const HolidaysData = await HolidaysModel.find();
         if(HolidaysData){

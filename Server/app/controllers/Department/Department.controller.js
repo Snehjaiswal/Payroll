@@ -56,7 +56,7 @@ class Deparment {
 
         const { id } = req.body
 
-        console.log("req.body", req.body)
+        // console.log("req.body", req.body)
 
         const DeleteAccount = await DepartmentModal.deleteOne(id)
             .then(() => {
