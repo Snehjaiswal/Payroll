@@ -21,6 +21,7 @@ import PayslipList from "../Admin/pages/PayslipList";
 import CalendarPage from "../Admin/Calender/ReactBigCalendar";
 import Editemployee from '../Admin/pages/Editemployee';
 import AddEmployee from '../Admin/pages/AddEmployee';
+import Announcements from '../Admin/pages/Announcements';
 
 
 
@@ -47,6 +48,8 @@ function Adminrout() {
             <Route path="/admin/payslip/add" element={<AddPayslip />} />
             <Route path="/admin/payslip/list" element={<PayslipList />} />
             <Route path="/admin/employee/edit" element={<Editemployee />} />
+            <Route path="/admin/announcements" element={<Announcements />} />
+
 
           </Routes>
         </SideBar>

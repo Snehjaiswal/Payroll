@@ -115,6 +115,11 @@ const routes = [
     icon: <BsCartCheck />,
   },
   {
+    path: "/admin/announcements",
+    name: "Announcements",
+    icon: <i class="fa-sharp fa-solid fa-megaphone"></i>,
+  },
+  {
     path: "/admin/settings",
     name: "Settings",
     icon: <BiCog />,
