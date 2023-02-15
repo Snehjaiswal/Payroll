@@ -10,7 +10,9 @@ import TextField from '@mui/material/TextField';
 
 import dayjs, { Dayjs } from 'dayjs';
 import Stack from '@mui/material/Stack';
-
+// import React, { useState, useEffect } from 'react';
+import DataTable from 'react-data-table-component';
+import DataTableExtensions from "react-data-table-component-extensions";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
@@ -26,7 +28,70 @@ function Announcements() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [AnnouncementsData, setAnnouncementsData] = useState([])
 
+
+
+   const columns = [
+    {
+      name: 'SNo',
+      width: '80px !important',
+      selector: (row,id) => id+1,
+    },
+    {
+      name: 'Title',
+      width: '150px !important',
+      selector: row => row.title ,
+    },
+    {
+      name: 'From Date',
+      width: '180px !important',
+      selector: row => row.from_date.split("T")[0],
+    },
+    {
+      name: 'End Date',
+      width: '180px !important',
+      selector: row => row.end_date.split("T")[0],
+    },
+    
+    {
+      name: 'MSG',
+      width: '180px !important',
+
+      selector: row => row.msg,
+    },
+   
+  ];
+
+  const customStyles = {
+
+    headCells: {
+      style: {
+        fontWeight: '700',
+        marginTop: "10px",
+        // marginLeft:"2px" ,
+
+        backgroundColor: 'rgb(94, 109, 216);',
+        color: '#fff',
+
+
+        justifyContent: 'center !important',
+        overflow: 'visible !important',
+      },
+    },
+    rows: {
+      style: {
+        justifyContent: 'center !important',
+      },
+    },
+    cells: {
+      style: {
+        overflow: 'visible !important',
+        justifyContent: 'center !important',
+        textAlign: "right"
+      },
+    },
+  };
 
 
   const [messages, setMessages] = useState("HI SNEH>>>");
@@ -61,31 +126,10 @@ function Announcements() {
 
 
 
-  //should be memoized or stable
-  const columns = useMemo(
-    () => [
-
-      {
-        accessorKey: 'title', //access nested data with dot notation
-        header: 'Title',
-      },
-      {
-        accessorKey:'from_date',
-        header: 'From Date',
-      },
-      {
-        accessorKey: 'end_date',
-        header: 'End Date',
-      },
-      {
-        accessorKey: 'msg',
-        header: 'MSG',
-      },
-    ],
-    [],)
 
 
-  const [value, setValue] = React.useState(dayjs());
+
+  const [value, setValue] = useState(dayjs());
 
   const handleChange = (newValue) => {
     setValue(newValue);
@@ -130,7 +174,7 @@ function Announcements() {
     })
       .then(function (response) {
         // console.log("ppp", response.data.Announcements);
-        setData( response.data.Announcements)
+        setAnnouncementsData(response.data.Announcements)
         if (response.data.msg == 'Success') {
 
         }
@@ -148,7 +192,7 @@ function Announcements() {
   return (
     <>
 
-      <Card>
+      <Card className="ms-5" style={{"width":"900px"}}>
         <Card.Body>
           <div className="d-flex">
             <div>
@@ -230,26 +274,25 @@ function Announcements() {
           </div>
 
           <div className="pt-3">
-            <MaterialReactTable
+            <DataTableExtensions
               columns={columns}
-              data={getData}
-              muiTableBodyProps={{
-                sx: {
-                  //stripe the rows, make odd rows a darker color
-                  '& td:nth-of-type(odd)': {
-                    backgroundColor: '#f5f5f5',
-                  },
-                },
-              }}
-              muiTableBodyCellProps={{
-                sx: {
-                  borderRight: '2px solid #e0e0e0',
-                },
-                header: {
-                  backgroundColor: "red"
-                }
-              }}
-            />
+              data={AnnouncementsData}
+              export={false}
+              print={false}
+            >
+              <DataTable
+                fixedHeader
+                fixedHeaderScrollHeight="700px"
+                noHeader
+                defaultSortField="id"
+                defaultSortAsc={false}
+                pagination
+                customStyles={customStyles}
+                highlightOnHover
+                paginationRowsPerPageOptions={[5, 50, 100]}
+                paginationComponentOptions={{ selectAllRowsItem: true, selectAllRowsItemText: 'All' }}
+              />
+            </DataTableExtensions>
 
           </div>
 

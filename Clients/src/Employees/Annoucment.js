@@ -1,123 +1,131 @@
-
-import React, { useMemo } from "react";
+import React,{useState,useEffect} from 'react';
+import DataTable from 'react-data-table-component';
+import DataTableExtensions from "react-data-table-component-extensions";
+import { useNavigate } from "react-router-dom"
+import axios from 'axios';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import MaterialReactTable from "material-react-table";
-import { createTheme, ThemeProvider } from '@mui/material';
-
-
 
 function Annoucment() {
+  const navigate = useNavigate();
+  const [EmployeeData,setEmplyeeData] = useState([])
 
-  const data = [
+  const columns = [
     {
-      name: {
-        firstName: 'John',
-        lastName: 'Doe',
-      },
-      address: '261 Erdman Ford',
-      city: 'East Daphne',
-      state: 'Kentucky',
+      name: 'SNo',
+      width: '80px !important',
+      selector: (row,id) => id+1,
     },
     {
-      name: {
-        firstName: 'Jane',
-        lastName: 'Doe',
-      },
-      address: '769 Dominic Grove',
-      city: 'Columbus',
-      state: 'Ohio',
+      name: 'Title',
+      width: '150px !important',
+      selector: row => row.title ,
     },
     {
-      name: {
-        firstName: 'Joe',
-        lastName: 'Doe',
-      },
-      address: '566 Brakus Inlet',
-      city: 'South Linda',
-      state: 'West Virginia',
+      name: 'From Date',
+      width: '150px !important',
+      selector: row => row.from_date,
     },
     {
-      name: {
-        firstName: 'Kevin',
-        lastName: 'Vandy',
-      },
-      address: '722 Emie Stream',
-      city: 'Lincoln',
-      state: 'Nebraska',
+      name: 'End Date',
+      width: '160px !important',
+      selector: row => row.end_date,
     },
+    
     {
-      name: {
-        firstName: 'Joshua',
-        lastName: 'Rolluffs',
-      },
-      address: '32188 Larkin Turnpike',
-      city: 'Charleston',
-      state: 'South Carolina',
+      name: 'MSG',
+      selector: row => row.msg,
     },
+   
   ];
 
-  //should be memoized or stable
-  const columns = useMemo(
-    () => [
-     
-      {
-        accessorKey: 'name.firstName', //access nested data with dot notation
-        header: 'First Name',
-      },
-      {
-        accessorKey: 'name.lastName',
-        header: 'Last Name',
-      },
-      {
-        accessorKey: 'address', //normal accessorKey
-        header: 'Address',
-      },
-      {
-        accessorKey: 'city',
-        header: 'City',
-      },
-      {
-        accessorKey: 'state',
-        header: 'State',
-      },
-    ],
-    [],)
+  const customStyles = {
+
+    headCells: {
+      style: {
+        fontWeight: '700',
+        marginTop: "10px",
+        // marginLeft:"2px" ,
+
+        backgroundColor: 'rgb(94, 109, 216);',
+        color: '#fff',
 
 
+        justifyContent: 'center !important',
+        overflow: 'visible !important',
+      },
+    },
+    rows: {
+      style: {
+        justifyContent: 'center !important',
+      },
+    },
+    cells: {
+      style: {
+        overflow: 'visible !important',
+        justifyContent: 'center !important',
+        textAlign: "right"
+      },
+    },
+  };
 
+
+  const GetAllEmployee = ()=>{
+
+    var config = {
+      method: 'get',
+      url: 'http://localhost:5500/employee/getall',
+      headers: { }
+    };
+    
+    axios(config)
+    .then(function (response) {
+      setEmplyeeData(response.data.msg)
+      console.log(response.data.msg);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
+
+  }
+
+
+  useEffect(() => {
+    GetAllEmployee()
+  }, []);
 
   return (
     <>
 
       <Card>
+        
         <Card.Body>
-          <MaterialReactTable
-            columns={columns}
-            data={data}
-            muiTableBodyProps={{
-              sx: {
-                //stripe the rows, make odd rows a darker color
-                '& td:nth-of-type(odd)': {
-                  backgroundColor: '#f5f5f5',
-                },
-              },
-            }}
-            muiTableBodyCellProps={{
-              sx: {
-                borderRight: '2px solid #e0e0e0',
-              },
-              header:{
-                backgroundColor:"red"
-              }
-            }}
-
-          />
+          <Card.Text>
+            <DataTableExtensions
+              columns={columns}
+              data={EmployeeData}
+              export={false}
+              print={false}
+            >
+              <DataTable
+                fixedHeader
+                fixedHeaderScrollHeight="700px"
+                noHeader
+                defaultSortField="id"
+                defaultSortAsc={false}
+                pagination
+                customStyles={customStyles}
+                highlightOnHover
+                paginationRowsPerPageOptions={[5, 50, 100]}
+                paginationComponentOptions={{ selectAllRowsItem: true, selectAllRowsItemText: 'All' }}
+              />
+            </DataTableExtensions>
+          </Card.Text>
 
         </Card.Body>
-      </Card></>
+      </Card>
+
+    </>
   )
 }
-
-
 export default Annoucment
