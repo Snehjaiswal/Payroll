@@ -38,7 +38,7 @@ function Announcements() {
         header: 'Title',
       },
       {
-        accessorKey:(from_date.spite("T")[0]),
+        accessorKey:'from_date',
         header: 'From Date',
       },
       {
