@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import profile from "../../../Assets/fotor_2023-1-29_23_12_31.png"
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -14,6 +14,35 @@ function Navbar() {
         localStorage.clear();
         navigate('/login')
     }
+
+
+
+
+
+
+    const [messages, setMessages] = useState([]);
+
+    console.log("messages==========",messages);
+    useEffect(() => {
+      const socket = new WebSocket('ws://localhost:5600');
+  
+      socket.addEventListener('open', (event) => {
+        console.log('Connected to WebSocket server');
+      });
+  
+      socket.addEventListener('message', (event) => {
+        const newMessage = JSON.parse(event.data);
+        setMessages([...messages, newMessage]);
+      });
+  
+      return () => {
+        socket.close();
+      };
+    }, []);
+
+  
+  
+  
 
 
     return (
@@ -39,7 +68,7 @@ function Navbar() {
                                     <a className="nav-link" aria-current="page" href="#" >  <i className="fa-regular fa-bell"></i></a>
                                 </li>
                                 <li className="nav-item" style={{ "width": "40px" }}>
-                                    <a className="nav-link" aria-current="page" href="#"> <i className="fa-light fa-envelope"></i></a>
+                                    <a className="nav-link" aria-current="page" href="#"> <i className="fa-light fa-envelope"></i>{messages}</a>
                                 </li>
 
 

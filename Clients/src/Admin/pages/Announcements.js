@@ -24,9 +24,41 @@ function Announcements() {
   const [show, setShow] = useState(false);
   const [getData, setData] = useState([]);
 
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
+
+  const [messages, setMessages] = useState("HI SNEH>>>");
+
+  useEffect(() => {
+    const socket = new WebSocket('ws://localhost:5600');
+
+    socket.addEventListener('open', (event) => {
+      console.log('Connected to WebSocket server');
+    });
+
+    socket.addEventListener('message', (event) => {
+      const newMessage = JSON.parse(event.data);
+      setMessages([...messages, newMessage]);
+    });
+
+    return () => {
+      socket.close();
+    };
+  }, []);
+
+  const handleMessageSubmit = (message) => {
+    const socket = new WebSocket('ws://localhost:5600');
+    socket.send(JSON.stringify({ message }));
+  };
+
+
+
+
+
+
+
 
 
   //should be memoized or stable
@@ -61,6 +93,8 @@ function Announcements() {
 
 
   const AddAnnouncements = () => {
+
+    handleMessageSubmit("Sneh Work is pandding...")
     axios({
       method: 'post',
       url: 'http://localhost:5500/add/announcements',
@@ -95,7 +129,7 @@ function Announcements() {
 
     })
       .then(function (response) {
-        console.log("ppp", response.data.Announcements);
+        // console.log("ppp", response.data.Announcements);
         setData( response.data.Announcements)
         if (response.data.msg == 'Success') {
 
