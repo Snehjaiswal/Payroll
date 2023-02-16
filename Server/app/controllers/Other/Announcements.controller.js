@@ -1,22 +1,33 @@
-const {AnnouncementsModel} = require('../../Models/Others/Announcements.model')
+const { AnnouncementsModel } = require('../../Models/Others/Announcements.model')
 
 
 class Announcements {
 
     async AddAnnouncements(req, res) {
-        // console.log("req.",req.body)
+    
+        try {
+            const { title, from_date, end_date, msg } = req.body
 
-        const { title,from_date,end_date,msg} = req.body
-
-        const AnnouncementsData = new AnnouncementsModel({
-            title,from_date,end_date,msg
-        });
-
-        //STORE YOUR LOGIN DATA IN DB 
-        const  AnnouncementsSave = await AnnouncementsData.save();
-        // console.log("HolidaysSave",HolidaysSave)
-        
-        res.send({ msg: "Success"});
+            console.log(title, from_date, end_date, msg);
+    
+            if (title == "" || from_date == "" || end_date == "" || msg == "") {
+                res.send({ msg: "Please Fill All Feild" })
+            }
+    
+    
+            const AnnouncementsData = new AnnouncementsModel({
+                title, from_date, end_date, msg
+            });
+    
+            //STORE YOUR LOGIN DATA IN DB 
+            const AnnouncementsSave = await AnnouncementsData.save();
+            console.log("HolidaysSave",HolidaysSave)
+    
+            res.send({ msg: "Success" });
+        } catch (error) {
+            res.send({msg:error})
+        }
+    
     }
 
 
@@ -26,15 +37,15 @@ class Announcements {
         // console.log("req.",res)
 
         const AnnouncementsData = await AnnouncementsModel.find();
-        console.log("fff",AnnouncementsData);
-        if(AnnouncementsData){
-            res.send({Announcements:AnnouncementsData})
-        }else{
-            res.send({msg:"Error"})
+        console.log("fff", AnnouncementsData);
+        if (AnnouncementsData) {
+            res.send({ Announcements: AnnouncementsData })
+        } else {
+            res.send({ msg: "Error" })
 
 
         }
-      
+
     }
 
 }

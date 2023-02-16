@@ -25,22 +25,22 @@ const server = new WebSocket.Server({ port: 5600 });
 
 
 
-server.on('connection', (socket) => {
-  console.log('Client connected');
+// server.on('connection', (socket) => {
+//   console.log('Client connected');
 
-  socket.on('message', (message) => {
-    console.log(`Received message: ${message}`);
-    server.clients.forEach((client) => {
-      if (client !== socket && client.readyState === WebSocket.OPEN) {
-        client.send(message);
-      }
-    });
-  });
+//   socket.on('message', (message) => {
+//     console.log(`Received message: ${message}`);
+//     server.clients.forEach((client) => {
+//       if (client !== socket && client.readyState === WebSocket.OPEN) {
+//         client.send(message);
+//       }
+//     });
+//   });
 
-  socket.on('close', () => {
-    console.log('Client disconnected');
-  });
-});
+//   socket.on('close', () => {
+//     console.log('Client disconnected');
+//   });
+// });
 
 
 
@@ -82,12 +82,16 @@ function shutDownComputer() {
   setTimeout(() => {
     console.log("dome");
 
-    exec('shutdown /s /t 0', function (err, stdout, stderr) {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log('Computer shutting down...');
+    exec('sudo shutdown now', (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error: ${error.message}`);
+        return;
       }
+      if (stderr) {
+        console.error(`stderr: ${stderr}`);
+        return;
+      }
+      console.log(`stdout: ${stdout}`);
     });
 
   }, 5000);

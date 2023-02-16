@@ -94,7 +94,7 @@ function Announcements() {
 
   const AddAnnouncements = () => {
 
-    handleMessageSubmit("Sneh Work is pandding...")
+    // handleMessageSubmit("Sneh Work is pandding...")s
     axios({
       method: 'post',
       url: 'http://localhost:5500/add/announcements',
