@@ -119,10 +119,36 @@ function Annoucment() {
 
 
 
+  const GetAllEmployee = ()=>{
+
+    var config = {
+      method: 'get',
+      url: 'http://localhost:5500/employee/getall',
+      headers: { }
+    };
+    
+    axios(config)
+    .then(function (response) {
+      setEmplyeeData(response.data.msg)
+      console.log(response.data.msg);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
+
+  }
+
+
+  useEffect(() => {
+    GetAllEmployee()
+  }, []);
+
   return (
     <>
 
       <Card>
+        
         <Card.Body>
           <div className="d-flex">
             <div>
@@ -225,7 +251,9 @@ function Annoucment() {
           </div>
 
         </Card.Body>
-      </Card></>
+      </Card>
+
+    </>
   )
 }
 
