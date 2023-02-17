@@ -7,7 +7,11 @@ class Deparment {
     async AddDepartment(req, res) {
 
         const { Department, Designation } = req.body
+        const Departmentfind = await DepartmentModal.findOne({ Department: Department })
+        if (Departmentfind) {
+            return res.send({ message: "alredy exist Department." })
 
+        }
         const DeparmentData = new DepartmentModal({
             Department, Designation
         });
@@ -76,8 +80,8 @@ class Deparment {
         const EmployeeData = await EmployeeModal.countDocuments({})
         const DeparmentData = await DepartmentModal.countDocuments({})
 
-      
-        res.send({ msg:{EmployeeData,DeparmentData}})
+
+        res.send({ msg: { EmployeeData, DeparmentData } })
 
     }
 

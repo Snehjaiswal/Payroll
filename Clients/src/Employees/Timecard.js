@@ -14,6 +14,30 @@ function Timecard() {
 
     console.log(EmployeeData && EmployeeData)
 
+    const TimeDuration = (row) => {
+        console.warn('runiiii');
+        // Define the start and end times as strings
+        const startTime = row.checkIn;
+        const endTime = row.checkOut;
+
+        // Convert the start and end times to Date objects
+        const startDate = new Date(`2000-01-01T${startTime}`);
+        const endDate = new Date(`2000-01-01T${endTime}`);
+
+        // Calculate the difference in milliseconds between the start and end times
+        const timeDiff = endDate.getTime() - startDate.getTime();
+
+        // Convert the time difference to hours, minutes, and seconds
+        const hours = Math.floor(timeDiff / (1000  *60  *60));
+        const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
+        const seconds = Math.floor((timeDiff / 1000) % 60);
+
+        // format the time difference as a string
+        const timeDiffString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        return timeDiffString
+
+    }
+
     const columns = [
 
         {
@@ -41,20 +65,20 @@ function Timecard() {
         {
             name: 'Out Time',
             width: '170px !important',
-            selector: row =>  row.checkOut == '00:00:00' ? "-" : row.checkOut
+            selector: row => row.checkOut == '00:00:00' ? "-" : row.checkOut
 
         },
 
         {
             name: 'Time Duration',
             width: '170px !important',
-            selector: row => "09:03:29"
+            selector: row => TimeDuration(row),
 
         },
         {
             name: 'MSG',
             width: '60px !important',
-            selector: row => (<i class="fa-solid fa-comment"></i>),
+            selector: row => (<i className="fa-solid fa-comment"></i>),
         }
 
     ];
@@ -80,7 +104,7 @@ function Timecard() {
         rows: {
             style: {
                 justifyContent: 'start !important',
-                
+
             },
         },
         cells: {
@@ -148,7 +172,6 @@ function Timecard() {
                                 paginationComponentOptions={{ selectAllRowsItem: true, selectAllRowsItemText: 'All' }}
                             />
                         </DataTableExtensions>
-                        {/* <Button variant="primary">Save changes</Button> */}
 
                     </Card.Text>
                 </Card.Body>
