@@ -32,66 +32,28 @@ function Announcements() {
 
 
 
-   const columns = [
-    {
-      name: 'SNo',
-      width: '80px !important',
-      selector: (row,id) => id+1,
-    },
-    {
-      name: 'Title',
-      width: '150px !important',
-      selector: row => row.title ,
-    },
-    {
-      name: 'From Date',
-      width: '180px !important',
-      selector: row => row.from_date.split("T")[0],
-    },
-    {
-      name: 'End Date',
-      width: '180px !important',
-      selector: row => row.end_date.split("T")[0],
-    },
-    
-    {
-      name: 'MSG',
-      width: '180px !important',
-
-      selector: row => row.msg,
-    },
-   
-  ];
-
-  const customStyles = {
-
-    headCells: {
-      style: {
-        fontWeight: '700',
-        marginTop: "10px",
-        // marginLeft:"2px" ,
-
-        backgroundColor: 'rgb(94, 109, 216);',
-        color: '#fff',
-
-
-        justifyContent: 'center !important',
-        overflow: 'visible !important',
-      },
-    },
-    rows: {
-      style: {
-        justifyContent: 'center !important',
-      },
-    },
-    cells: {
-      style: {
-        overflow: 'visible !important',
-        justifyContent: 'center !important',
-        textAlign: "right"
-      },
-    },
-  };
+  //     {
+  //       accessorKey: 'title', //access nested data with dot notation
+  //       header: 'Title',
+  //     },
+  //     {
+  //       accessorKey:(from_date.spite("T")[0]),
+  //       header: 'From Date',
+  //     },
+  //   },
+  //   rows: {
+  //     style: {
+  //       justifyContent: 'center !important',
+  //     },
+  //   },
+  //   cells: {
+  //     style: {
+  //       overflow: 'visible !important',
+  //       justifyContent: 'center !important',
+  //       textAlign: "right"
+  //     },
+  //   },
+  // };
 
 
   const [messages, setMessages] = useState("HI SNEH>>>");
@@ -137,8 +99,6 @@ function Announcements() {
 
 
   const AddAnnouncements = () => {
-
-    handleMessageSubmit("Sneh Work is pandding...")
     axios({
       method: 'post',
       url: 'http://localhost:5500/add/announcements',

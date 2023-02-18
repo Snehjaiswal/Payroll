@@ -31,7 +31,7 @@ class LoginTime {
         const updateEmp = await LoginTimeModel.findByIdAndUpdate(FindUser,{ checkOut:checkOut,status:1 })
         // console.log(updateEmp)
 
-        if(updateEmp.length > 0 || updateEmp != null){
+        if( updateEmp != null){
 
             res.send({ msg: "Success" });
         }
