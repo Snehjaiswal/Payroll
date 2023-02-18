@@ -22,7 +22,7 @@ import CalendarPage from "../Admin/Calender/ReactBigCalendar";
 import Editemployee from '../Admin/pages/Editemployee';
 import AddEmployee from '../Admin/pages/AddEmployee';
 import Announcements from '../Admin/pages/Announcements';
-
+import Message from '../Admin/pages/Message';
 
 
 
@@ -49,6 +49,8 @@ function Adminrout() {
             <Route path="/admin/payslip/list" element={<PayslipList />} />
             <Route path="/admin/employee/edit" element={<Editemployee />} />
             <Route path="/admin/announcements" element={<Announcements />} />
+            <Route path="/admin/message" element={<Message />} />
+
 
 
           </Routes>
