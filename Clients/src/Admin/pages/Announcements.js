@@ -31,28 +31,67 @@ function Announcements() {
   const [AnnouncementsData, setAnnouncementsData] = useState([])
 
 
+  const columns = [
+    {
+      name: 'Serial',
+      width: '80px !important',
+      selector: (row,id) => id+1,
+    },
+    {
+      name: 'Name',
+      width: '150px !important',
+      selector: row => row.FirstName+" " +row.LastName ,
+    },
+    {
+      name: 'Email',
+      width: '150px !important',
+      selector: row => row.Email,
+    },
+    {
+      name: 'Department',
+      width: '160px !important',
+      selector: row => row.result[0].Deparment,
+    },
+    
+    {
+      name: 'Designation',
+      selector: row => row.result[0].Designation,
+    },
+ 
+  ];
+
+ 
+
+
+
   const customStyles = {
-      {
-    accessorKey: 'title', //access nested data with dot notation
-      header: 'Title',
+
+    headCells: {
+      style: {
+        fontWeight: '700',
+        marginTop: "10px",
+        // marginLeft:"2px" ,
+
+        backgroundColor: 'rgb(94, 109, 216);',
+        color: '#fff',
+
+
+        justifyContent: 'center !important',
+        overflow: 'visible !important',
       },
-  {
-    accessorKey: (from_date.spite("T")[0]),
-      header: 'From Date',
+    },
+    rows: {
+      style: {
+        justifyContent: 'center !important',
       },
-},
-rows: {
-  style: {
-    justifyContent: 'center !important',
-      },
-},
-cells: {
-  style: {
-    overflow: 'visible !important',
-      justifyContent: 'center !important',
+    },
+    cells: {
+      style: {
+        overflow: 'visible !important',
+        justifyContent: 'center !important',
         textAlign: "right"
-  },
-},
+      },
+    },
   };
 
 
@@ -79,12 +118,6 @@ const handleMessageSubmit = (message) => {
   const socket = new WebSocket('ws://localhost:5600');
   socket.send(JSON.stringify({ message }));
 };
-
-
-
-
-
-
 
 
 
@@ -121,7 +154,6 @@ const AddAnnouncements = () => {
     })
 
 }
-
 
 const GetAnnouncements = () => {
   axios({
