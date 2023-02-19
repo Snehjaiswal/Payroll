@@ -35,7 +35,9 @@ function Adminrout() {
           <Routes>
             {/* Admin */}
             <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route path="/admin/employee/add" element={<><MasterForm /> <AddEmployee /></>} />
+            {/* <Route path="/admin/employee/add" element={<><MasterForm /> <AddEmployee /></>} /> */}
+            <Route path="/admin/employee/add" element={<><AddEmployee /></>} />
+
             <Route path="/admin/employee/manage" element={<ManageEmployees />} />
             <Route path="/admin/employee/view/:id" element={<View />} />
             <Route path="/admin/department/add" element={<AddDepartment />} />

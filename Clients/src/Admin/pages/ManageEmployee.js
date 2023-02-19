@@ -9,6 +9,55 @@ function ManageEmployee() {
   const navigate = useNavigate();
   const [EmployeeData,setEmplyeeData] = useState([])
 
+
+  const data = [
+    {
+      id: 1,
+      title: 'Beetlejuice',
+      year: '1988',
+      email: "Sneh@gamial.com",
+      status: 1
+    },
+    {
+      id: 2,
+      title: 'Ghostbusters',
+      year: '1984',
+      email: "Sneh@gamial.com",
+      status: 2
+
+    },
+    {
+      id: 3,
+      title: 'Ghostbusters',
+      year: '1984',
+      email: "Sneh@gamial.com",
+      status: 2
+
+
+    }, {
+      id: 4,
+      title: 'Ghostbusters',
+      year: '1984',
+      email: "Sneh@gamial.com",
+      status: 1
+
+    }, {
+      id: 5,
+      title: 'Ghostbusters',
+      year: '1984',
+      email: "Sneh@gamial.com",
+      status: 1
+
+    },
+    {
+      id: 5,
+      title: 'Ghostbusters',
+      year: '1984',
+      email: "Sneh@gamial.com"
+
+    },
+  ]
+
   const columns = [
     {
       name: 'Serial',
@@ -74,8 +123,6 @@ function ManageEmployee() {
   ];
 
  
-
-
 
   const customStyles = {
 

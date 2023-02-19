@@ -44,8 +44,11 @@ class LoginTime {
 
         var mysort = { '_id': -1};
         const CheckStatus = await LoginTimeModel.findOne({userid:Empid}).sort(mysort)
+
        if(CheckStatus != null){
         res.send({data:CheckStatus})
+       }else{
+           res.send({data:CheckStatus})
        }
 
     }

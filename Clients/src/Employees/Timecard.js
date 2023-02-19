@@ -155,7 +155,7 @@ function Timecard() {
 
                         <DataTableExtensions
                             columns={columns}
-                            data={EmployeeData}
+                            data={EmployeeData && EmployeeData}
                             export={false}
                             print={false}
                         >

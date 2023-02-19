@@ -7,7 +7,7 @@ function Dashboard() {
   const [statusData, setstatusData] = useState([])
   const [refresh, setrefresh] = useState(false)
 
-
+  console.log("statusData",CheckStatus);
   const EmployeeId = localStorage.getItem('id')
 
   const CheckIn = () => {
@@ -124,11 +124,15 @@ function Dashboard() {
     })
       .then(function (response) {
         setstatusData(response.data.data)
+        if (response.data.data != null) {
 
-        if (response.data.data.status == "0") {
-          setCheckStatus(response.data.data.status)
-        } else if (response.data.data.status == "1") {
-          setCheckStatus(response.data.data.status)
+          if (response.data.data.status == "0") {
+            setCheckStatus(response.data.data.status)
+          } else if (response.data.data.status == "1") {
+            setCheckStatus(response.data.data.status)
+          }
+        } else {
+          setCheckStatus('1')
         }
       })
       .catch(function (error) {
@@ -155,9 +159,9 @@ function Dashboard() {
             <div className="c-dashboardInfo col-lg-3 col-md-6">
               <div className="wrap">
                 {CheckStatus && CheckStatus == 0 ?
-                <h6 className="heading heading5 hind-font medium-font-weight c-dashboardInfo__title"> End at : {statusData.checkOut} </h6>
-                :
-                <h6 className="heading heading5 hind-font medium-font-weight c-dashboardInfo__title"> started at : {statusData.checkIn} </h6>
+                  <h6 className="heading heading5 hind-font medium-font-weight c-dashboardInfo__title"> End at : </h6>
+                  :
+                  <h6 className="heading heading5 hind-font medium-font-weight c-dashboardInfo__title"> started at :  </h6>
 
                 }
 
@@ -168,7 +172,7 @@ function Dashboard() {
                     {CheckStatus && CheckStatus == 1 || CheckStatus && CheckStatus == "" ?
                       <label class="btn btn-outline-light" for="btnradio1" onClick={() => { CheckIn() }}><i class="fa fa-sign-in"></i> Clock In</label>
                       :
-                   
+
                       <label class="btn btn-outline-light" for="btnradio1" onClick={() => { CheckOut() }}><i class="fa fa-sign-out"></i> Clock Out</label>
                     }
                   </div>

@@ -22,40 +22,47 @@ import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import axios from "axios";
 
 
-function Announcements() {
-  const [show, setShow] = useState(false);
-  const [getData, setData] = useState([]);
 
+function Announcements() {
+  const [getData, setData] = useState([]);
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [show1, setShow1] = useState(false);
+
+  const handleClose1 = () => setShow1(false);
+  const handleShow1 = () => setShow1(true);
   const [AnnouncementsData, setAnnouncementsData] = useState([])
 
 
   const columns = [
     {
-      name: 'Serial',
+      name: 'S No.',
       width: '80px !important',
       selector: (row,id) => id+1,
     },
     {
-      name: 'Name',
-      width: '150px !important',
-      selector: row => row.FirstName+" " +row.LastName ,
+      name: 'Title',
+      width: '250px !important',
+      selector: row => "Diwali Holiday" ,//row.title ,
     },
     {
-      name: 'Email',
-      width: '150px !important',
-      selector: row => row.Email,
+      name: 'From Date',
+      width: '180px !important',
+      selector: row => row.from_date.split('T')[0],
     },
     {
-      name: 'Department',
-      width: '160px !important',
-      selector: row => row.result[0].Deparment,
+      name: 'End  Date',
+      width: '180px !important',
+      selector: row => row.end_date.split('T')[0],
     },
     
     {
-      name: 'Designation',
-      selector: row => row.result[0].Designation,
+      name: 'Message',
+      width: '120px !important',
+
+      selector: row => (<i className="fa-solid fa-comment" onClick={handleShow1}> </i>),
     },
  
   ];
@@ -93,34 +100,6 @@ function Announcements() {
       },
     },
   };
-
-
-const [messages, setMessages] = useState("HI SNEH>>>");
-
-useEffect(() => {
-  const socket = new WebSocket('ws://localhost:5600');
-
-  socket.addEventListener('open', (event) => {
-    console.log('Connected to WebSocket server');
-  });
-
-  socket.addEventListener('message', (event) => {
-    const newMessage = JSON.parse(event.data);
-    setMessages([...messages, newMessage]);
-  });
-
-  return () => {
-    socket.close();
-  };
-}, []);
-
-const handleMessageSubmit = (message) => {
-  const socket = new WebSocket('ws://localhost:5600');
-  socket.send(JSON.stringify({ message }));
-};
-
-
-
 
 
 
@@ -165,11 +144,10 @@ const GetAnnouncements = () => {
 
   })
     .then(function (response) {
-      // console.log("ppp", response.data.Announcements);
+      console.log("ppp", response.data.Announcements);
+      // return
       setAnnouncementsData(response.data.Announcements)
-      if (response.data.msg == 'Success') {
-
-      }
+    
     })
 }
 
@@ -184,7 +162,7 @@ useEffect(() => {
 return (
   <>
 
-    <Card className="ms-5" style={{ "width": "900px" }}>
+    <Card  style={{ "width": "850px","marginLeft":"50px" }}>
       <Card.Body>
         <div className="d-flex">
           <div>
@@ -287,6 +265,23 @@ return (
           </DataTableExtensions>
 
         </div>
+
+
+
+        <Modal show={show1} onHide={handleClose1} animation={false}  size="lg-4"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+        <Modal.Header>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose1}>
+            Close
+          </Button>
+      
+        </Modal.Footer>
+      </Modal>
 
       </Card.Body>
     </Card></>

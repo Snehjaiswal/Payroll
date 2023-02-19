@@ -10,7 +10,9 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import dayjs, { Dayjs } from 'dayjs';
 import Stack from '@mui/material/Stack';
+import DataTable from 'react-data-table-component';
 
+import DataTableExtensions from "react-data-table-component-extensions";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
@@ -25,62 +27,115 @@ function Leave() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const currencies = [
-    {
-      value: 'Casual Leave',
-      label: 'Casual Leave',
-    },
-    {
-      value: 'Sick Leave',
-      label: 'Sick Leave',
-    },
-
-  ];
   const data = [
     {
-      Leave_Type: "Casual Leave",
-      Start_Date: '10-02-2023',
-      End_Date: '15-02-2023',
-      Reason: 'My Big Brother Wedding.',
-      Status:"Approved"
+      id: 1,
+      title: 'Beetlejuice',
+      year: '1988',
+      email: "Sneh@gamial.com",
+      status: 1
     },
     {
-      Leave_Type: "Casual Leave",
-      Start_Date: '20-02-2023',
-      End_Date: '25-02-2023',
-      Reason: 'My Big Brother Wedding.',
-      Status:"Approved"
+      id: 2,
+      title: 'Ghostbusters',
+      year: '1984',
+      email: "Sneh@gamial.com",
+      status: 2
+
+    },
+    {
+      id: 3,
+      title: 'Ghostbusters',
+      year: '1984',
+      email: "Sneh@gamial.com",
+      status: 2
+
+
+    }, {
+      id: 4,
+      title: 'Ghostbusters',
+      year: '1984',
+      email: "Sneh@gamial.com",
+      status: 1
+
+    }, {
+      id: 5,
+      title: 'Ghostbusters',
+      year: '1984',
+      email: "Sneh@gamial.com",
+      status: 1
+
+    },
+    {
+      id: 5,
+      title: 'Ghostbusters',
+      year: '1984',
+      email: "Sneh@gamial.com"
+
+    },
+  ]
+  const columns = [
+    {
+      name: 'S No.',
+      width: '80px !important',
+      selector: (row, index) => index + 1,
+    },
+    {
+      name: 'Leave Type',
+      width: '140px !important',
+      selector: row => "Casual Leave",
+    },
+    {
+      name: 'From Date',
+      width: '150px !important',
+      selector: row => "20-11-2023",
+    }, {
+      name: 'End Date',
+      width: '150px !important',
+      selector: row => "20-11-2023",
     },
 
+    {
+      name: 'Sattus',
+      width: '150px !important',
+      selector: row => "Approved",
+    },
+    
+   
   ];
 
-  //should be memoized or stable
-  const columns = useMemo(
-    () => [
 
-      {
-        accessorKey: 'Leave_Type', 
-        header: 'Leave Type',
+
+  const customStyles = {
+
+    headCells: {
+      style: {
+        fontWeight: '700',
+        marginTop: "10px",
+        // marginLeft:"2px" ,
+
+        backgroundColor: 'rgb(94, 109, 216);',
+        color: '#fff',
+
+
+        justifyContent: 'center !important',
+        overflow: 'visible !important',
       },
-      {
-        accessorKey: 'Start_Date',
-        header: 'Start Date',
+    },
+    rows: {
+      style: {
+        justifyContent: 'center !important',
       },
-      {
-        accessorKey: 'End_Date', //normal accessorKey
-        header: 'End Date',
+    },
+    cells: {
+      style: {
+        overflow: 'visible !important',
+        justifyContent: 'center !important',
+        textAlign: "right"
       },
-      {
-        accessorKey: 'Reason',
-        header: 'Reason..',
-      },
-      {
-        accessorKey: 'Status',
-        header: 'Approved',
-      },
-    ],
-    [],)
+    },
+  };
+
 
 
   const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
@@ -92,7 +147,7 @@ function Leave() {
   return (
     <>
 
-      <Card>
+      <Card className="ms-1" style={{"width":"70%"}}>
         <Card.Body>
           <div className="d-flex">
             <div>
@@ -121,7 +176,7 @@ function Leave() {
                 >
                   <div>
 
-                    <TextField
+                    {/* <TextField
                       id="outlined-select-currency"
                       select
                       label="leave Type"
@@ -133,7 +188,7 @@ function Leave() {
                           {option.label}
                         </MenuItem>
                       ))}
-                    </TextField>
+                    </TextField> */}
 
 
                    
@@ -185,26 +240,25 @@ function Leave() {
           </div>
 
           <div className="pt-3">
-            <MaterialReactTable
+            <DataTableExtensions
               columns={columns}
               data={data}
-              muiTableBodyProps={{
-                sx: {
-                  //stripe the rows, make odd rows a darker color
-                  '& td:nth-of-type(odd)': {
-                    backgroundColor: '#f5f5f5',
-                  },
-                },
-              }}
-              muiTableBodyCellProps={{
-                sx: {
-                  borderRight: '2px solid #e0e0e0',
-                },
-                header: {
-                  backgroundColor: "red"
-                }
-              }}
-            />
+              export={false}
+              print={false}
+            >
+              <DataTable
+                fixedHeader
+                fixedHeaderScrollHeight="700px"
+                noHeader
+                defaultSortField="id"
+                defaultSortAsc={false}
+                pagination
+                customStyles={customStyles}
+                highlightOnHover
+                paginationRowsPerPageOptions={[5, 50, 100]}
+                paginationComponentOptions={{ selectAllRowsItem: true, selectAllRowsItemText: 'All' }}
+              />
+            </DataTableExtensions>
 
           </div>
 
