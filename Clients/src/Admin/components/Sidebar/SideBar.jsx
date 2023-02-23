@@ -53,23 +53,23 @@ const routes = [
     ],
   },
   {
-    path: "/admin/attendence",
+    path: "/admin/attendence/report",
     name: "Attendence",
     icon: <MdMessage />,
     exact: true,
-    subRoutes: [
-      {
-        path: "/admin/attendence/daily",
-        name: "Daily Attendence",
-        icon: <FaUser />,
-      },
-      {
-        path: "/admin/attendence/report",
-        name: "Attendece Report",
-        icon: <FaLock />,
-      },
+    // subRoutes: [
+    //   {
+    //     path: "/admin/attendence/daily",
+    //     name: "Daily Attendence",
+    //     icon: <FaUser />,
+    //   },
+    //   {
+    //     path: "/admin/attendence/report",
+    //     name: "Attendece Report",
+    //     icon: <FaLock />,
+    //   },
 
-    ],
+    // ],
   },
   // {
   //   path: "/leave",
@@ -107,7 +107,11 @@ const routes = [
       }
     ],
   },
-
+  {
+    path: "/admin/notes",
+    name: "Notes",
+    icon: <BsCartCheck />,
+  },
 
   {
     path: "/admin/holiday",

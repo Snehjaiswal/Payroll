@@ -23,42 +23,45 @@ import Editemployee from '../Admin/pages/Editemployee';
 import AddEmployee from '../Admin/pages/AddEmployee';
 import Announcements from '../Admin/pages/Announcements';
 import Message from '../Admin/pages/Message';
+import Notes from '../Employees/Notes';
 
 
 
 function Adminrout() {
   return (
     <>
-    
-    <SideBar>
-          <Navbar />
-          <Routes>
-            {/* Admin */}
-            <Route path="/admin/dashboard" element={<Dashboard />} />
-            {/* <Route path="/admin/employee/add" element={<><MasterForm /> <AddEmployee /></>} /> */}
-            <Route path="/admin/employee/add" element={<><AddEmployee /></>} />
 
-            <Route path="/admin/employee/manage" element={<ManageEmployees />} />
-            <Route path="/admin/employee/view/:id" element={<View />} />
-            <Route path="/admin/department/add" element={<AddDepartment />} />
-            <Route path="/admin/department/manage" element={<ManageDepartment />} />
-            <Route path="/admin/attendence/daily" element={<DailyAtendence />} />
-            <Route path="/admin/attendence/report" element={<AttendenceReport />} />
-            <Route path="/admin/leave/add" element={<AddLeave />} />
-            <Route path="/admin/leave/manage" element={<ManageLeave />} />
-            <Route path="/admin/holiday" element={<CalendarPage />} />
-            <Route path="/admin/payslip/add" element={<AddPayslip />} />
-            <Route path="/admin/payslip/list" element={<PayslipList />} />
-            <Route path="/admin/employee/edit" element={<Editemployee />} />
-            <Route path="/admin/announcements" element={<Announcements />} />
-            <Route path="/admin/message" element={<Message />} />
+      <SideBar>
+        <Navbar />
+        <Routes>
+          {/* Admin */}
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          {/* <Route path="/admin/employee/add" element={<><MasterForm /> <AddEmployee /></>} /> */}
+          <Route path="/admin/employee/add" element={<><AddEmployee /></>} />
+
+          <Route path="/admin/employee/manage" element={<ManageEmployees />} />
+          <Route path="/admin/employee/view/:id" element={<View />} />
+          <Route path="/admin/department/add" element={<AddDepartment />} />
+          <Route path="/admin/department/manage" element={<ManageDepartment />} />
+          <Route path="/admin/attendence/daily" element={<DailyAtendence />} />
+          <Route path="/admin/attendence/report" element={<AttendenceReport />} />
+          <Route path="/admin/leave/add" element={<AddLeave />} />
+          <Route path="/admin/leave/manage" element={<ManageLeave />} />
+          <Route path="/admin/holiday" element={<CalendarPage />} />
+          <Route path="/admin/payslip/add" element={<AddPayslip />} />
+          <Route path="/admin/payslip/list" element={<PayslipList />} />
+          <Route path="/admin/employee/edit" element={<Editemployee />} />
+          <Route path="/admin/announcements" element={<Announcements />} />
+          <Route path="/admin/message" element={<Message />} />
+
+          <Route path="/admin/notes" element={<Notes />} />
 
 
 
-          </Routes>
-        </SideBar>
-    
-    
+        </Routes>
+      </SideBar>
+
+
     </>
   )
 }

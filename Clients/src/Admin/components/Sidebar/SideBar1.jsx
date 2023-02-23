@@ -14,11 +14,11 @@ const routes = [
     name: "Dashboard",
     icon: <FaHome />,
   },
-  {
-    path: "/timeline",
-    name: "TimeLine",
-    icon: <i class="fa-solid fa-comments"></i>,
-  },
+  // {
+  //   path: "/timeline",
+  //   name: "TimeLine",
+  //   icon: <i class="fa-solid fa-comments"></i>,
+  // },
   {
     path: "/events",
     name: "Events",
@@ -29,7 +29,7 @@ const routes = [
     name: "Notes",
     icon:<i class="fa-solid fa-comments"></i>,
   }, {
-    path: "/message",
+    path: "/messages",
     name: "Messages",
     icon: <i class="fa-sharp fa-solid fa-message"></i>,
   },
@@ -54,6 +54,11 @@ const routes = [
   //   icon: <i class="fa-sharp fa-solid fa-calendar-days"></i>,
   // },
   {
+    path: "/hrpolicy",
+    name: "HR Policy",
+    icon: <i class="fa-thin fa-notes"></i>,
+  },
+  {
     path: "/help&support",
     name: "Help & support",
     icon: <i class="fa-sharp fa-solid fa-circle-info"></i>,
@@ -72,11 +77,7 @@ const routes = [
       },
     ],
   },
-  {
-    path: "/hrpolicy",
-    name: "HR Policy",
-    icon: <i class="fa-thin fa-notes"></i>,
-  },
+  
  
  
 ];

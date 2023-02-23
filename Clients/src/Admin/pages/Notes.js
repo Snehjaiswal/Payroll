@@ -100,7 +100,9 @@ function Notes() {
         <Card.Body>
           <div className="d-flex">
             <div>
-              <h3 style={{"color":"black"}}>Notes (private)</h3>
+            <h3 style={{"color":"black"}}>Notes (private)</h3>
+
+
             </div>
 
             <div class="tab-title clearfix no-border ms-auto">
@@ -160,8 +162,8 @@ function Notes() {
           <div className="pt-3">
             <div class="cont">
 
-
-              {[1, 2, 3, 4, 5, 6].map((val) => {
+           
+              {[1, 2, 3, 4, 5,6].map((val) => {
                 { console.log("okk") }
                 return <div class="card blue">
                   <div class="nav">

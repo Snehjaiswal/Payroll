@@ -125,7 +125,7 @@ function Message() {
                     </main>
                     <div className="msger-inputarea">
                         <input type="text" className="msger-input" placeholder="Enter your message..." />
-                        <button type="submit" onClick={(event)=>submit(event)} className="msger-send-btn">Send</button>
+                        <button type="submit" onClick={()=>submit()} className="msger-send-btn">Send</button>
                     </div>
                 </section>
 
@@ -139,3 +139,4 @@ function Message() {
 }
 
 export default Message
+// export default Message
