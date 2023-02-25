@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useNavigate } from "react-router-dom";
-
+import { io } from 'socket.io-client';
 
 function Navbar() {
     const navigate = useNavigate()
@@ -20,27 +20,24 @@ function Navbar() {
 
 
 
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState("OKK");
 
-    console.log("messages==========",messages);
-    useEffect(() => {
-      const socket = new WebSocket('ws://localhost:5600');
-  
-      socket.addEventListener('open', (event) => {
-        console.log('Connected to WebSocket server');
-      });
-  
-      socket.addEventListener('message', (event) => {
-        const newMessage = JSON.parse(event.data);
-        setMessages([...messages, newMessage]);
-      });
-  
-      return () => {
-        socket.close();
-      };
-    }, []);
 
-  
+   
+
+    // const socket = io(url+'');
+    
+    // socket.on('connect', () => {
+    //   console.log('Connected to server');
+    // });
+    
+    // socket.on('disconnect', () => {
+    //   console.log('Disconnected from server');
+    // });
+    
+    // socket.on('message', (data) => {
+    //   console.log('Received message:', data);
+    // });
   
   
 
@@ -68,7 +65,7 @@ function Navbar() {
                                     <a className="nav-link" aria-current="page" href="#" >  <i className="fa-regular fa-bell"></i></a>
                                 </li>
                                 <li className="nav-item" style={{ "width": "40px" }}>
-                                    <a className="nav-link" aria-current="page" href="#"> <i className="fa-light fa-envelope"></i>{messages}</a>
+                                    <a className="nav-link" aria-current="page" href="#"> <i className="fa-light fa-envelope"></i></a>
                                 </li>
 
 

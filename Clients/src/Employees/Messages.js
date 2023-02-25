@@ -1,5 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import socketIOClient from "socket.io-client";
+import {url} from '../Utils/Config'
+
+
 const ENDPOINT = "http://localhost:5500";
 function Message() {
 
@@ -40,16 +43,16 @@ function Message() {
     function appendMessage(name, img, side, text) {
         //   Simple solution for small apps
         const msgHTML = `
-    <div class="msg ${side}-msg">
-      <div class="msg-img" style="background-image: url(${img})"></div>
+    <div className="msg ${side}-msg">
+      <div className="msg-img" style="background-image: url(${img})"></div>
 
-      <div class="msg-bubble">
-        <div class="msg-info">
-          <div class="msg-info-name">${name}</div>
-          <div class="msg-info-time">${formatDate(new Date())}</div>
+      <div className="msg-bubble">
+        <div className="msg-info">
+          <div className="msg-info-name">${name}</div>
+          <div className="msg-info-time">${formatDate(new Date())}</div>
         </div>
 
-        <div class="msg-text">${text}</div>
+        <div className="msg-text">${text}</div>
       </div>
     </div>
   `;

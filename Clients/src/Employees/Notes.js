@@ -7,6 +7,8 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import Modal from 'react-bootstrap/Modal';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import {url} from '../Utils/Config'
+
 
 function Notes() {
   const [show, setShow] = useState(false);
@@ -103,8 +105,8 @@ function Notes() {
               <h3 style={{"color":"black"}}>Notes (private)</h3>
             </div>
 
-            <div class="tab-title clearfix no-border ms-auto">
-              <button className="btn btn-light" onClick={handleShow}> <i class="fa fa-plus-circle"></i> Apply Notes</button>
+            <div className="tab-title clearfix no-border ms-auto">
+              <button className="btn btn-light" onClick={handleShow}> <i className="fa fa-plus-circle"></i> Apply Notes</button>
             </div>
 
             <Modal show={show} onHide={handleClose} animation={false}>
@@ -146,10 +148,10 @@ function Notes() {
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
-                  <i class="fa-solid fa-xmark"></i> Close
+                  <i className="fa-solid fa-xmark"></i> Close
                 </Button>
                 <Button variant="primary" onClick={handleClose}>
-                  <span class="fa fa-check-circle"></span>   Save
+                  <span className="fa fa-check-circle"></span>   Save
                 </Button>
               </Modal.Footer>
             </Modal>
@@ -158,25 +160,25 @@ function Notes() {
           </div>
 
           <div className="pt-3">
-            <div class="cont">
+            <div className="cont">
 
 
               {[1, 2, 3, 4, 5, 6].map((val) => {
                 { console.log("okk") }
-                return <div class="card blue">
-                  <div class="nav">
-                    <i class="material-icons-round">
+                return <div className="card blue">
+                  <div className="nav">
+                    <i className="material-icons-round">
                       palette
                     </i>
-                    <i class="material-icons-round">
+                    <i className="material-icons-round">
                       close
                     </i>
                   </div>
-                  <div class="title">
+                  <div className="title">
                     <textarea placeholder="Title" spellcheck="false"></textarea>
                   </div>
-                  <div class="text">
-                    <textarea placeholder="Text" class="textarea-auto" spellcheck="false"></textarea>
+                  <div className="text">
+                    <textarea placeholder="Text" className="textarea-auto" spellcheck="false"></textarea>
                   </div>
                 </div>
 

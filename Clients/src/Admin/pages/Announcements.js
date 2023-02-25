@@ -7,7 +7,7 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import Modal from 'react-bootstrap/Modal';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-
+import {url} from '../../Utils/Config'
 import dayjs, { Dayjs } from 'dayjs';
 import Stack from '@mui/material/Stack';
 // import React, { useState, useEffect } from 'react';
@@ -113,7 +113,7 @@ const handleChange = (newValue) => {
 const AddAnnouncements = () => {
   axios({
     method: 'post',
-    url: 'http://localhost:5500/add/announcements',
+    url: url+'/add/announcements',
     headers: {
       'Content-Type': 'application/json'
     },
@@ -137,7 +137,7 @@ const AddAnnouncements = () => {
 const GetAnnouncements = () => {
   axios({
     method: 'get',
-    url: 'http://localhost:5500/get/announcements',
+    url: url+'/get/announcements',
     headers: {
       'Content-Type': 'application/json'
     },
@@ -166,13 +166,13 @@ return (
       <Card.Body>
         <div className="d-flex">
           <div>
-            <h3 >Announcements <i class="fa-sharp fa-solid fa-megaphone"></i> </h3>
+            <h3 >Announcements <i className="fa-sharp fa-solid fa-megaphone"></i> </h3>
 
 
           </div>
 
-          <div class="tab-title clearfix no-border ms-auto">
-            <button className="btn btn-light" onClick={handleShow}> <i class="fa fa-plus-circle"></i> Add Message</button>
+          <div className="tab-title clearfix no-border ms-auto">
+            <button className="btn btn-light" onClick={handleShow}> <i className="fa fa-plus-circle"></i> Add Message</button>
           </div>
 
           <Modal show={show} onHide={handleClose} animation={false}>
@@ -232,10 +232,10 @@ return (
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
-                <i class="fa-solid fa-xmark"></i> Close
+                <i className="fa-solid fa-xmark"></i> Close
               </Button>
               <Button variant="primary" onClick={() => AddAnnouncements()}>
-                <span class="fa fa-check-circle"></span>   Save
+                <span className="fa fa-check-circle"></span>   Save
               </Button>
             </Modal.Footer>
           </Modal>

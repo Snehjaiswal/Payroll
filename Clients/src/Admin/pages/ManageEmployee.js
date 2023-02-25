@@ -4,6 +4,7 @@ import DataTableExtensions from "react-data-table-component-extensions";
 import { useNavigate } from "react-router-dom"
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
+import {url} from '../../Utils/Config'
 
 function ManageEmployee() {
   const navigate = useNavigate();
@@ -159,7 +160,7 @@ function ManageEmployee() {
 
     var config = {
       method: 'get',
-      url: 'http://localhost:5500/employee/getall',
+      url: url+'/employee/getall',
       headers: { }
     };
     

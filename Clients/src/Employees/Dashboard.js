@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from 'reactstrap'
 import axios from 'axios';
+import {url} from '../Utils/Config'
 
 function Dashboard() {
   const [CheckStatus, setCheckStatus] = useState("")
@@ -39,7 +40,7 @@ function Dashboard() {
 
     axios({
       method: 'post',
-      url: 'http://localhost:5500/add/checkin',
+      url: url+'/add/checkin',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -90,7 +91,7 @@ function Dashboard() {
 
     axios({
       method: 'post',
-      url: 'http://localhost:5500/add/checkOut',
+      url: url+'/add/checkOut',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -114,7 +115,7 @@ function Dashboard() {
 
     axios({
       method: 'post',
-      url: 'http://localhost:5500/find/check',
+      url: url+'/find/check',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -166,14 +167,14 @@ function Dashboard() {
                 }
 
                 <span className="hind-font caption-12 c-dashboardInfo__count">
-                  <i class="fa-light fa-clock-three"></i>
-                  <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked />
+                  <i className="fa-light fa-clock-three"></i>
+                  <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" checked />
                     {CheckStatus && CheckStatus == 1 || CheckStatus && CheckStatus == "" ?
-                      <label class="btn btn-outline-light" for="btnradio1" onClick={() => { CheckIn() }}><i class="fa fa-sign-in"></i> Clock In</label>
+                      <label className="btn btn-outline-light" htmlFor="btnradio1" onClick={() => { CheckIn() }}><i className="fa fa-sign-in"></i> Clock In</label>
                       :
 
-                      <label class="btn btn-outline-light" for="btnradio1" onClick={() => { CheckOut() }}><i class="fa fa-sign-out"></i> Clock Out</label>
+                      <label className="btn btn-outline-light" htmlFor="btnradio1" onClick={() => { CheckOut() }}><i className="fa fa-sign-out"></i> Clock Out</label>
                     }
                   </div>
                 </span>
@@ -189,7 +190,7 @@ function Dashboard() {
               <div className="wrap">
                 <h4 className="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Events Today
                 </h4><span className="hind-font caption-12 c-dashboardInfo__count">4
-                  <i class="fa-solid fa-calendar-days" style={{ "marginLeft": "15px" }}></i>
+                  <i className="fa-solid fa-calendar-days" style={{ "marginLeft": "15px" }}></i>
                 </span>
               </div>
             </div>
@@ -197,7 +198,7 @@ function Dashboard() {
               <div className="wrap">
                 <h4 className="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Salary
                 </h4><span className="hind-font caption-12 c-dashboardInfo__count">40000
-                  <i class="fa-regular fa-money-check-dollar" style={{ "marginLeft": "15px" }}></i>
+                  <i className="fa-regular fa-money-check-dollar" style={{ "marginLeft": "15px" }}></i>
 
                 </span>
               </div>

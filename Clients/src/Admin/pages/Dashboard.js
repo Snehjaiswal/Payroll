@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import '../../Css/dashboard.css'
 
+import {url} from '../../Utils/Config'
 
 
 const Dashboard = () => {
@@ -26,7 +27,7 @@ const [EmployeeCount,setEmployeeCount] = useState('')
   
     axios({
       method: 'get',
-      url: 'http://localhost:5500/dashboard',
+      url: url+'/dashboard',
      
     })
     .then(function (response) {

@@ -1,4 +1,7 @@
 import React from 'react'
+import {url} from '../Utils/Config'
+
+
 
 function Events() {
   return (

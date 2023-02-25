@@ -1,4 +1,6 @@
 import React from 'react'
+import {url} from '../../Utils/Config'
+
 
 function AddLeave() {
   return (

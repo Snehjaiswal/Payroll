@@ -2,6 +2,7 @@ import React from "react";
 import "./MultiStepProgressBar.css";
 import "react-step-progress-bar/styles.css";
 import { ProgressBar, Step } from "react-step-progress-bar";
+import {url} from '../../Utils/Config'
 
 const MultiStepProgressBar = props => {
   var stepPercentage = 0;

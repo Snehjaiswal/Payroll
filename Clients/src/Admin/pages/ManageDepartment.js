@@ -3,7 +3,7 @@ import DataTable from 'react-data-table-component';
 import DataTableExtensions from "react-data-table-component-extensions";
 import { useNavigate } from "react-router-dom"
 import { Form } from "react-bootstrap";
-
+import {url} from '../../Utils/Config'
 import axios from 'axios';
 
 import Card from 'react-bootstrap/Card';
@@ -52,8 +52,8 @@ function ManageDepartment() {
           <Form.Check
             type="switch"
             id="custom-switch"
-            defaultChecked={row.Status === true ? true : false}
-            onClick={(e) => { UpdateDeparmentStatus(e, row) }}
+            defaultChecked={row.Status == true ? true : false}
+            onChange={(e) => { UpdateDeparmentStatus(e, row) }}
           />
         </>
       ),
@@ -116,7 +116,7 @@ function ManageDepartment() {
 
     var config = {
       method: 'get',
-      url: 'http://localhost:5500/get-department',
+      url: url+'/get-department',
       headers: {}
     };
 
@@ -136,7 +136,7 @@ function ManageDepartment() {
 
     var config = {
       method: 'post',
-      url: 'http://localhost:5500/update-status',
+      url: url+'/update-status',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -162,7 +162,7 @@ function ManageDepartment() {
 
     var config = {
       method: 'post',
-      url: 'http://localhost:5500/delete-deparment',
+      url: url+'/delete-deparment',
       headers: { 
         'Content-Type': 'application/json'
       },

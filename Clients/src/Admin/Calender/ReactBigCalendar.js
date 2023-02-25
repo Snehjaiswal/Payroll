@@ -4,6 +4,8 @@ import moment from "moment";
 import events from "./events";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from 'axios';
+import {url} from '../../Utils/Config'
+
 
 
 
@@ -54,7 +56,7 @@ export default function ReactBigCalendar() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:5500/get/holiday')
+    axios.get(url+'/get/holiday')
       .then((response) => {
         // handle success
         // console.log(response.data);

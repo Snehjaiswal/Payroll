@@ -4,6 +4,8 @@ import DataTableExtensions from "react-data-table-component-extensions";
 import { useNavigate } from "react-router-dom"
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
+import {url} from '../Utils/Config'
+
 
 
 function Timecard() {
@@ -121,7 +123,7 @@ function Timecard() {
 
         axios({
             method: 'post',
-            url: 'http://localhost:5500/find/all_check',
+            url: url+'/find/all_check',
             headers: {
                 'Content-Type': 'application/json'
             },

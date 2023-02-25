@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+import {url} from '../../Utils/Config'
 
 import Card from 'react-bootstrap/Card';
 import DataTable from 'react-data-table-component';
@@ -155,7 +156,7 @@ function AttendenceReport() {
                             <button className="btn  bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}>Print</button>
 
                             <input type="search" placeholder="Search" className="btn  bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "1px", "borderRadius": "0" }} />
-                            <button className="btn  bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}><i class="fa-regular fa-magnifying-glass"></i></button>
+                            <button className="btn  bt2" style={{ "border": " 1px solid rgb(0, 0, 0)", "marginRight": "2px", "borderRadius": "0" }}><i className="fa-regular fa-magnifying-glass"></i></button>
 
                         </div>
 

@@ -3,16 +3,29 @@ require('./app/utils/mongooseConnecter.util')
 const express = require("express");
 const app = express();
 const cors = require('cors');
-app.use(cors())
+
+app.use(cors({ origin: 'http://localhost:3000' }));
 require('dotenv').config();
 const PORT = 5500
 const http = require("http");
-const socketIo = require("socket.io");
 
 
 
 
+// const io = require('socket.io')(PORT);
 
+// io.on('connection', (socket) => {
+//   console.log('A user connected');
+
+//   socket.on('disconnect', () => {
+//     console.log('User disconnected');
+//   });
+
+//   socket.on('message', (data) => {
+//     console.log('Received message:', data);
+//     io.emit('message', data);
+//   });
+// });
 
 
 

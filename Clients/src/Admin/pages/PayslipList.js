@@ -1,6 +1,7 @@
 import React from 'react'
 import DataTable from 'react-data-table-component';
 import Card from 'react-bootstrap/Card';
+import {url} from '../../Utils/Config'
 
 
 function PayslipList() {
@@ -164,7 +165,7 @@ function PayslipList() {
             <div style={{ "display": "flex" }}>
 
               <div className="yearBox" style={{ "marginLeft": "50px" }}>
-                <label htmlFor="year">Year :</label><br />
+                <label htmlhtmlFor="year">Year :</label><br />
                 <select id="cars" name="cars" style={{ "width": "150px" }}>
                   <option defaultValue="volvo">2023</option>
                   <option defaultValue="volvo">2024</option>
@@ -174,7 +175,7 @@ function PayslipList() {
                 </select>
               </div>
               <div className="monthBox" style={{ "marginLeft": "50px" }}>
-                <label htmlFor="cars">Month :</label><br />
+                <label htmlhtmlFor="cars">Month :</label><br />
                 <select id="cars" name="cars" style={{ "width": "150px" }}>
                   {
                     month.map((val) => {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../src/Css/Login.css'
 import { useNavigate } from "react-router-dom";
+import {url} from './Utils/Config'
 
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -17,7 +18,7 @@ function Login() {
 
     axios({
       method: 'post',
-      url: 'http://localhost:5500/employee/login',
+      url: url+'/employee/login',
       data: {
         "Email": getemail,
         "Password": getpassword
@@ -51,7 +52,7 @@ function Login() {
     <>
 
       {/* Login Form */}
-      <div class="bg-blue-500" style={{"height": "100vh"}}>
+      <div className="bg-blue-500" style={{"height": "100vh"}}>
 
         <div className="container mx-auto p-2">
           <div className="max-w-sm mx-auto my-24 bg-white px-5 py-10 rounded shadow-xl">
@@ -60,11 +61,11 @@ function Login() {
             </div>
             <div >
               <div className="mt-2">
-                <label htmlFor="username">Username or Email</label>
+                <label htmlhtmlFor="username">Username or Email</label>
                 <input type="text" id="username" className="block w-full p-1 border rounded border-gray-500" onChange={(e) => setemail(e.target.value)} />
               </div>
               <div className="mt-2">
-                <label htmlFor="password">Password</label>
+                <label htmlhtmlFor="password">Password</label>
                 <input type="password" id="password" className="block w-full p-2 border rounded border-gray-500" onChange={(e) => setpassword(e.target.value)} />
               </div>
               <div className="mt-3">

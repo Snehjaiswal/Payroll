@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {url} from '../../Utils/Config'
 
 
 function DailyAtendence() {
@@ -145,7 +146,7 @@ function DailyAtendence() {
             <Container>
               <Row>
                 <Col sm>
-                  <label htmlFor="cars"> Department:</label><br />
+                  <label htmlhtmlFor="cars"> Department:</label><br />
                   <select id="cars" name="cars">
                     <option defaultValue="volvo">All Employees</option>
                     <option defaultValue="saab">Saab</option>
@@ -155,7 +156,7 @@ function DailyAtendence() {
                 </Col>
 
                 <Col sm>
-                  <label htmlFor="cars">Designation :</label><br />
+                  <label htmlhtmlFor="cars">Designation :</label><br />
                    <select id="cars" name="cars">
                     <option defaultValue="volvo">All Employees</option>
                     <option defaultValue="saab">Saab</option>
@@ -165,12 +166,12 @@ function DailyAtendence() {
                 </Col>
 
                 {/* <Col sm>
-                  <label htmlFor="cars">Date :</label><br />
+                  <label htmlhtmlFor="cars">Date :</label><br />
                   <input type="date" />
                 </Col> */}
 
                 {/* <Col sm>
-                <label htmlFor="cars">Submit :</label><br />
+                <label htmlhtmlFor="cars">Submit :</label><br />
                   <button type="button" className="btn btn-success">Submit</button>
                 </Col> */}
               </Row>

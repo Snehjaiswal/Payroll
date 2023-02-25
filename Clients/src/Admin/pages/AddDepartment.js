@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
+import {url} from '../../Utils/Config'
 import Card from 'react-bootstrap/Card';
 
 
@@ -38,7 +38,7 @@ function AddDepartment() {
 
         axios({
             method: 'post',
-            url: 'http://localhost:5500/add-department',
+            url: url+'add-department',
             headers: {
                 'Content-Type': 'application/json'
             },

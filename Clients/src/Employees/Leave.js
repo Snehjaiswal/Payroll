@@ -19,6 +19,8 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import {url} from '../Utils/Config'
+
 
 
 
@@ -156,8 +158,8 @@ function Leave() {
 
             </div>
 
-            <div class="tab-title clearfix no-border ms-auto">
-              <button className="btn btn-light" onClick={handleShow}> <i class="fa fa-plus-circle"></i> Apply Leave</button>
+            <div className="tab-title clearfix no-border ms-auto">
+              <button className="btn btn-light" onClick={handleShow}> <i className="fa fa-plus-circle"></i> Apply Leave</button>
             </div>
 
             <Modal show={show} onHide={handleClose} animation={false}>
@@ -228,10 +230,10 @@ function Leave() {
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
-                  <i class="fa-solid fa-xmark"></i> Close
+                  <i className="fa-solid fa-xmark"></i> Close
                 </Button>
                 <Button variant="primary" onClick={handleClose}>
-                  <span class="fa fa-check-circle"></span>   Save
+                  <span className="fa fa-check-circle"></span>   Save
                 </Button>
               </Modal.Footer>
             </Modal>

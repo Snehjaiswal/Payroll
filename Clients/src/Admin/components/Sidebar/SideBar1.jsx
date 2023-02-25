@@ -17,63 +17,63 @@ const routes = [
   // {
   //   path: "/timeline",
   //   name: "TimeLine",
-  //   icon: <i class="fa-solid fa-comments"></i>,
+  //   icon: <i className="fa-solid fa-comments"></i>,
   // },
   {
     path: "/events",
     name: "Events",
-    icon: <i class="fa-solid fa-calendar-days"></i>,
+    icon: <i className="fa-solid fa-calendar-days"></i>,
   },
   {
     path: "/notes",
     name: "Notes",
-    icon:<i class="fa-solid fa-comments"></i>,
+    icon:<i className="fa-solid fa-comments"></i>,
   }, {
     path: "/messages",
     name: "Messages",
-    icon: <i class="fa-sharp fa-solid fa-message"></i>,
+    icon: <i className="fa-sharp fa-solid fa-message"></i>,
   },
   {
     path: "/time-cards",
     name: "Time Cards",
-    icon: <i class="fa-regular fa-clock"></i>,
+    icon: <i className="fa-regular fa-clock"></i>,
   },
   {
     path: "/leave",
     name: "Leave",
-    icon: <i class="fa-light fa-arrow-right-from-bracket"></i>,  
+    icon: <i className="fa-light fa-arrow-right-from-bracket"></i>,  
   },
   {
     path: "/announcements",
     name: "Announcements",
-    icon: <i class="fa-sharp fa-solid fa-megaphone"></i>,
+    icon: <i className="fa-sharp fa-solid fa-megaphone"></i>,
   },
   // {
   //   path: "/holiday",
   //   name: "Holiday",
-  //   icon: <i class="fa-sharp fa-solid fa-calendar-days"></i>,
+  //   icon: <i className="fa-sharp fa-solid fa-calendar-days"></i>,
   // },
   {
     path: "/hrpolicy",
     name: "HR Policy",
-    icon: <i class="fa-thin fa-notes"></i>,
+    icon: <i className="fa-thin fa-notes"></i>,
   },
   {
     path: "/help&support",
     name: "Help & support",
-    icon: <i class="fa-sharp fa-solid fa-circle-info"></i>,
+    icon: <i className="fa-sharp fa-solid fa-circle-info"></i>,
     exact: true,
     subRoutes: [
       {
         path: "/help",
         name: "Help ",
-        icon: <i class="fa-sharp fa-solid fa-circle-info"></i>,
+        icon: <i className="fa-sharp fa-solid fa-circle-info"></i>,
       },
       
       {
         path: "/settings/billing",
         name: "Settings",
-        icon:<i class="fa-solid fa-gear"></i>,
+        icon:<i className="fa-solid fa-gear"></i>,
       },
     ],
   },

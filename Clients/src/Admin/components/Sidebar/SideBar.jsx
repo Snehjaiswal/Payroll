@@ -121,12 +121,12 @@ const routes = [
   {
     path: "/admin/announcements",
     name: "Announcements",
-    icon: <i class="fa-sharp fa-solid fa-megaphone"></i>,
+    icon: <i className="fa-sharp fa-solid fa-megaphone"></i>,
   },
   {
     path: "/admin/message",
     name: "Messages",
-    icon: <i class="fa-sharp fa-solid fa-message"></i>,
+    icon: <i className="fa-sharp fa-solid fa-message"></i>,
   },
   {
     path: "/admin/settings",

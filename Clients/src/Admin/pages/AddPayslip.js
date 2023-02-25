@@ -1,6 +1,8 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import DataTable from 'react-data-table-component';
+import {url} from '../../Utils/Config'
+
 
 function AddPayslip() {
     const month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -127,7 +129,7 @@ function AddPayslip() {
                     <Card.Text>
                         <div style={{ "display": "flex" }}>
                             <div className="Dep">
-                                <label htmlFor="cars"> Department:</label><br />
+                                <label htmlhtmlFor="cars"> Department:</label><br />
                                 <select id="cars" name="cars" style={{ "width": "150px" }}>
                                     <option defaultValue="volvo">All Employees</option>
                                     <option defaultValue="saab">Saab</option>
@@ -136,7 +138,7 @@ function AddPayslip() {
                                 </select>
                             </div>
                             <div className="emp" style={{ "marginLeft": "50px" }}>
-                                <label htmlFor="cars"> Employees:</label><br />
+                                <label htmlhtmlFor="cars"> Employees:</label><br />
                                 <select id="cars" name="cars" style={{ "width": "150px" }}>
                                     <option defaultValue="volvo">All Employees</option>
                                     <option defaultValue="saab">Saab</option>
@@ -147,7 +149,7 @@ function AddPayslip() {
 
 
                             <div className="yearBox" style={{ "marginLeft": "50px" }}>
-                                <label htmlFor="year">Year :</label><br />
+                                <label htmlhtmlFor="year">Year :</label><br />
                                 <select id="cars" name="cars" style={{ "width": "150px" }}>
                                     <option defaultValue="volvo">2023</option>
                                     <option defaultValue="volvo">2024</option>
@@ -157,7 +159,7 @@ function AddPayslip() {
                                 </select>
                             </div>
                             <div className="monthBox" style={{ "marginLeft": "50px" }}>
-                                <label htmlFor="cars">Month :</label><br />
+                                <label htmlhtmlFor="cars">Month :</label><br />
                                 <select id="cars" name="cars" style={{ "width": "150px" }}>
                                     {
                                         month.map((val) => {

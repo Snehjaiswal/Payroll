@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {url} from '../../Utils/Config'
 
 const AddEmployee = () => {
     //  const [startDate, setStartDate] = useState(new Date());
@@ -127,7 +128,7 @@ const AddEmployee = () => {
                             <div className="row">
                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div className="form-group">
-                                        <label htmlFor="formFileMultiple" className="form-label">Multiple files input example</label>
+                                        <label htmlhtmlFor="formFileMultiple" className="form-label">Multiple files input example</label>
                                         <input className="form-control" type="file" id="formFileMultiple" multiple />
                                     </div>
                                 </div>
