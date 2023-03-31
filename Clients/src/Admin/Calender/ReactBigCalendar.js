@@ -27,7 +27,7 @@ export default function ReactBigCalendar() {
 
     axios({
       method: "post",
-      url: `http://localhost:5500/add/holiday`,
+      url: url+'add/holiday',
       data: {
         title:title,
         allDay:"true",
