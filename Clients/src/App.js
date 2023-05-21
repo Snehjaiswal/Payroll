@@ -16,8 +16,8 @@ function App() {
 
   var roleId = localStorage.getItem('Role_id')
   console.log("ds",roleId)
-  const location = useLocation()
-  // console.log("location", location);
+  // const location = useLocation()
+  // console.log("location", location.pathname);
 
   return (
     <>
@@ -26,12 +26,7 @@ function App() {
       <div>
 
         <Routes>
-          {
-
-
-
-          }
-
+   
           <Route path="/*" element={(roleId == 1) ? <AdminRoute />  : (roleId == 0) ? <Clientrout /> :<Login /> } />
 
           {/* <Route path="/*" element={(roleId == 0) ? <Clientrout /> : <Login />} /> */}

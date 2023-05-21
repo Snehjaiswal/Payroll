@@ -1,10 +1,8 @@
 import React from 'react'
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation ,useNavigate} from "react-router-dom";
 
 import SideBar from "../Admin/components/Sidebar/SideBar";
 import Navbar from "../Admin/components/Sidebar/Navbar";
-import Login from "../Login";
-
 
 import MasterForm from "../Admin/pages/MasterForm";
 import Dashboard from "../Admin/pages/Dashboard";
@@ -28,6 +26,13 @@ import Notes from '../Employees/Notes';
 
 
 function Adminrout() {
+
+  const location = useLocation()
+  const navigate = useNavigate();
+  console.log("location", location);
+        
+
+
   return (
     <>
 
@@ -36,6 +41,9 @@ function Adminrout() {
         <Routes>
           {/* Admin */}
           <Route path="/admin/dashboard" element={<Dashboard />} />
+
+          {location.pathname == '' ? navigate("/admin/dashboard"): "" }
+
           {/* <Route path="/admin/employee/add" element={<><MasterForm /> <AddEmployee /></>} /> */}
           <Route path="/admin/employee/add" element={<><AddEmployee /></>} />
 
