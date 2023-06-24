@@ -52,7 +52,7 @@ body {
 
 .chat-window {
   width: auto;
-  height: 100%;
+  height: calc(100vh - 28vh);
 
 }
 /* 

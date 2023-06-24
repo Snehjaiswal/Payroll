@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import profile from "../../../Assets/fotor_2023-1-29_23_12_31.png"
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -18,39 +18,17 @@ function Navbar() {
     }
 
 
-
-
-
-
     const [messages, setMessages] = useState("OKK");
 
 
-   
-
-    // const socket = io(url+'');
-    
-    // socket.on('connect', () => {
-    //   console.log('Connected to server');
-    // });
-    
-    // socket.on('disconnect', () => {
-    //   console.log('Disconnected from server');
-    // });
-    
-    // socket.on('message', (data) => {
-    //   console.log('Received message:', data);
-    // });
-  
-  
 
 
     return (
         <>
 
-
-            <Card.Body style={{ "backgroundColor": "white", "padding": "0", "margin": "0" }}>
+            {/* <Card.Body style={{ "backgroundColor": "white", "padding": "0", "margin": "0" }}> */}
                 {/* <Card.Text> */}
-                <nav className="navbar navbar-expand-lg navbar-light bg-light navBar">
+                <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light navBar">
                     <div className="container-fluid">
 
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +58,7 @@ function Navbar() {
                                         <ul className={getDrop == false ? "dropdown-menu" : "dropdown-menu show"} aria-labelledby="dropdownMenuButton1">
                                             <li><a className="dropdown-item" href="#">Profile</a></li><hr />
                                             <li><a className="dropdown-item" href="#">Setting</a></li>
-                                            <li><a className="dropdown-item"  onClick={()=>Logout()}>Logout</a></li>
+                                            <li><a className="dropdown-item" onClick={() => Logout()}>Logout</a></li>
 
                                         </ul>
                                     </div>
@@ -91,8 +69,8 @@ function Navbar() {
                 </nav>
                 <br />
                 {/* </Card.Text> */}
-            </Card.Body>
-            {/* </Card> */}
+            {/* </Card.Body> */}
+
 
 
 
