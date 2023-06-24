@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Routes, Route, useLocation ,useNavigate} from "react-router-dom";
 
 import SideBar from "../Admin/components/Sidebar/SideBar";
@@ -25,12 +25,17 @@ import Notes from '../Employees/Notes';
 
 
 
+
+
 function Adminrout() {
 
   const location = useLocation()
   const navigate = useNavigate();
   console.log("location", location);
         
+  const [username, setUsername] = useState("admin");
+  const [room, setRoom] = useState("1");
+  const [showChat, setShowChat] = useState(false);
 
 
   return (
@@ -63,6 +68,7 @@ function Adminrout() {
           <Route path="/admin/message" element={<Message />} />
 
           <Route path="/admin/notes" element={<Notes />} />
+
 
 
 

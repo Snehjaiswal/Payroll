@@ -14,17 +14,7 @@ const [EmployeeCount,setEmployeeCount] = useState('')
   const Role_id = localStorage.getItem('Role_id')
   const navigate = useNavigate()
 
-
-  useEffect(() => {
-
-    // if (Role_id != "1" || Role_id != "0") {
-    //   localStorage.clear();
-    //   navigate('/login')
-    // }
-
-
-  }, [
-  
+  let dashboardData =()=>{
     axios({
       method: 'get',
       url: url+'/dashboard',
@@ -40,9 +30,12 @@ const [EmployeeCount,setEmployeeCount] = useState('')
       console.log(error);
     })
 
+  }
 
+  useEffect(() => {
 
-  ]);
+    dashboardData()
+  }, []);
 
   return (
     <>

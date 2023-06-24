@@ -4,38 +4,39 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 
+const bodyparser = require('body-parser')
+
 app.use(cors({ origin: 'http://localhost:3000' }));
 require('dotenv').config();
-const PORT = 5500
+const PORT = 3001
 const http = require("http");
+const {Server} = require("socket.io");
 
 
 
+const corsOpts = {
+  origin: '*',
 
-// const io = require('socket.io')(PORT);
+  methods: [
+      'GET',
+      'POST',
+  ],
 
-// io.on('connection', (socket) => {
-//   console.log('A user connected');
+  allowedHeaders: [
+      "Access-Control-Allow-Headers",
+      "x-access-token, Origin, Content-Type, Accept", "authorization",
+  ],
+};
+app.use(cors(corsOpts));
 
-//   socket.on('disconnect', () => {
-//     console.log('User disconnected');
-//   });
-
-//   socket.on('message', (data) => {
-//     console.log('Received message:', data);
-//     io.emit('message', data);
-//   });
-// });
-
-
-
-
-app.get("/", (req, res) => {
-
-  res.send("Welcome every one....")
-});
-const bodyparser = require('body-parser');
+app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
+
+
+const server = http.createServer(app);
+
+
+
 
 // Routes Or API's
 app.use("/employee", require("./app/routes/Employee/Employee.route"));
@@ -45,8 +46,9 @@ app.use(require("./app/routes/Holiday/Logintime.route"))
 app.use(require("./app/routes/Others/Announcements.route"))
 
 
-// Shut Down Your Pc
 
+
+// Shut Down Your Pc
 app.get("/shutDown", (req, res) => {
   shutDownComputer();
   res.send("Shut down Your pc in 5 Second")
@@ -70,7 +72,36 @@ function shutDownComputer() {
 }
 
 
+
+const io = new Server(server , {
+  cors: {
+      origin: "http://localhost:3000",
+      methods: ["GET","POST"],
+      
+  },
+});
+
+
+io.on("connection",(socket)=>{
+ 
+  console.log("user connected",socket.id);
+
+  socket.on("join_room", (data) => {
+      socket.join(data);
+      console.log(`User with ID: ${socket.id} joined room: ${data}`);
+    });
+  
+    socket.on("send_message", (data) => {
+      socket.to(data.room).emit("receive_message", data);
+    });
+
+  socket.on("disconnect",()=>{
+      console.log("user disconnected",socket.id);
+  })
+
+})
+
 // Server start
-app.listen(PORT, () =>
+server.listen(PORT, () =>
   console.log(`Server is running on http://0.0.0.0:${PORT}`)
 );
