@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.492880ca.css",
-    "main.js": "/static/js/main.5870b1fd.js",
+    "main.js": "/static/js/main.bfc2d7b1.js",
     "static/media/fotor_2023-1-29_23_12_31.png": "/static/media/fotor_2023-1-29_23_12_31.d7b9073ea86d14afcdcf.png",
     "index.html": "/index.html",
     "main.492880ca.css.map": "/static/css/main.492880ca.css.map",
-    "main.5870b1fd.js.map": "/static/js/main.5870b1fd.js.map"
+    "main.bfc2d7b1.js.map": "/static/js/main.bfc2d7b1.js.map"
   },
   "entrypoints": [
     "static/css/main.492880ca.css",
-    "static/js/main.5870b1fd.js"
+    "static/js/main.bfc2d7b1.js"
   ]
 }
