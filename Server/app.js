@@ -11,7 +11,7 @@ app.use(cors({ origin: 'https://649c1ba3b52a5511106831d1--radiant-muffin-764065.
 require('dotenv').config();
 const PORT = 3001
 const http = require("http");
-const {Server} = require("socket.io");
+const socketIo = require("socket.io");
 
 
 
