@@ -21,7 +21,16 @@ class Deparment {
         //STORE YOUR LOGIN DATA IN DB 
         const DeparmentSave = await DeparmentData.save();
         console.log("DeparmentSave", DeparmentSave);
-        res.send({ msg: "Success" });
+
+        DeparmentSave.then((data)=>{
+            console.log("ttttt");
+            res.send({status:trur, data: data });
+        }).catch((err)=>{
+            res.send({status:err, data: err});
+
+        })
+
+
       } catch (error) {
         
       }
