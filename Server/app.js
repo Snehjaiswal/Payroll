@@ -6,7 +6,8 @@ const cors = require('cors');
 
 const bodyparser = require('body-parser')
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://649c1ba3b52a5511106831d1--radiant-muffin-764065.netlify.app/' }));
+
 require('dotenv').config();
 const PORT = 3001
 const http = require("http");
@@ -16,7 +17,6 @@ const {Server} = require("socket.io");
 
 const corsOpts = {
   origin: '*',
-
   methods: [
       'GET',
       'POST',
@@ -28,6 +28,7 @@ const corsOpts = {
   ],
 };
 app.use(cors(corsOpts));
+
 
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
@@ -73,12 +74,15 @@ function shutDownComputer() {
 
 
 
-const io = new Server(server , {
-  cors: {
-      origin: "http://localhost:3000",
-      methods: ["GET","POST"],
-      
-  },
+
+
+
+
+const io = socketIo(server, {
+    cors: {
+        origin: "*",
+        credentials: true
+    }
 });
 
 
