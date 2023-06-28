@@ -193,8 +193,8 @@ function ManageDepartment() {
       <Card>
 
 
-        <Card.Body>
-          <Card.Text>
+        {/* <Card.Body>
+          <Card.Text> */}
             <DataTableExtensions
               columns={columns}
               data={Deparments}
@@ -214,9 +214,9 @@ function ManageDepartment() {
                 paginationComponentOptions={{ selectAllRowsItem: true, selectAllRowsItemText: 'All' }}
               />
             </DataTableExtensions>
-          </Card.Text>
+          {/* </Card.Text> */}
 
-        </Card.Body>
+        {/* </Card.Body> */}
       </Card>
     </>
   )

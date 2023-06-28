@@ -96,10 +96,9 @@ function ManageEmployee() {
            {/* <label className="profile_details_text">Increment :</label> */}
               <select name="Status" value required>
                 <option >Status</option>
-                <option defaultValue="Active">Active</option>
-                <option defaultValue="DeActive">DeActive</option>
-       
-
+                <option value="Active">Active</option>
+                <option value="DeActive">DeActive</option>
+    
               </select>
         </>
       ),
@@ -167,7 +166,7 @@ function ManageEmployee() {
     axios(config)
     .then(function (response) {
       setEmplyeeData(response.data.msg)
-      console.log(response.data.msg);
+      // console.log(response.data.msg);
     })
     .catch(function (error) {
       console.log(error);
@@ -184,9 +183,9 @@ function ManageEmployee() {
   return (
     <>
 
-      <Card>
-        <Card.Body>
-          <Card.Text>
+      {/* <Card> */}
+        {/* <Card.Body>
+          <Card.Text> */}
             <DataTableExtensions
               columns={columns}
               data={EmployeeData}
@@ -206,10 +205,10 @@ function ManageEmployee() {
                 paginationComponentOptions={{ selectAllRowsItem: true, selectAllRowsItemText: 'All' }}
               />
             </DataTableExtensions>
-          </Card.Text>
+          {/* </Card.Text>
 
-        </Card.Body>
-      </Card>
+        </Card.Body> */}
+      {/* </Card> */}
 
     </>
   )
