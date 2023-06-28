@@ -6,6 +6,8 @@ class Deparment {
 
     async AddDepartment(req, res) {
 
+      try {
+        console.log("RUN=====");
         const { Department, Designation } = req.body
         const Departmentfind = await DepartmentModal.findOne({ Department: Department })
         if (Departmentfind) {
@@ -18,8 +20,11 @@ class Deparment {
 
         //STORE YOUR LOGIN DATA IN DB 
         const DeparmentSave = await DeparmentData.save();
-
+        console.log("DeparmentSave", DeparmentSave);
         res.send({ msg: "Success" });
+      } catch (error) {
+        
+      }
     }
 
 

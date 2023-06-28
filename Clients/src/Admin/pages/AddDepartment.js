@@ -48,6 +48,7 @@ function AddDepartment() {
             }
         })
             .then(function (response) {
+                console.log("response",response);
                 if (response.data.msg == 'Success') {
 
                     notify()
