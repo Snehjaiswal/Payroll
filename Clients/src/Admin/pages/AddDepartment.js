@@ -38,7 +38,7 @@ function AddDepartment() {
 
         axios({
             method: 'post',
-            url: url+'add-department',
+            url: url+'/add-department',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -56,10 +56,6 @@ function AddDepartment() {
 
 
     }
-
-
-
-
 
     useEffect(() => {
     }, [refresh])

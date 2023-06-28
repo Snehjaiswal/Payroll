@@ -8,6 +8,7 @@ import axios from 'axios';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
+import {url} from '../../Utils/Config'
 
 function View() {
   const [modal, setModal] = useState(1)
@@ -86,7 +87,7 @@ function View() {
     var config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: `http://localhost:5500/employee/emp/${id}`,
+      url: url+`/employee/getall/employee/emp/${id}`,
       headers: {}
     };
 
