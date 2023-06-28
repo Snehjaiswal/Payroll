@@ -6,26 +6,22 @@ const cors = require('cors');
 
 const bodyparser = require('body-parser')
 
-app.use(cors({ origin: 'https://649c1ba3b52a5511106831d1--radiant-muffin-764065.netlify.app/' }));
+app.use(cors({ origin: 'https://649c25a39ba4b3008b87e174--cheery-cassata-0e78ce.netlify.app/' }));
 
 require('dotenv').config();
 const PORT = 3001
 const http = require("http");
+const https = require("https");
+
 const socketIo = require("socket.io");
 
 
 
 const corsOpts = {
-  origin: '*',
-  methods: [
-      'GET',
-      'POST',
-  ],
-
-  allowedHeaders: [
-      "Access-Control-Allow-Headers",
-      "x-access-token, Origin, Content-Type, Accept", "authorization",
-  ],
+  cors: {
+    origin: "*",
+    credentials: true
+}
 };
 app.use(cors(corsOpts));
 
@@ -34,7 +30,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
 
-const server = http.createServer(app);
+const server = https.createServer(app);
 
 
 
