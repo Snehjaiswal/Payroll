@@ -6,38 +6,32 @@ class Deparment {
 
     async AddDepartment(req, res) {
 
-      try {
-        console.log("RUN=====");
-        const { Department, Designation } = req.body
-        const Departmentfind = await DepartmentModal.findOne({ Department: Department })
-        if (Departmentfind) {
-            return res.send({ message: "alredy exist Department." })
+        try {
+            const { Department, Designation } = req.body
+            console.log("okkk", typeof Department);
+
+            // const Departmentfind = await DepartmentModal.find({ Department: Department })
+
+            DepartmentModal.findOne({ Department: Department }, async (err, document) => {
+                if (document) {
+                    return res.send({ msg: "alredy exist Department." })
+                } else {
+                    const DeparmentData = new DepartmentModal({
+                        Department: Department, Designation: Designation, Status: true
+                    });
+                    console.log("DeparmentData", DeparmentData);
+                    //STORE YOUR LOGIN DATA IN DB 
+                    const DeparmentSave = await DeparmentData.save();
+                    // console.log("DeparmentSave", DeparmentSave);
+
+                    return res.send({ msg: "Success" })
+                }
+            });
+
+        } catch (error) {
 
         }
-        const DeparmentData = new DepartmentModal({
-            Department, Designation
-        });
-
-        //STORE YOUR LOGIN DATA IN DB 
-        const DeparmentSave = await DeparmentData.save();
-        console.log("DeparmentSave", DeparmentSave);
-
-        DeparmentSave.then((data)=>{
-            console.log("ttttt");
-            res.send({status:trur, data: data });
-        }).catch((err)=>{
-            res.send({status:err, data: err});
-
-        })
-
-
-      } catch (error) {
-        
-      }
     }
-
-
-
 
     async getDepartment(req, res) {
 

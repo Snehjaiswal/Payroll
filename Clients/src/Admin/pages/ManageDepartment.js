@@ -191,6 +191,8 @@ function ManageDepartment() {
     <>
 
       <Card>
+
+
         <Card.Body>
           <Card.Text>
             <DataTableExtensions

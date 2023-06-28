@@ -31,7 +31,7 @@ function Adminrout() {
 
   const location = useLocation()
   const navigate = useNavigate();
-  console.log("location", location);
+  // console.log("location", location);
         
   const [username, setUsername] = useState("admin");
   const [room, setRoom] = useState("1");

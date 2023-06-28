@@ -1,13 +1,13 @@
 "use strict";
 
 const { connect, connection } = require("mongoose");
-require('dotenv').config();
-const url ='mongodb+srv://sneh123:sneh123@payroll.w3xjbux.mongodb.net/?retryWrites=true&w=majority'
-connect(url, (error) => {
+const { dbUri, dbName } = require("../utils/index");
+
+connect(dbUri, (error) => {
   if (error) {
     console.log(error);
     return;
   }
-  connection.useDb('Payroll');
-  console.log("Connected to MongoDB");
+  connection.useDb(dbName);
+  console.log("Connected to MongoDB "+dbName);
 });

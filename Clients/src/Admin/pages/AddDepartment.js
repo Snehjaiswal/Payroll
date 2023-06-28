@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {url} from '../../Utils/Config'
+import { url } from '../../Utils/Config'
 import Card from 'react-bootstrap/Card';
 
 
@@ -19,14 +19,15 @@ function AddDepartment() {
     const [Designation, setDesignation] = useState("")
 
 
-    const inputRef = useRef(null);
+    // const inputRef = useRef(null);
 
-    const onButtonClick = () => {
-        setrefresh(!refresh)
-        inputRef.current.value = ""
-    };
+    // const onButtonClick = () => {
+    //     setrefresh(!refresh)
+    //     inputRef.current.value = ""
+    // };
 
-    const AddDepartment = () => {
+    const Add_Department = () => {
+
 
         if (deparment == '') {
             EmptyFeild()
@@ -35,10 +36,10 @@ function AddDepartment() {
             EmptyFeild()
             return
         }
-
+        // notify()
         axios({
             method: 'post',
-            url: url+'/add-department',
+            url: url + '/add-department',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -47,19 +48,20 @@ function AddDepartment() {
                 "Designation": Designation
             }
         })
-            .then(function (response) {
-                console.log("response",response);
-                if (response.data.msg == 'Success') {
+            .then((response) => {
 
-                    notify()
+                console.log("response", response);
+                if (response.data.msg == 'Success') {
                 }
+            }).catch((err) => {
+                console.log("Err", err);
             })
 
 
     }
 
-    useEffect(() => {
-    }, [refresh])
+    // useEffect(() => {
+    // }, [refresh])
 
 
     return (
@@ -70,12 +72,12 @@ function AddDepartment() {
                 <Card.Header>Create Deparment</Card.Header>
                 <Card.Body>
                     <Card.Text>
-                        
+
                         <Form>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Add Department</Form.Label>
                                 <Form.Control type="text" placeholder="Add Department Name" onChange={(e) => setdeparment(e.target.value)} />
-                                
+
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -85,20 +87,20 @@ function AddDepartment() {
 
                             <div className='row'>
                                 <div className="col-1">
-                                <Button variant="light" type="cancel" value="Cancel" >
-                                    Cancel
-                                </Button>
+                                    <Button variant="light" type="cancel" value="Cancel" >
+                                        Cancel
+                                    </Button>
                                 </div>
                                 <div className="col-1">
-                                <Button variant="primary" type="reset" value="reset" >
-                                    Reset
-                                </Button>
+                                    <Button variant="primary" type="reset" value="reset" >
+                                        Reset
+                                    </Button>
 
                                 </div>
                                 <div className="col-1">
-                                <Button variant="success" type="submit" value="submit" onClick={() => AddDepartment()}>
-                                    Submit
-                                </Button>
+                                    <Button variant="success" type="submit" value="submit" onClick={() => Add_Department()}>
+                                        Submit
+                                    </Button>
 
                                 </div>
 

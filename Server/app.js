@@ -2,7 +2,7 @@
 require('./app/utils/mongooseConnecter.util')
 const express = require("express");
 const app = express();
-const PORT = 3001
+const PORT = process.env.PORT
 const http = require("http");
 const https = require('https');
 const socketIo = require("socket.io");
@@ -50,12 +50,11 @@ const io = socketIo(server, {
 
 
 io.on("connection",(socket)=>{
- 
-  console.log("user connected",socket.id);
 
+  // console.log("user connected",socket.id);
   socket.on("join_room", (data) => {
       socket.join(data);
-      console.log(`User with ID: ${socket.id} joined room: ${data}`);
+      // console.log(`User with ID: ${socket.id} joined room: ${data}`);
     });
   
     socket.on("send_message", (data) => {
@@ -63,7 +62,7 @@ io.on("connection",(socket)=>{
     });
 
   socket.on("disconnect",()=>{
-      console.log("user disconnected",socket.id);
+      // console.log("user disconnected",socket.id);
   })
 
 })

@@ -15,7 +15,7 @@ import Clientrout from "./Routing/Clientrout";
 function App() {
 
   var roleId = localStorage.getItem('Role_id')
-  console.log("ds",roleId)
+  // console.log("ds",roleId)
   // const location = useLocation()
   // console.log("location", location.pathname);
 
