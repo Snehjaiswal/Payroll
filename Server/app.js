@@ -2,26 +2,27 @@
 require('./app/utils/mongooseConnecter.util')
 const express = require("express");
 const app = express();
-const cors = require('cors');
-
-const bodyparser = require('body-parser')
-
-app.use(cors({ origin: 'https://649c25a39ba4b3008b87e174--cheery-cassata-0e78ce.netlify.app/' }));
-
-require('dotenv').config();
 const PORT = 3001
 const http = require("http");
-const https = require("https");
-
+const https = require('https');
 const socketIo = require("socket.io");
+const cors = require('cors');
+const bodyparser = require('body-parser')
 
 
+require('dotenv').config();
 
 const corsOpts = {
-  cors: {
-    origin: "*",
-    credentials: true
-}
+  origin: '*',
+  methods: [
+      'GET',
+      'POST',
+  ],
+
+  allowedHeaders: [
+      "Access-Control-Allow-Headers",
+      "x-access-token, Origin, Content-Type, Accept", "authorization",
+  ],
 };
 app.use(cors(corsOpts));
 
@@ -30,10 +31,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
 
-const server = https.createServer(app);
-
-
-
+const server = http.createServer(app);
 
 // Routes Or API's
 app.use("/employee", require("./app/routes/Employee/Employee.route"));
@@ -41,37 +39,6 @@ app.use(require("./app/routes/Holiday/Holiday.route"));
 app.use(require("./app/routes/Department/Department.route"))
 app.use(require("./app/routes/Holiday/Logintime.route"))
 app.use(require("./app/routes/Others/Announcements.route"))
-
-
-
-
-// Shut Down Your Pc
-app.get("/shutDown", (req, res) => {
-  shutDownComputer();
-  res.send("Shut down Your pc in 5 Second")
-});
-
-const { exec } = require('child_process');
-// function to shut down computer
-function shutDownComputer() {
-  setTimeout(() => {
-    console.log("dome");
-
-    exec('shutdown /s /t 0', function (err, stdout, stderr) {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log('Computer shutting down...');
-      }
-    });
-
-  }, 5000);
-}
-
-
-
-
-
 
 
 const io = socketIo(server, {
@@ -100,6 +67,31 @@ io.on("connection",(socket)=>{
   })
 
 })
+
+// Shut Down Your Pc
+app.get("/shutDown", (req, res) => {
+  shutDownComputer();
+  res.send("Shut down Your pc in 5 Second")
+});
+
+const { exec } = require('child_process');
+// function to shut down computer
+function shutDownComputer() {
+  setTimeout(() => {
+    console.log("dome");
+
+    exec('shutdown /s /t 0', function (err, stdout, stderr) {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log('Computer shutting down...');
+      }
+    });
+
+  }, 5000);
+}
+
+
 
 // Server start
 server.listen(PORT, () =>
